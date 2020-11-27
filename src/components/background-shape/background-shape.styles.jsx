@@ -7,7 +7,7 @@ export const Shape = styled.div`
   left: 0;
   z-index: -1;
   width: 100%;
-  height: 600px;
+  height: ${props => props.height};
   transform: skewY(-5deg);
   padding: 0 40px;
   background: ${props => colors[props.color]};

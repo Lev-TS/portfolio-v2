@@ -2,14 +2,14 @@ import React from "react";
 
 import { CommentContainer, MarksWrapper, Text } from "./comment.styles";
 
-import Marks from "../../assets/marks.svg";
+import Marks from "../../assets/marks.inline.svg";
 
-const Comment = ({ left, top, children }) => (
-  <CommentContainer align={top}>
+const Comment = ({ left, children }) => (
+  <CommentContainer align={left}>
     <MarksWrapper>
       <Marks />
     </MarksWrapper>
-    <Text align={left}>{children}</Text>
+    <Text>{children}</Text>
   </CommentContainer>
 );
 

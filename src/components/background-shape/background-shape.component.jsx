@@ -3,8 +3,8 @@ import React from "react";
 import { Shape, HeadingWrapper } from './background-shape.styles'
 
 
-const BackgroundShape = ({children, ...otherProps}) => (
-  <Shape {...otherProps}>
+const BackgroundShape = ({children, align}) => (
+  <Shape {...align}>
     <HeadingWrapper>
       <span>{children}</span>
     </HeadingWrapper>

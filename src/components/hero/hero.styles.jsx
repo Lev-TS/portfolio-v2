@@ -6,7 +6,11 @@ export const Section = styled.div`
   position: relative;
   overflow: hidden;
 
-  border: 2px solid green;
+  padding: 0 40px;
+
+  @media screen and (max-width: 800px) {
+    padding: 0 20px;
+  }
 `;
 
 export const Greeting = styled.p`
