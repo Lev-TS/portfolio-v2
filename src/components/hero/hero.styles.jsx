@@ -47,3 +47,10 @@ export const Intro = styled.p`
   }
 `;
 
+
+// imported component styles
+export const backgroundStyles = {
+  height: '900px',
+  top: "50vh",
+  color: colors.red
+}

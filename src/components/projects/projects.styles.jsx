@@ -3,8 +3,10 @@ import { colors } from "../../styles/colors";
 
 export const Section = styled.div`
   position: relative;
+
   padding: 0 40px;
-  overflow-y: hidden;
+  overflow-Y: hidden;
+
 
   @media screen and (max-width: 800px) {
     padding: 0 20px;
@@ -13,14 +15,14 @@ export const Section = styled.div`
 
 export const SectionContent = styled.div`
   position: relative;
-  margin-top: 256px;
-  margin-bottom: 84px;
+  margin-top: 166px;
+  margin-bottom: 101px;
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
 `;
 
-export const Avatar = styled.img`
+export const PhotoWrapper = styled.div`
   position: absolute;
   right: 60px;
   top: -50px;
@@ -31,11 +33,14 @@ export const Avatar = styled.img`
   }
 
   @media screen and (max-width: 640px) {
-    top: -75px;
+    top: -100px;
     left: 0;
     right: 0;
-    margin: auto;
-    width: 150px;
+    text-align: center;
+
+    #portrait {
+      width: 150px;
+    }
   }
 `;
 
@@ -44,6 +49,9 @@ export const CardContent = styled.p`
   max-width: 471px;
   font-size: 16px;
   line-height: 24px;
+
+  // delete
+  height: 269px;
 
   @media screen and (max-width: 800px) {
     padding: 50px;
@@ -71,14 +79,12 @@ export const CardContent = styled.p`
 
 // imported component styles
 export const buttonStyles = {
-  title: "resume",
-  right: "60px",
-  bottom: "51px",
-  width: "95px",
+  title: "more",
+  width: "70px",
 };
 
 export const backgroundStyles = {
   height: "700px",
-  top: "-250px",
-  color: colors.red,
+  top: "-400px",
+  color: colors.mediumBlue,
 };

@@ -2,22 +2,28 @@ import styled from "styled-components";
 
 export const CommentContainer = styled.div`
   position: relative;
-  text-align: ${props => (props.align ? "right" : "left")};
   padding-bottom: 20px;
-  margin-right: ${props => (props.align ? "20px" : "0")};
-  margin-left: ${props => (!props.align ? "20px" : "0")};
   display: flex;
-  justify-content: ${props => (props.align ? "flex-end" : "flex-start")};
 
-  @media screen and (max-width: 1024px) {
+  ${props =>
+    props.align
+      ? `
+        text-align: right; 
+        margin-right: 20px;
+        justify-content: flex-end;
+      `
+      : `margin-left: 20px;`}
+
+  @media screen and (max-width: 1124px) {
     display: none;
   }
 `;
 
-export const MarksWrapper = styled.div`
+export const Marks = styled.img`
   position: absolute;
   padding: 0 170px;
   top: -40px;
+  ${props => !props.align && `transform: rotate(180deg);`}
 `;
 
 export const Text = styled.p`

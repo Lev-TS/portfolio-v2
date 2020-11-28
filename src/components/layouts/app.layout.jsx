@@ -17,14 +17,13 @@ const GlobalStyle = createGlobalStyle`
 	}
 `;
 
-const Layout = styled.div`
- 
-`;
+const Layout = styled.div``;
 
 const AppLayout = ({ children }) => {
   return (
     <React.Fragment>
       <Helmet>
+        <script src="http://localhost:8097"></script>
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
           href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Recursive:wght@700&display=swap"
@@ -32,9 +31,7 @@ const AppLayout = ({ children }) => {
         ></link>
       </Helmet>
       <GlobalStyle />
-      <Layout>
-        {children}
-      </Layout>
+      <Layout>{children}</Layout>
     </React.Fragment>
   );
 };
