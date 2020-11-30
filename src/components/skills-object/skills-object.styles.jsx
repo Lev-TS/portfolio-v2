@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { colors } from "../../styles/colors";
+import styled from 'styled-components';
+import { colors } from '../../styles/colors';
 
 export const Container = styled.div`
   color: ${colors.mediumBlue};
@@ -10,7 +10,7 @@ export const Container = styled.div`
 
   @media screen and (max-width: 800px) {
     margin-left: 0;
-    padding: 20px 0;
+    padding: 10px 0;
     border-bottom: 1px solid #4c4a57;
 
     &:first-child {
@@ -18,9 +18,9 @@ export const Container = styled.div`
     }
   }
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 414px) {
     border: 0;
-    
+
     &:first-child {
       border-top: none;
     }
@@ -33,17 +33,16 @@ export const Icon = styled.img`
   top: -3px;
 
   @media screen and (max-width: 800px) {
-    width: 50px;
-    heigh: 50px;
+    width: 6vw;
+    heigh: 6vw;
     left: initial;
-    top: 20px;
+    top: 10px;
     right: 0;
   }
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 414px) {
     width: initial;
     heigh: initial;
-    top: 20px;
   }
 `;
 

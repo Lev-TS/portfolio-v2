@@ -1,6 +1,7 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const Layout = styled.div`
   max-width: 1180px;
@@ -10,6 +11,10 @@ const Layout = styled.div`
 
 const SectionLayout = ({ children }) => {
   return <Layout>{children}</Layout>;
+};
+
+SectionLayout.propTypes = {
+  children: PropTypes.node,
 };
 
 export default SectionLayout;

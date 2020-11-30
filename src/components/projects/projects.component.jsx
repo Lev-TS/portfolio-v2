@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 import {
   Section,
@@ -6,11 +6,11 @@ import {
   CardContent,
   backgroundStyles,
   buttonStyles,
-} from "./projects.styles";
+} from './projects.styles';
 
-import Layout from "../layouts/section.layout";
-import Heading from "../section-heading/section-heading.component";
-import Card from "../card/card.component";
+import Layout from '../layouts/section.layout';
+import Heading from '../section-heading/section-heading.component';
+import Card from '../card/card.component';
 
 const Skills = () => (
   <Section>
@@ -18,7 +18,7 @@ const Skills = () => (
       <Heading background={backgroundStyles}>{'{...codes}'}</Heading>
       <SectionContent>
         <Card button={buttonStyles}>
-          <CardContent></CardContent>
+          <CardContent />
         </Card>
       </SectionContent>
     </Layout>

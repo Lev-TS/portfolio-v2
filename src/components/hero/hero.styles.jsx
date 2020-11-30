@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { colors } from "../../styles/colors";
+import styled from 'styled-components';
+import { colors } from '../../styles/colors';
 
 export const Section = styled.div`
   min-height: 100vh;
@@ -14,7 +14,7 @@ export const Section = styled.div`
 `;
 
 export const Greeting = styled.p`
-  font-family: "Recursive", cursive;
+  font-family: 'Recursive', cursive;
   font-size: 40vh;
   line-height: 40vh;
   position: relative;
@@ -47,10 +47,9 @@ export const Intro = styled.p`
   }
 `;
 
-
 // imported component styles
 export const backgroundStyles = {
   height: '900px',
-  top: "50vh",
-  color: colors.red
-}
+  top: '50vh',
+  color: colors.red,
+};

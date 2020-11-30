@@ -1,7 +1,6 @@
-import React from "react";
-import { nanoid } from 'nanoid';
+import React from 'react';
 
-import data from "./skills.data";
+import data from './skills.data';
 
 import {
   Section,
@@ -9,17 +8,15 @@ import {
   CardContent,
   buttonStyles,
   backgroundStyles,
-} from "./skills.styles";
+} from './skills.styles';
 
-import Layout from "../layouts/section.layout";
-import Heading from "../section-heading/section-heading.component";
-import Comment from "../comment/comment.component";
-import Card from "../card/card.component";
-import SkillsObject from "../skills-object/skills-object.component";
+import Layout from '../layouts/section.layout';
+import Heading from '../section-heading/section-heading.component';
+import Comment from '../comment/comment.component';
+import Card from '../card/card.component';
+import SkillsObject from '../skills-object/skills-object.component';
 
-const Skills = () => {
-
-  return (
+const Skills = () => (
   <Section>
     <Layout>
       <Heading background={backgroundStyles} left>
@@ -28,18 +25,19 @@ const Skills = () => {
       <SectionContent>
         <Card button={buttonStyles}>
           <CardContent>
-            {data.map(skills => <SkillsObject key={nanoid()} skills={skills}/>)}
+            {data.map((skills) => (
+              <SkillsObject key={skills.type} skills={skills} />
+            ))}
           </CardContent>
         </Card>
         <Comment>
-          Through research and practice, I've gained a solid understanding of
-          some of the key technologies and concepts in software development.
-          However, I’m continuously investing time and resources to improve my
-          skillset.
+          Through research and practice, I've gained a solid understanding of some of the key
+          technologies and concepts in software development. However, I'm continuously investing
+          time and resources to improve my skillset.
         </Comment>
       </SectionContent>
     </Layout>
   </Section>
-)};
+);
 
 export default Skills;

@@ -1,8 +1,10 @@
-import React from "react";
-import Helmet from "react-helmet";
-import styled, { createGlobalStyle } from "styled-components";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import { colors } from "../../styles/colors";
+import Helmet from 'react-helmet';
+import styled, { createGlobalStyle } from 'styled-components';
+
+import { colors } from '../../styles/colors';
 
 const GlobalStyle = createGlobalStyle`
 	body {
@@ -19,21 +21,23 @@ const GlobalStyle = createGlobalStyle`
 
 const Layout = styled.div``;
 
-const AppLayout = ({ children }) => {
-  return (
-    <React.Fragment>
-      <Helmet>
-        <script src="http://localhost:8097"></script>
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Recursive:wght@700&display=swap"
-          rel="stylesheet"
-        ></link>
-      </Helmet>
-      <GlobalStyle />
-      <Layout>{children}</Layout>
-    </React.Fragment>
-  );
+const AppLayout = ({ children }) => (
+  <>
+    <Helmet>
+      <script src="http://localhost:8097" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Recursive:wght@700&display=swap"
+        rel="stylesheet"
+      />
+    </Helmet>
+    <GlobalStyle />
+    <Layout>{children}</Layout>
+  </>
+);
+
+AppLayout.propTypes = {
+  children: PropTypes.node,
 };
 
 export default AppLayout;

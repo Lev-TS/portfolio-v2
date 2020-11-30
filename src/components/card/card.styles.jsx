@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { colors } from '../../styles/colors'
+import { colors } from '../../styles/colors';
 
 export const CardContent = styled.div`
   background-color: ${colors.black};
@@ -11,8 +11,8 @@ export const CardContent = styled.div`
 
 export const CustomButton = styled.div`
   position: absolute;
-  right: ${props => props.right ? props.right : '20px'};
-  bottom: ${props => props.bottom ? props.bottom : '20px'};
+  right: ${(props) => (props.right ? props.right : '20px')};
+  bottom: ${(props) => (props.bottom ? props.bottom : '20px')};
 
   @media screen and (max-width: 800px) {
     right: 20px;
@@ -44,7 +44,7 @@ export const CustomButton = styled.div`
 
     div {
       border-width: 4px;
-      width: ${props => props.width};
+      width: ${(props) => props.width};
       z-index: -1;
       transition: width 200ms;
     }

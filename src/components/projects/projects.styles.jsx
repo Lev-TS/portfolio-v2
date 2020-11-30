@@ -1,12 +1,11 @@
-import styled from "styled-components";
-import { colors } from "../../styles/colors";
+import styled from 'styled-components';
+import { colors } from '../../styles/colors';
 
 export const Section = styled.div`
   position: relative;
 
   padding: 0 40px;
-  overflow-Y: hidden;
-
+  overflow-y: hidden;
 
   @media screen and (max-width: 800px) {
     padding: 0 20px;
@@ -67,7 +66,7 @@ export const CardContent = styled.p`
 
   &::before {
     @media screen and (max-width: 1124px) {
-      content: "About Me";
+      content: 'About Me';
       display: block;
       margin-bottom: 20px;
       font-size: 24px;
@@ -79,12 +78,12 @@ export const CardContent = styled.p`
 
 // imported component styles
 export const buttonStyles = {
-  title: "more",
-  width: "70px",
+  title: 'more',
+  width: '70px',
 };
 
 export const backgroundStyles = {
-  height: "700px",
-  top: "-400px",
+  height: '700px',
+  top: '-400px',
   color: colors.mediumBlue,
 };

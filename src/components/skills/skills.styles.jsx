@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { colors } from "../../styles/colors";
+import styled from 'styled-components';
+import { colors } from '../../styles/colors';
 
 export const Section = styled.div`
   position: relative;
@@ -18,9 +18,6 @@ export const SectionContent = styled.div`
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
-
-  @media screen and (max-width: 800px) {
-  }
 `;
 
 export const CardContent = styled.div`
@@ -33,19 +30,16 @@ export const CardContent = styled.div`
   flex-wrap: wrap;
   position: relative;
 
-  height: 549px;
+  height: 550px;
 
   @media screen and (max-width: 800px) {
-    min-height: 1100px;
+    height: initial;
     flex-wrap: nowrap;
-  }
-
-  @media screen and (max-width: 640px) {
   }
 
   &::before {
     @media screen and (max-width: 1124px) {
-      content: "{...skills}";
+      content: '{...skills}';
       font-size: 40px;
       line-height: 40px;
       font-style: italic;
@@ -65,14 +59,14 @@ export const CardContent = styled.div`
   }
 `;
 
-//imported component styles
+// imported component styles
 export const buttonStyles = {
-  title: "certificates",
-  width: "155px",
+  title: 'certificates',
+  width: '155px',
 };
 
 export const backgroundStyles = {
-  height: "1000px",
-  top: "550px",
+  height: '1000px',
+  top: '550px',
   color: colors.mediumBlue,
 };

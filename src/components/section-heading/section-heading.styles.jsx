@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { colors } from "../../styles/colors";
+import styled from 'styled-components';
+import { colors } from '../../styles/colors';
 
 export const Shape = styled.div`
   position: absolute;
@@ -10,11 +10,11 @@ export const Shape = styled.div`
   padding: 0 40px;
   display: flex;
 
-  ${props => `
+  ${(props) => `
       top: ${props.top};
       height: ${props.height};
       background: ${props.color};
-      align-items: ${!props.align && "flex-end"}
+      align-items: ${!props.align && 'flex-end'}
   `}
 `;
 
@@ -24,7 +24,7 @@ export const HeadingWrapper = styled.div`
   padding-bottom: 5px;
   position: relative;
 
-  ${props => props.align && `top: -46px; text-align: right;`}
+  ${(props) => props.align && `top: -46px; text-align: right;`}
 
   @media screen and (max-width: 1124px) {
     display: none;

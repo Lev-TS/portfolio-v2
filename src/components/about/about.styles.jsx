@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { colors } from "../../styles/colors";
+import styled from 'styled-components';
+import { colors } from '../../styles/colors';
 
 export const Section = styled.div`
   position: relative;
@@ -59,7 +59,7 @@ export const CardContent = styled.p`
 
   &::before {
     @media screen and (max-width: 1124px) {
-      content: "About Me";
+      content: 'About Me';
       display: block;
       margin-bottom: 20px;
       font-size: 24px;
@@ -71,14 +71,14 @@ export const CardContent = styled.p`
 
 // imported component styles
 export const buttonStyles = {
-  title: "resume",
-  right: "60px",
-  bottom: "51px",
-  width: "95px",
+  title: 'resume',
+  right: '60px',
+  bottom: '51px',
+  width: '95px',
 };
 
 export const backgroundStyles = {
-  height: "700px",
-  top: "-250px",
+  height: '700px',
+  top: '-250px',
   color: colors.red,
 };
