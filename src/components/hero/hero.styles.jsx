@@ -23,7 +23,7 @@ export const Greeting = styled.p`
 
   @media screen and (max-width: 800px) {
     left: 0;
-    font-size: 40vw;
+    font-size: calc(100px + 40vw);
     text-align: center;
   }
 `;

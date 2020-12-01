@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import marksIcon from './marks.svg';
+import marksIcon from '../../assets/comment/marks.svg';
 import { CommentContainer, Marks, Text } from './comment.styles';
 
 const Comment = ({ left, children }) => (

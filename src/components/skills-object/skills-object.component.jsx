@@ -5,7 +5,7 @@ import { Container, List, Icon } from './skills-object.styles';
 
 const SkillsObject = ({ skills: { type, skillset, icon } }) => (
   <Container>
-    <Icon src={icon} />
+    <Icon src={icon} alt="" />
     <p>{type} &#123;</p>
     <List>
       {skillset.map((skill) => (

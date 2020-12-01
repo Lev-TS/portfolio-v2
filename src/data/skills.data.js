@@ -1,8 +1,8 @@
-import frontendIcon from './icons/frontend.svg';
-import testingIcon from './icons/testing.svg';
-import designIcon from './icons/design.svg';
-import backendIcon from './icons/backend.svg';
-import miscIcon from './icons/misc.svg';
+import frontendIcon from '../assets/skills/frontend.svg';
+import testingIcon from '../assets/skills/testing.svg';
+import designIcon from '../assets/skills/design.svg';
+import backendIcon from '../assets/skills/backend.svg';
+import miscIcon from '../assets/skills/misc.svg';
 
 export default [
   {

@@ -39,7 +39,7 @@ export const CardContent = styled.div`
 
   &::before {
     @media screen and (max-width: 1124px) {
-      content: '_skills';
+      content: 'contact(me)';
       font-size: 40px;
       line-height: 40px;
       font-style: italic;
@@ -68,5 +68,5 @@ export const buttonStyles = {
 export const backgroundStyles = {
   height: '1000px',
   top: '550px',
-  color: colors.mediumBlue,
+  color: colors.red,
 };
