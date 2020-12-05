@@ -19,7 +19,10 @@ const GlobalStyle = createGlobalStyle`
 	}
 `;
 
-const Layout = styled.div``;
+const Footer = styled.div`
+  height: 300px;
+  background-color: #333333;
+`;
 
 const AppLayout = ({ children }) => (
   <>
@@ -32,7 +35,8 @@ const AppLayout = ({ children }) => (
       />
     </Helmet>
     <GlobalStyle />
-    <Layout>{children}</Layout>
+    {children}
+    <Footer></Footer>
   </>
 );
 

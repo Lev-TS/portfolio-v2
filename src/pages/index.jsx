@@ -8,6 +8,8 @@ import Skills from '../components/skills/skills.component';
 import Projects from '../components/projects/projects.component';
 import ContactMe from '../components/contact/contact.component';
 
+import ContactProvider from '../providers/contact.provider';
+
 const IndexPage = () => (
   <AppLayout>
     <SEO title="Home" />
@@ -15,7 +17,9 @@ const IndexPage = () => (
     <About />
     <Skills />
     <Projects />
-    <ContactMe />
+    <ContactProvider>
+      <ContactMe />
+    </ContactProvider>
   </AppLayout>
 );
 

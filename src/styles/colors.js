@@ -6,6 +6,7 @@ export const colors = {
   foreground: '#919186',
   mediumBlue: '#457B9D',
   lightBlue: '#A8DADC',
+  grey: '#4C4A57',
 };
 
 export default colors;

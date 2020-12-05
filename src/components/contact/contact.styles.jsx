@@ -14,28 +14,18 @@ export const Section = styled.div`
 export const SectionContent = styled.div`
   position: relative;
   margin-top: 233px;
-  margin-bottom: 92px;
+  margin-bottom: 266px;
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
 `;
 
 export const CardContent = styled.div`
-  padding: 58px 37px 87px 37px;
+  padding: 20px;
   font-size: 16px;
   line-height: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex-wrap: wrap;
   position: relative;
-
-  height: 550px;
-
-  @media screen and (max-width: 800px) {
-    height: initial;
-    flex-wrap: nowrap;
-  }
+  min-height: 550px;
 
   &::before {
     @media screen and (max-width: 1124px) {
@@ -59,11 +49,22 @@ export const CardContent = styled.div`
   }
 `;
 
+export const BashCommand = styled.p`
+  color: ${colors.background};
+  font-size: 20px;
+  line-height: 24px;
+
+  @media screen and (max-width: 414px) {
+    font-size: 16px;
+    ine-height: 20px;
+  }
+
+  span {
+    color: ${colors.mediumBlue};
+  }
+`;
+
 // imported component styles
-export const buttonStyles = {
-  title: 'certificates',
-  width: '155px',
-};
 
 export const backgroundStyles = {
   height: '1000px',

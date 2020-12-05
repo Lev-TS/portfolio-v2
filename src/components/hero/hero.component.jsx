@@ -1,6 +1,6 @@
 import React from 'react';
 import RubberBand from 'react-reveal/RubberBand';
-import Bounce from 'react-reveal/Bounce';
+import Fade from 'react-reveal/Fade';
 
 import { Section, Greeting, Intro, backgroundStyles } from './hero.styles';
 import Layout from '../layouts/section.layout';
@@ -10,17 +10,19 @@ const Hero = () => (
   <Section>
     <Layout>
       <Greeting>
-        <RubberBand duration={1000} delay={300} cascade>
-          Hi
-        </RubberBand>
+        <Fade duration={300} delay={100}>
+          <RubberBand duration={1000} delay={300} cascade>
+            Hi
+          </RubberBand>
+        </Fade>
       </Greeting>
-      <Bounce duration={1000} delay={700} distance="300px">
+      <Fade duration={1000} delay={800}>
         <Intro>
           I'm <span>Levan</span>
           <br /> Full Stack Developer
           <br /> Freelancer and Web Designer
         </Intro>
-      </Bounce>
+      </Fade>
       <Heading background={backgroundStyles} />
     </Layout>
   </Section>

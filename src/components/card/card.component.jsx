@@ -3,13 +3,15 @@ import PropTypes from 'prop-types';
 
 import { CardContent, CustomButton } from './card.styles';
 
-const Card = ({ children, button: { title, ...config } }) => (
+const Card = ({ children, button }) => (
   <CardContent>
     {children}
-    <CustomButton {...config}>
-      <div />
-      <span>{title}</span>
-    </CustomButton>
+    {button ? (
+      <CustomButton {...button}>
+        <div />
+        <span>{button.title}</span>
+      </CustomButton>
+    ) : null}
   </CardContent>
 );
 

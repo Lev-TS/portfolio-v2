@@ -13,7 +13,7 @@ export const Section = styled.div`
   }
 `;
 
-export const Greeting = styled.p`
+export const Greeting = styled.div`
   font-family: 'Recursive', cursive;
   font-size: 40vh;
   line-height: 40vh;
@@ -28,7 +28,7 @@ export const Greeting = styled.p`
   }
 `;
 
-export const Intro = styled.p`
+export const Intro = styled.div`
   font-style: italic;
   font-weight: bold;
   font-size: 20px;
