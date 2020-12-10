@@ -14,7 +14,8 @@ import Heading from '../section-heading/section-heading.component';
 import Comment from '../comment/comment.component';
 import Card from '../card/card.component';
 import PillChoice from '../pill-choice/pill-choice.component';
-import YesForm from '../yes-form/yes-form.component';
+import YesForm from '../form-yes-flow/yes-form.component';
+import NoForm from '../form-no-flow/no-form.component';
 
 const ContactMe = () => {
   return (
@@ -32,6 +33,7 @@ const ContactMe = () => {
                 </BashCommand>
                 <PillChoice />
                 <YesForm />
+                <NoForm />
               </CardContent>
             </Card>
             <Comment>

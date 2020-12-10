@@ -9,7 +9,7 @@ const PillChoice = () => {
 
   return (
     <Container>
-      <span>Would you like to connect? </span>
+      <span>Connect?</span>
       <Button red type="button" onClick={() => toggleYesForm()}>
         yes
       </Button>

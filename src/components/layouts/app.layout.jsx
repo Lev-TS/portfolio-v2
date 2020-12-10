@@ -36,7 +36,7 @@ const AppLayout = ({ children }) => (
     </Helmet>
     <GlobalStyle />
     {children}
-    <Footer></Footer>
+    <Footer />
   </>
 );
 

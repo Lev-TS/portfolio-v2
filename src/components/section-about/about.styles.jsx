@@ -27,10 +27,6 @@ export const Avatar = styled.img`
   z-index: 1;
 
   @media screen and (max-width: 800px) {
-    right: 20px;
-  }
-
-  @media screen and (max-width: 640px) {
     top: -75px;
     left: 0;
     right: 0;
@@ -46,11 +42,6 @@ export const CardContent = styled.p`
   line-height: 24px;
 
   @media screen and (max-width: 800px) {
-    padding: 50px;
-    max-width: 391px;
-  }
-
-  @media screen and (max-width: 640px) {
     padding: 100px 20px 60px 20px;
     margin: 0 auto;
     font-size: 14px;
