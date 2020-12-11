@@ -9,18 +9,21 @@ import Projects from '../components/section-projects/projects.component';
 import ContactMe from '../components/section-contact/contact.component';
 
 import ContactProvider from '../providers/contact.provider';
+import WindowProvider from '../providers/window.provider';
 
 const IndexPage = () => (
-  <AppLayout>
-    <SEO title="Home" />
-    <Hero />
-    <About />
-    <Skills />
-    <Projects />
-    <ContactProvider>
-      <ContactMe />
-    </ContactProvider>
-  </AppLayout>
+  <WindowProvider>
+    <AppLayout>
+      <SEO title="Home" />
+      <Hero />
+      <About />
+      <Skills />
+      <Projects />
+      <ContactProvider>
+        <ContactMe />
+      </ContactProvider>
+    </AppLayout>
+  </WindowProvider>
 );
 
 export default IndexPage;

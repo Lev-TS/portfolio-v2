@@ -1,7 +1,17 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { colors } from '../../styles/colors';
 
-import ScrollIcon from '../mobile-scroll/mobile-scroll.component';
+import MobileScroll from '../mobile-scroll/mobile-scroll.component';
+import DesktopScroll from '../desktop-scroll/desktop-scroll.component';
+import SocialNetwork from '../social-network/social-network.component';
+
+const displayStyles = css`
+  transform: ${(props) => !props.display && 'scale(0)'};
+
+  @media screen and (max-width: 1124px) {
+    transform: scale(0);
+  }
+`;
 
 export const Section = styled.div`
   min-height: 100vh;
@@ -50,12 +60,20 @@ export const Intro = styled.div`
 `;
 
 // imported component styles
-export const StyledScrollIcon = styled(ScrollIcon)`
+export const StyledMobileScroll = styled(MobileScroll)`
   display: none;
 
   @media screen and (max-width: 1124px) {
     display: ${(props) => (props.display ? 'block' : 'none')};
   }
+`;
+
+export const StyledDesktopScroll = styled(DesktopScroll)`
+  ${displayStyles}
+`;
+
+export const StyledSocialNetwork = styled(SocialNetwork)`
+  ${displayStyles}
 `;
 
 export const backgroundStyles = {

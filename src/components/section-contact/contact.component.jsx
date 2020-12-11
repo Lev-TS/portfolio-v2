@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Fade from 'react-reveal/Fade';
 
 import {
@@ -17,14 +17,18 @@ import PillChoice from '../pill-choice/pill-choice.component';
 import YesForm from '../form-yes-flow/yes-form.component';
 import NoForm from '../form-no-flow/no-form.component';
 
+import { WindowContext } from '../../providers/window.provider';
+
 const ContactMe = () => {
+  const { isMobile } = useContext(WindowContext);
+
   return (
     <Section>
       <Layout>
         <Heading background={backgroundStyles} left>
           contact(me)
         </Heading>
-        <Fade left duration={1000} delay={500} distance="300px">
+        <Fade left={!isMobile} bottom={isMobile} duration={1000} delay={300} distance="300px">
           <SectionContent>
             <Card>
               <CardContent>
@@ -39,7 +43,7 @@ const ContactMe = () => {
             <Comment>
               You take the blue pill...the story ends, you wake up in your bed and believe whatever
               you want to believe. You take the red pill... and I show you how deep the rabbit hole
-              goes. - Morpheus
+              goes.
             </Comment>
           </SectionContent>
         </Fade>

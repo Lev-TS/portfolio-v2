@@ -2,22 +2,36 @@ import React, { useState, useEffect } from 'react';
 import RubberBand from 'react-reveal/RubberBand';
 import Fade from 'react-reveal/Fade';
 
-import { Section, Greeting, Intro, StyledScrollIcon, backgroundStyles } from './hero.styles';
+import {
+  Section,
+  Greeting,
+  Intro,
+  StyledMobileScroll,
+  StyledDesktopScroll,
+  StyledSocialNetwork,
+  backgroundStyles,
+} from './hero.styles';
+
 import Layout from '../layouts/section.layout';
 import Heading from '../section-heading/section-heading.component';
 
 const Hero = () => {
-  const [show, setShow] = useState(true);
+  const [showMobileScroll, setShowMobileScroll] = useState(true);
+  const [showDesktopScroll, setShowDesktopScroll] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 300 && show) setShow(false);
-      if (window.scrollY <= 300 && !show) setShow(true);
+      if (window.scrollY > 368 && showMobileScroll) setShowMobileScroll(false);
+      if (window.scrollY === 0 && !showMobileScroll) setShowMobileScroll(true);
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight && showDesktopScroll)
+        setShowDesktopScroll(false);
+      if (window.scrollY === 0 && !showDesktopScroll) setShowDesktopScroll(true);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [show]);
+  }, [showMobileScroll, showDesktopScroll]);
 
+  // TODO: add display conditions for StyledSocialNetwork
   return (
     <Section>
       <Layout>
@@ -35,7 +49,9 @@ const Hero = () => {
             <br /> Freelancer and Web Designer
           </Intro>
         </Fade>
-        <StyledScrollIcon display={show} />
+        <StyledMobileScroll display={showMobileScroll} />
+        <StyledDesktopScroll display={showDesktopScroll} />
+        <StyledSocialNetwork display={true} />
         <Heading background={backgroundStyles} />
       </Layout>
     </Section>
