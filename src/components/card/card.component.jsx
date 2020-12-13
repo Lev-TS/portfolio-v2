@@ -1,15 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { CardContent, CustomButton } from './card.styles';
+import { CardContent, CustomButton, StyledLink } from './card.styles';
 
-const Card = ({ children, button }) => (
+const Card = ({ children, button, isLink, to }) => (
   <CardContent>
     {children}
     {button ? (
       <CustomButton {...button}>
         <div />
-        <span>{button.title}</span>
+        {isLink ? (
+          <StyledLink to={to}>{button.title}</StyledLink>
+        ) : (
+          <button type="button">{button.title}</button>
+        )}
       </CustomButton>
     ) : null}
   </CardContent>

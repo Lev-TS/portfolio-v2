@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import Helmet from 'react-helmet';
-import styled, { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
 import { colors } from '../../styles/colors';
+
+import Footer from '../footer/footer.component';
 
 const GlobalStyle = createGlobalStyle`
 	body {
@@ -17,11 +18,6 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     margin: 0;
 	}
-`;
-
-const Footer = styled.div`
-  height: 300px;
-  background-color: #333333;
 `;
 
 const AppLayout = ({ children }) => (

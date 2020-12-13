@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'gatsby';
 
 import { colors } from '../../styles/colors';
 
@@ -27,17 +28,6 @@ export const CustomButton = styled.div`
     top: 13.5px;
   }
 
-  span {
-    font-family: Courier Prime;
-    font-style: italic;
-    font-weight: normal;
-    font-size: 20px;
-    line-height: 24px;
-    text-align: right;
-    color: ${colors.white};
-    font-style: italic;
-  }
-
   &:hover {
     cursor: pointer;
     z-index: 1;
@@ -49,4 +39,16 @@ export const CustomButton = styled.div`
       transition: width 200ms;
     }
   }
+`;
+
+export const StyledLink = styled(Link)`
+  font-family: Courier Prime;
+  text-decoration: none;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: right;
+  color: ${colors.white};
+  font-style: italic;
 `;

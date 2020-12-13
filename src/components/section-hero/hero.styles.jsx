@@ -5,14 +5,6 @@ import MobileScroll from '../mobile-scroll/mobile-scroll.component';
 import DesktopScroll from '../desktop-scroll/desktop-scroll.component';
 import SocialNetwork from '../social-network/social-network.component';
 
-const displayStyles = css`
-  transform: ${(props) => !props.display && 'scale(0)'};
-
-  @media screen and (max-width: 1124px) {
-    transform: scale(0);
-  }
-`;
-
 export const Section = styled.div`
   min-height: 100vh;
   position: relative;
@@ -60,20 +52,36 @@ export const Intro = styled.div`
 `;
 
 // imported component styles
+const show = css`
+  transform: ${(props) => !props.display && 'scale(0)'};
+`;
+
+const hide = css`
+  transform: scale(0);
+`;
+
 export const StyledMobileScroll = styled(MobileScroll)`
-  display: none;
+  ${hide}
 
   @media screen and (max-width: 1124px) {
-    display: ${(props) => (props.display ? 'block' : 'none')};
+    ${show}
   }
 `;
 
 export const StyledDesktopScroll = styled(DesktopScroll)`
-  ${displayStyles}
+  ${show}
+
+  @media screen and (max-width: 1124px) {
+    ${hide}
+  }
 `;
 
 export const StyledSocialNetwork = styled(SocialNetwork)`
-  ${displayStyles}
+  ${show}
+
+  @media screen and (max-width: 1124px) {
+    ${hide}
+  }
 `;
 
 export const backgroundStyles = {

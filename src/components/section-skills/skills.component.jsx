@@ -29,7 +29,7 @@ const Skills = () => {
         </Heading>
         <Fade left={!isMobile} bottom={isMobile} duration={1000} delay={300} distance="300px">
           <SectionContent>
-            <Card button={buttonStyles}>
+            <Card button={buttonStyles} isLink to="certificates">
               <CardContent>
                 {data.map((skills) => (
                   <SkillsObject key={skills.type} skills={skills} />

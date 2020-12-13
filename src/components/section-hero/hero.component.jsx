@@ -17,23 +17,22 @@ import Heading from '../section-heading/section-heading.component';
 
 const Hero = () => {
   const [showMobileScroll, setShowMobileScroll] = useState(true);
-  const [showDesktopScroll, setShowDesktopScroll] = useState(true);
+  const [showDesktopElements, setShowDesktopElements] = useState(true);
+
+  const handleScroll = () => {
+    if (window.scrollY > 368 && showMobileScroll) setShowMobileScroll(false);
+    if (window.scrollY === 0 && !showMobileScroll) setShowMobileScroll(true);
+    if (window.scrollY > 3440 && showDesktopElements) setShowDesktopElements(false);
+    if (window.scrollY <= 3440 && !showDesktopElements) setShowDesktopElements(true);
+  };
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 368 && showMobileScroll) setShowMobileScroll(false);
-      if (window.scrollY === 0 && !showMobileScroll) setShowMobileScroll(true);
-      if (window.innerHeight + window.scrollY >= document.body.offsetHeight && showDesktopScroll)
-        setShowDesktopScroll(false);
-      if (window.scrollY === 0 && !showDesktopScroll) setShowDesktopScroll(true);
-    };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [showMobileScroll, showDesktopScroll]);
+  }, [handleScroll(), showMobileScroll, showDesktopElements]);
 
-  // TODO: add display conditions for StyledSocialNetwork
   return (
-    <Section>
+    <Section id="hero">
       <Layout>
         <Greeting>
           <Fade duration={300} delay={100}>
@@ -50,8 +49,8 @@ const Hero = () => {
           </Intro>
         </Fade>
         <StyledMobileScroll display={showMobileScroll} />
-        <StyledDesktopScroll display={showDesktopScroll} />
-        <StyledSocialNetwork display={true} />
+        <StyledDesktopScroll display={showDesktopElements} />
+        <StyledSocialNetwork display={showDesktopElements} />
         <Heading background={backgroundStyles} />
       </Layout>
     </Section>
