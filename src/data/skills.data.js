@@ -39,6 +39,7 @@ export default [
       'Express',
       'RESTful API',
       'SQL (PostgreSQL, MySQL, SQLite)',
+      'Postman',
       'Authentication & Authorization',
     ],
   },

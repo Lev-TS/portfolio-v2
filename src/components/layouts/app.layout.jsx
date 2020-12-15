@@ -5,8 +5,6 @@ import { createGlobalStyle } from 'styled-components';
 
 import { colors } from '../../styles/colors';
 
-import Footer from '../footer/footer.component';
-
 const GlobalStyle = createGlobalStyle`
 	body {
 		font-family: 'Courier Prime';
@@ -21,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const AppLayout = ({ children }) => (
-  <>
+  <div id="app-layout" style={{ border: '3px solid green' }}>
     <Helmet>
       <script src="http://localhost:8097" />
       <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -32,8 +30,7 @@ const AppLayout = ({ children }) => (
     </Helmet>
     <GlobalStyle />
     {children}
-    <Footer />
-  </>
+  </div>
 );
 
 AppLayout.propTypes = {

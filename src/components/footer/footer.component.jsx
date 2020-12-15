@@ -11,10 +11,10 @@ import {
 import SocialNetwork from '../social-network/social-network.component';
 import ScrollUpIcon from '../../assets/footer/scroll-up-icon.inline.svg';
 
-const Footer = () => (
+const Footer = ({ scrollTo }) => (
   <FooterContainer>
     <TopHalfCointainer>
-      <ScrollUp to="hero" smooth duration={1000}>
+      <ScrollUp to={scrollTo} smooth duration={1000}>
         <ScrollUpIcon />
       </ScrollUp>
       <SocialNetwork isFooter />

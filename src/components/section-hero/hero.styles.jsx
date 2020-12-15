@@ -7,7 +7,6 @@ import SocialNetwork from '../social-network/social-network.component';
 
 export const Section = styled.div`
   min-height: 100vh;
-  position: relative;
   overflow: hidden;
 
   padding: 0 40px;

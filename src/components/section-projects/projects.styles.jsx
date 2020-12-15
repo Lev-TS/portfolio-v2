@@ -4,7 +4,7 @@ import { colors } from '../../styles/colors';
 export const Section = styled.div`
   position: relative;
   padding: 0 40px;
-  overflow-y: hidden;
+  overflow: hidden;
 
   @media screen and (max-width: 800px) {
     padding: 0 20px;

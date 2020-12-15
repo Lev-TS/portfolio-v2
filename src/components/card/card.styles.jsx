@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Link } from 'gatsby';
 
 import { colors } from '../../styles/colors';
@@ -41,7 +41,7 @@ export const CustomButton = styled.div`
   }
 `;
 
-export const StyledLink = styled(Link)`
+const CustomButtonStyles = css`
   font-family: Courier Prime;
   text-decoration: none;
   font-style: italic;
@@ -51,4 +51,17 @@ export const StyledLink = styled(Link)`
   text-align: right;
   color: ${colors.white};
   font-style: italic;
+`;
+
+export const StyledLink = styled(Link)`
+  ${CustomButtonStyles}
+`;
+
+export const StyledButton = styled.button`
+  ${CustomButtonStyles}
+  background: none;
+  border: none;
+  padding: 0;
+  outline: none;
+  cursor: pointer;
 `;
