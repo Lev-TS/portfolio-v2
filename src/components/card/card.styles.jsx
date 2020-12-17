@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import { Link } from 'gatsby';
 
 import { colors } from '../../styles/colors';
 
@@ -10,7 +9,7 @@ export const CardContent = styled.div`
   flex-basis: 779px;
 `;
 
-export const CustomButton = styled.div`
+export const ButtonContainer = styled.div`
   position: absolute;
   right: ${(props) => (props.right ? props.right : '20px')};
   bottom: ${(props) => (props.bottom ? props.bottom : '20px')};
@@ -26,6 +25,7 @@ export const CustomButton = styled.div`
     position: absolute;
     left: -18px;
     top: 13.5px;
+    transition: width 200ms;
   }
 
   &:hover {
@@ -36,7 +36,6 @@ export const CustomButton = styled.div`
       border-width: 4px;
       width: ${(props) => props.width};
       z-index: -1;
-      transition: width 200ms;
     }
   }
 `;
@@ -53,7 +52,7 @@ const CustomButtonStyles = css`
   font-style: italic;
 `;
 
-export const StyledLink = styled(Link)`
+export const StyledAnchor = styled.a`
   ${CustomButtonStyles}
 `;
 

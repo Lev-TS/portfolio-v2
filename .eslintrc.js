@@ -16,6 +16,7 @@ module.exports = {
     'prettier/prettier': 'warn',
     'no-unused-vars': 'warn',
     'no-console': 'warn',
+    'react/prop-types': 'warn',
     'react/jsx-filename-extension': 'off',
     'react/jsx-props-no-spreading': 'off',
     'react/require-default-props': 'off',

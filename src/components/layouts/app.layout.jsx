@@ -19,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const AppLayout = ({ children }) => (
-  <div id="app-layout" style={{ border: '3px solid green' }}>
+  <div>
     <Helmet>
       <script src="http://localhost:8097" />
       <link rel="preconnect" href="https://fonts.gstatic.com" />

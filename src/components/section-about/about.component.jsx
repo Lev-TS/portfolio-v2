@@ -33,7 +33,7 @@ const About = () => {
               highly transferable to my current activities. For example, with my research and
               planning skills, I was able to reduce the upfront cost of using new technologies
             </Comment>
-            <Card button={buttonStyles}>
+            <Card buttonStyles={buttonStyles} setDownload>
               <CardContent>
                 I’m a full-stack developer with a solid foundation in JavaScript, React, Node,
                 Express, SQL, and other technologies. As I’ve applied this knowledge to my projects,

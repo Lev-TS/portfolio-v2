@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Fade from 'react-reveal/Fade';
 
 import data from '../../data/skills.data';
@@ -20,7 +20,7 @@ import SkillsObject from '../skills-object/skills-object.component';
 import { WindowContext } from '../../providers/window.provider';
 
 const Skills = () => {
-  const { isMobile, toggleCertificates } = useContext(WindowContext);
+  const { isMobile } = useContext(WindowContext);
 
   return (
     <Section>
@@ -30,7 +30,7 @@ const Skills = () => {
         </Heading>
         <Fade left={!isMobile} bottom={isMobile} duration={1000} delay={300} distance="300px">
           <SectionContent>
-            <Card button={buttonStyles} handleClick={toggleCertificates}>
+            <Card buttonStyles={buttonStyles} buttonLink="/certificates">
               <CardContent>
                 {data.map((skills) => (
                   <SkillsObject key={skills.type} skills={skills} />

@@ -35,7 +35,7 @@ const Hero = () => {
     <Section id="hero">
       <Layout>
         <Greeting>
-          <Fade duration={300} delay={100}>
+          <Fade duration={300} delay={300}>
             <RubberBand duration={1000} delay={300} cascade>
               Hi
             </RubberBand>

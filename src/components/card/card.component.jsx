@@ -1,23 +1,43 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useStaticQuery, graphql, navigate } from 'gatsby';
 
-import { CardContent, CustomButton, StyledLink, StyledButton } from './card.styles';
+import { CardContent, ButtonContainer, StyledButton, StyledAnchor } from './card.styles';
 
-const Card = ({ children, button, isLink, to, handleClick }) => {
+const Card = ({ children, buttonStyles, buttonLink, setDownload }) => {
+  let data;
+
+  if (setDownload) {
+    data = useStaticQuery(graphql`
+      query Data {
+        file(base: { eq: "my-resume.pdf" }) {
+          publicURL
+        }
+      }
+    `);
+  }
+
+  const handleClick = async () => {
+    if (buttonLink) navigate(buttonLink);
+    sessionStorage.setItem('scrollPosition', window.scrollY);
+  };
+
   return (
     <CardContent>
       {children}
-      {button ? (
-        <CustomButton {...button}>
+      {buttonStyles ? (
+        <ButtonContainer {...buttonStyles}>
           <div />
-          {isLink ? (
-            <StyledLink to={to}>{button.title}</StyledLink>
+          {setDownload ? (
+            <StyledAnchor href={data.file.publicURL} target="_blank" rel="noreferrer noopener">
+              {buttonStyles.title}
+            </StyledAnchor>
           ) : (
             <StyledButton type="button" onClick={handleClick}>
-              {button.title}
+              {buttonStyles.title}
             </StyledButton>
           )}
-        </CustomButton>
+        </ButtonContainer>
       ) : null}
     </CardContent>
   );
@@ -25,12 +45,14 @@ const Card = ({ children, button, isLink, to, handleClick }) => {
 
 Card.propTypes = {
   children: PropTypes.element.isRequired,
-  button: PropTypes.exact({
+  buttonStyles: PropTypes.exact({
     title: PropTypes.string,
     right: PropTypes.string,
     bottom: PropTypes.string,
     width: PropTypes.string,
   }),
+  buttonLink: PropTypes.string,
+  setDownload: PropTypes.bool,
 };
 
 export default Card;

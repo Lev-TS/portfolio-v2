@@ -30,7 +30,7 @@ const Skills = () => {
         <Fade right={!isMobile} bottom={isMobile} duration={1000} delay={300} distance="300px">
           <SectionContent>
             {data.map(({ icon, title, excerpt }) => (
-              <Card key={title} button={buttonStyles}>
+              <Card key={title} buttonStyles={buttonStyles}>
                 <CardContent>
                   <Icon src={icon} alt="" />
                   <Title>{title}</Title>

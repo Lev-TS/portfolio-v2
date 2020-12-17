@@ -13,7 +13,7 @@ export const Section = styled.div`
 
 export const SectionContent = styled.div`
   position: relative;
-  margin-top: 166px;
+  margin-top: 250px;
   margin-bottom: 101px;
   margin-left: auto;
   max-width: 779px;
@@ -93,7 +93,7 @@ export const buttonStyles = {
 };
 
 export const backgroundStyles = {
-  height: '700px',
-  top: '-400px',
+  height: '1000px',
+  top: '-600px',
   color: colors.mediumBlue,
 };
