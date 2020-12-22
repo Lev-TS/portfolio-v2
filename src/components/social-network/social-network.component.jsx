@@ -1,29 +1,60 @@
 import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
+import Img from 'gatsby-image';
 
-import { Container, Icon } from './social-network.styles';
+import Container from './social-network.styles';
+import Icons from './social-network.utils';
 
-import FacebookIcon from '../../assets/hero/facebook-icon.inline.svg';
-import LinkedinIcon from '../../assets/hero/linkedin-icon.inline.svg';
-import TwitterIcon from '../../assets/hero/twitter-icon.inline.svg';
-import GithubIcon from '../../assets/hero/github-icon.inline.svg';
+// TODO: Work in Progress
+export default function SocialNetwork({ className, isFooter }) {
+  const { strapiSocialLinks } = useStaticQuery(query);
+  const { socialLinks, customSocialLinks } = strapiSocialLinks;
 
-const SocialNetwork = ({ className, isFooter }) => {
-  return (
-    <Container className={className} isFooter={isFooter}>
-      <a href="https://www.facebook.com/levantsu" target="_blank" rel="noreferrer noopener">
-        <FacebookIcon className="social-icon" />
-      </a>
-      <a href="https://www.linkedin.com/in/levts" target="_blank" rel="noreferrer noopener">
-        <LinkedinIcon className="social-icon" />
-      </a>
-      <a href="https://twitter.com/levts" target="_blank" rel="noreferrer noopener">
-        <TwitterIcon className="social-icon" />
-      </a>
-      <a href="https://github.com/Lev-TS" target="_blank" rel="noreferrer noopener">
-        <GithubIcon className="social-icon" />
-      </a>
-    </Container>
-  );
-};
+  // if not custom render this:
+  // <a key={item.networkName} href={item.hyperLink} target="_blank" rel="noreferrer noopener">
+  //   {Icons.getIcon(item.networkName.toLowerCase())}
+  // </a>;
 
-export default SocialNetwork;
+  // if custom and svg render this:
+  // <img
+  //   src={item.customIcon.publicURL}
+  //   className="social-icon"
+  //   alt={`icon for ${item.networkName}`}
+  // />
+
+  // if custom and not svg render this:
+  // <Img
+  //   fixed={item.customIcon.childImageSharp.fixed}
+  //   className="social-icon"
+  //   alt={`icon for ${item.networkName}`}
+  // />
+
+  return <Container className={className} isFooter={isFooter}></Container>;
+}
+
+const query = graphql`
+  query strapiSocialLinks {
+    strapiSocialLinks {
+      id
+      socialLinks {
+        id
+        networkName
+        hyperLink
+      }
+      customSocialLinks {
+        id
+        networkName
+        hyperLink
+        customIcon {
+          ext
+          publicURL
+          childImageSharp {
+            fixed(width: 25, height: 25) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
+      }
+    }
+  }
+`;

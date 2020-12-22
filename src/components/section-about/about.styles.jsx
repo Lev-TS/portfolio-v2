@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { colors } from '../../styles/colors';
 
 export const Section = styled.div`
@@ -20,11 +21,12 @@ export const SectionContent = styled.div`
   justify-content: flex-end;
 `;
 
-export const Avatar = styled.img`
+export const Avatar = styled.div`
   position: absolute;
   right: 60px;
   top: -50px;
   z-index: 1;
+  width: 200px;
 
   @media screen and (max-width: 800px) {
     top: -75px;
@@ -35,7 +37,7 @@ export const Avatar = styled.img`
   }
 `;
 
-export const CardContent = styled.p`
+export const CardContent = styled.div`
   padding: 52px 20px 52px 91px;
   max-width: 471px;
   font-size: 16px;

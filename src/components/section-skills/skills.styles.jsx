@@ -29,8 +29,7 @@ export const CardContent = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
   position: relative;
-
-  height: 550px;
+  height: ${(props) => (props.height ? props.height : 500)}px;
 
   @media screen and (max-width: 800px) {
     height: initial;

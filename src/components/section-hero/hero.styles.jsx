@@ -31,7 +31,7 @@ export const Greeting = styled.div`
   }
 `;
 
-export const Intro = styled.div`
+export const Intro = styled.p`
   font-style: italic;
   font-weight: bold;
   font-size: 20px;

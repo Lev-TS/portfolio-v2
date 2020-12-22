@@ -1,29 +1,34 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import Img from 'gatsby-image';
 
-import { Container, List, Icon } from './skills-object.styles';
+import Icons from './skills-object.utils';
+import { Container, List, IconWrapper } from './skills-object.styles';
 
-const SkillsObject = ({ skills: { type, skillset, icon } }) => {
+// TODO: test with empty builtIn objects
+// TODO: test one the names of builtIn object and customObject are the same
+const SkillsObject = ({ builtInIcon, skillsObject }) => {
+  let iconToRender;
+  const { category, skillset, customIcon } = skillsObject;
+  if (builtInIcon) iconToRender = Icons.getIcon(category.toLowerCase());
+  if (customIcon) {
+    if (customIcon.ext === '.svg')
+      iconToRender = <img src={customIcon.publicURL} alt={`icon for ${category}`} />;
+    else
+      iconToRender = <Img fixed={customIcon.childImageSharp.fixed} alt={`icon for ${category}`} />;
+  }
+
   return (
     <Container>
-      <Icon src={icon} alt="" />
-      <p>{type} &#123;</p>
+      <IconWrapper>{iconToRender}</IconWrapper>
+      <p>{category} &#123;</p>
       <List>
-        {skillset.map((skill) => (
-          <li key={skill}>{skill}</li>
+        {skillset.map((item) => (
+          <li key={item.id}>{item.skill}</li>
         ))}
       </List>
       <p>&#125;</p>
     </Container>
   );
-};
-
-SkillsObject.propTypes = {
-  skills: PropTypes.exact({
-    type: PropTypes.string,
-    skillset: PropTypes.array,
-    icon: PropTypes.node,
-  }),
 };
 
 export default SkillsObject;

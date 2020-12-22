@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import PropTypes from 'prop-types';
 
 import { ContactContext } from '../../providers/contact.provider';
 
@@ -18,3 +19,8 @@ const Timer = ({ delay, children }) => {
 };
 
 export default Timer;
+
+Timer.propTypes = {
+  children: PropTypes.node,
+  delay: PropTypes.number,
+};

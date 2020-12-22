@@ -13,9 +13,10 @@ module.exports = {
   extends: ['plugin:react/recommended', 'airbnb', 'prettier'],
   plugins: ['react', 'prettier'],
   rules: {
-    'prettier/prettier': 'warn',
     'no-unused-vars': 'warn',
     'no-console': 'warn',
+    'no-use-before-define': 'warn',
+    'prettier/prettier': 'warn',
     'react/prop-types': 'warn',
     'react/jsx-filename-extension': 'off',
     'react/jsx-props-no-spreading': 'off',

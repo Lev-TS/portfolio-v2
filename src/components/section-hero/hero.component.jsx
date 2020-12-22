@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 import RubberBand from 'react-reveal/RubberBand';
 import Fade from 'react-reveal/Fade';
 
@@ -15,9 +16,10 @@ import {
 import Layout from '../layouts/section.layout';
 import Heading from '../section-heading/section-heading.component';
 
-const Hero = () => {
+export default function Hero() {
   const [showMobileScroll, setShowMobileScroll] = useState(true);
   const [showDesktopElements, setShowDesktopElements] = useState(true);
+  const { strapiHero } = useStaticQuery(query);
 
   const handleScroll = () => {
     if (window.scrollY > 368 && showMobileScroll) setShowMobileScroll(false);
@@ -37,16 +39,12 @@ const Hero = () => {
         <Greeting>
           <Fade duration={300} delay={300}>
             <RubberBand duration={1000} delay={300} cascade>
-              Hi
+              {strapiHero.greeting}
             </RubberBand>
           </Fade>
         </Greeting>
         <Fade duration={1000} delay={800}>
-          <Intro>
-            I'm <span>Levan</span>
-            <br /> Full Stack Developer
-            <br /> Freelancer and Web Designer
-          </Intro>
+          <Intro dangerouslySetInnerHTML={{ __html: strapiHero.intro }} />
         </Fade>
         <StyledMobileScroll display={showMobileScroll} />
         <StyledDesktopScroll display={showDesktopElements} />
@@ -55,6 +53,13 @@ const Hero = () => {
       </Layout>
     </Section>
   );
-};
+}
 
-export default Hero;
+const query = graphql`
+  query strapiHero {
+    strapiHero {
+      greeting
+      intro
+    }
+  }
+`;

@@ -15,13 +15,15 @@ const adjustment = css`
   }
 `;
 
-export const Container = styled.div`
+const Container = styled.div`
   display: flex;
   flex-direction: ${(props) => (props.isFooter ? 'row' : 'column')};
   position: ${(props) => (props.isFooter ? 'static' : 'fixed')};
   z-index: 1;
   top: 50px;
   right: 15px;
+  overflow: visible;
+  margin: 3px 0;
 
   a {
     margin: ${(props) => (props.isFooter ? '0 10px' : '10px 0')};
@@ -42,3 +44,5 @@ export const Container = styled.div`
 
   ${(props) => (!props.isFooter ? adjustment : null)}
 `;
+
+export default Container;

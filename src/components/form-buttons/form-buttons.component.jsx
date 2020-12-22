@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import ButtonContainer from './form-buttons.styles';
 
@@ -12,3 +13,7 @@ const FormButtons = ({ handleCancel }) => (
 );
 
 export default FormButtons;
+
+FormButtons.propTypes = {
+  handleCancel: PropTypes.func,
+};

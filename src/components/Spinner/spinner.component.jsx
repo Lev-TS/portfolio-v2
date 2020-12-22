@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 
 import { ContactContext } from '../../providers/contact.provider';
 
@@ -16,3 +17,7 @@ const Spinner = ({ children }) => {
 };
 
 export default Spinner;
+
+Spinner.propTypes = {
+  children: PropTypes.node,
+};

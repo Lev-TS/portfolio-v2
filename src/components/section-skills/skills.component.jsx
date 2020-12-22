@@ -1,7 +1,7 @@
-import React, { useContext, useEffect } from 'react';
-import Fade from 'react-reveal/Fade';
+import React, { useContext } from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 
-import data from '../../data/skills.data';
+import Fade from 'react-reveal/Fade';
 
 import {
   Section,
@@ -19,9 +19,10 @@ import SkillsObject from '../skills-object/skills-object.component';
 
 import { WindowContext } from '../../providers/window.provider';
 
-const Skills = () => {
+export default function Skills() {
   const { isMobile } = useContext(WindowContext);
-
+  const { strapiSkills } = useStaticQuery(query);
+  const { skillsObject, customSkillsObject, quote, cardHeight } = strapiSkills;
   return (
     <Section>
       <Layout>
@@ -31,22 +32,53 @@ const Skills = () => {
         <Fade left={!isMobile} bottom={isMobile} duration={1000} delay={300} distance="300px">
           <SectionContent>
             <Card buttonStyles={buttonStyles} buttonLink="/certificates">
-              <CardContent>
-                {data.map((skills) => (
-                  <SkillsObject key={skills.type} skills={skills} />
+              <CardContent height={cardHeight}>
+                {skillsObject.map((object) => (
+                  <SkillsObject key={object.category} skillsObject={object} builtInIcon />
+                ))}
+                {customSkillsObject.map((object) => (
+                  <SkillsObject key={object.category} skillsObject={object} />
                 ))}
               </CardContent>
             </Card>
-            <Comment>
-              Through research and practice, I've already gained a solid understanding of some of
-              the key concepts and technologies in software development. However, I'm continuously
-              investing time and resources to improve my skillset.
-            </Comment>
+            <Comment>{quote}</Comment>
           </SectionContent>
         </Fade>
       </Layout>
     </Section>
   );
-};
+}
 
-export default Skills;
+const query = graphql`
+  query strapiSkills {
+    strapiSkills {
+      quote
+      cardHeight
+      skillsObject {
+        id
+        category
+        skillset {
+          id
+          skill
+        }
+      }
+      customSkillsObject {
+        id
+        category
+        skillset {
+          id
+          skill
+        }
+        customIcon {
+          ext
+          publicURL
+          childImageSharp {
+            fixed(width: 25, height: 25) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
+      }
+    }
+  }
+`;

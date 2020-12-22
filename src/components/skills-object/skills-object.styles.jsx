@@ -27,22 +27,25 @@ export const Container = styled.div`
   }
 `;
 
-export const Icon = styled.img`
+export const IconWrapper = styled.div`
   position: absolute;
   left: -35px;
   top: -3px;
+  width: 30px;
+  height: 30px;
+
+  .skill-icon-fill {
+    fill: ${colors.red};
+  }
+
+  .skill-icon-stroke {
+    stroke: ${colors.red};
+  }
 
   @media screen and (max-width: 800px) {
-    width: 6vw;
-    heigh: 6vw;
     left: initial;
     top: 10px;
     right: 0;
-  }
-
-  @media screen and (max-width: 414px) {
-    width: initial;
-    heigh: initial;
   }
 `;
 
