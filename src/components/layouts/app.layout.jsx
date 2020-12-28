@@ -1,8 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 import { colors } from '../../styles/colors';
+import Header from '../header/header.component';
+import Footer from '../footer/footer.component';
 
 const GlobalStyle = createGlobalStyle`
 	body {
@@ -17,15 +18,23 @@ const GlobalStyle = createGlobalStyle`
 	}
 `;
 
-const AppLayout = ({ children }) => (
-  <div>
-    <GlobalStyle />
-    {children}
-  </div>
-);
+const App = styled.div`
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+`;
 
-export default AppLayout;
+const Body = styled.div`
+  flex-grow: 1;
+`;
 
-AppLayout.propTypes = {
-  children: PropTypes.node,
-};
+export default function AppLayout({ children, withoutHeader, footerScrollsTo }) {
+  return (
+    <App>
+      <GlobalStyle />
+      {!withoutHeader ? <Header id="header" /> : null}
+      <Body style={!withoutHeader ? { background: colors.mediumBlue } : null}>{children}</Body>
+      <Footer scrollTo={footerScrollsTo} />
+    </App>
+  );
+}

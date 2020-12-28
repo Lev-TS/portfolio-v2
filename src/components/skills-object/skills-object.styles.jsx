@@ -31,8 +31,13 @@ export const IconWrapper = styled.div`
   position: absolute;
   left: -35px;
   top: -3px;
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
+
+  .skills-icon {
+    width: 25px;
+    height: 25px;
+  }
 
   .skill-icon-fill {
     fill: ${colors.red};

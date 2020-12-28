@@ -8,7 +8,6 @@ import SocialNetwork from '../social-network/social-network.component';
 export const Section = styled.div`
   min-height: 100vh;
   overflow: hidden;
-
   padding: 0 40px;
 
   @media screen and (max-width: 800px) {
@@ -84,7 +83,7 @@ export const StyledSocialNetwork = styled(SocialNetwork)`
 `;
 
 export const backgroundStyles = {
-  height: '900px',
+  height: '60vh',
   top: '50vh',
   color: colors.red,
 };

@@ -23,6 +23,7 @@ export default function Skills() {
   const { isMobile } = useContext(WindowContext);
   const { strapiSkills } = useStaticQuery(query);
   const { skillsObject, customSkillsObject, quote, cardHeight } = strapiSkills;
+  const skillsObjectToRender = skillsObject.concat(customSkillsObject);
   return (
     <Section>
       <Layout>
@@ -33,11 +34,8 @@ export default function Skills() {
           <SectionContent>
             <Card buttonStyles={buttonStyles} buttonLink="/certificates">
               <CardContent height={cardHeight}>
-                {skillsObject.map((object) => (
+                {skillsObjectToRender.map((object) => (
                   <SkillsObject key={object.category} skillsObject={object} builtInIcon />
-                ))}
-                {customSkillsObject.map((object) => (
-                  <SkillsObject key={object.category} skillsObject={object} />
                 ))}
               </CardContent>
             </Card>

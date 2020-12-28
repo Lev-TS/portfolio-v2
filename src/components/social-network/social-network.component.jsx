@@ -1,6 +1,5 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
 
 import Container from './social-network.styles';
 import Icons from './social-network.utils';
@@ -9,27 +8,17 @@ import Icons from './social-network.utils';
 export default function SocialNetwork({ className, isFooter }) {
   const { strapiSocialLinks } = useStaticQuery(query);
   const { socialLinks, customSocialLinks } = strapiSocialLinks;
+  const linksToRender = socialLinks.concat(customSocialLinks);
 
-  // if not custom render this:
-  // <a key={item.networkName} href={item.hyperLink} target="_blank" rel="noreferrer noopener">
-  //   {Icons.getIcon(item.networkName.toLowerCase())}
-  // </a>;
-
-  // if custom and svg render this:
-  // <img
-  //   src={item.customIcon.publicURL}
-  //   className="social-icon"
-  //   alt={`icon for ${item.networkName}`}
-  // />
-
-  // if custom and not svg render this:
-  // <Img
-  //   fixed={item.customIcon.childImageSharp.fixed}
-  //   className="social-icon"
-  //   alt={`icon for ${item.networkName}`}
-  // />
-
-  return <Container className={className} isFooter={isFooter}></Container>;
+  return (
+    <Container className={className} isFooter={isFooter}>
+      {linksToRender.map((link) => (
+        <a key={link.networkName} href={link.hyperLink} target="_blank" rel="noreferrer noopener">
+          {Icons.getIcon(link)}
+        </a>
+      ))}
+    </Container>
+  );
 }
 
 const query = graphql`

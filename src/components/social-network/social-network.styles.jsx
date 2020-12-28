@@ -31,6 +31,8 @@ const Container = styled.div`
 
   .social-icon {
     transition: 250ms;
+    height: 25px;
+    width: 25px;
     cursor: pointer;
 
     .vector {

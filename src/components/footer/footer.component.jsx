@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import {
   FooterContainer,
@@ -12,29 +11,25 @@ import {
 import SocialNetwork from '../social-network/social-network.component';
 import ScrollUpIcon from '../../assets/footer/scroll-up-icon.inline.svg';
 
-const Footer = ({ scrollTo }) => (
-  <FooterContainer>
-    <TopHalfCointainer>
-      <ScrollUp to={scrollTo} smooth duration={1000}>
-        <ScrollUpIcon />
-      </ScrollUp>
-      <SocialNetwork isFooter />
-    </TopHalfCointainer>
-    <BottomHalfCointainer>
-      <p>© 2020 - designed and coded by LevTS</p>
-      <CustomButton
-        href="https://github.com/Lev-TS/portfolio-v2"
-        target="_blank"
-        rel="noreferrer noopener"
-      >
-        Open Source
-      </CustomButton>
-    </BottomHalfCointainer>
-  </FooterContainer>
-);
-
-export default Footer;
-
-Footer.propTypes = {
-  scrollTo: PropTypes.string,
-};
+export default function Footer({ scrollTo }) {
+  return (
+    <FooterContainer>
+      <TopHalfCointainer>
+        <ScrollUp to={scrollTo} smooth duration={1000}>
+          <ScrollUpIcon />
+        </ScrollUp>
+        <SocialNetwork isFooter />
+      </TopHalfCointainer>
+      <BottomHalfCointainer>
+        <p>© 2020 - designed and coded by LevTS</p>
+        <CustomButton
+          href="https://github.com/Lev-TS/portfolio-v2"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          Open Source
+        </CustomButton>
+      </BottomHalfCointainer>
+    </FooterContainer>
+  );
+}

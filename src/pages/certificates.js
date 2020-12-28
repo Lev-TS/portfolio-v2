@@ -4,56 +4,63 @@ import Img from 'gatsby-image';
 
 import SEO from '../components/seo';
 import AppLayout from '../components/layouts/app.layout';
-import Footer from '../components/footer/footer.component';
-import Header from '../components/header/header.component';
 
 import { Section, LargeImageContainer, SmallImageContainer } from '../styles/certificates.styles';
 
-const Certificates = ({ data }) => {
-  const images = data.allFile.nodes;
-  const linkAttributes = {
-    href: 'https://www.codecademy.com/profiles/levanTsutskiridze1934164281',
-    target: '_blank',
-    rel: 'noreferrer noopener',
-  };
+export default function Certificates({ data }) {
+  const certificates = data.allStrapiCertificates.edges;
+
+  certificates.sort((a, b) => {
+    const dateA = new Date(a.node.issued_on);
+    const dateB = new Date(b.node.issued_on);
+    return dateB - dateA;
+  });
+
+  const renderCertificate = (certificate) => (
+    <a
+      key={certificate.node.id}
+      href={certificate.node.link}
+      target="_blank"
+      rel="noreferrer noopener"
+    >
+      <Img fluid={certificate.node.image.childImageSharp.fluid} />
+    </a>
+  );
 
   return (
-    <AppLayout>
+    <AppLayout footerScrollsTo="certificates">
       <SEO title="Certificates" />
-      <Header />
       <Section id="certificates">
         <LargeImageContainer>
-          <Img fluid={images[0].childImageSharp.fluid} />
-          <a {...linkAttributes}>
-            <Img fluid={images[1].childImageSharp.fluid} />
-          </a>
+          {certificates.map(
+            (certificate) => certificate.node.enlarge && renderCertificate(certificate)
+          )}
         </LargeImageContainer>
         <SmallImageContainer>
-          {images.slice(2).map((image) => (
-            <a {...linkAttributes} key={image.id}>
-              <Img fluid={image.childImageSharp.fluid} />
-            </a>
-          ))}
+          {certificates.map(
+            (certificate) => !certificate.node.enlarge && renderCertificate(certificate)
+          )}
         </SmallImageContainer>
       </Section>
-      <Footer scrollTo="certificates" />
     </AppLayout>
   );
-};
-
-export default Certificates;
+}
 
 export const query = graphql`
-  query Images {
-    allFile(
-      filter: { relativeDirectory: { eq: "my-certificates" } }
-      sort: { fields: birthTime, order: ASC }
-    ) {
-      nodes {
-        id
-        childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
+  query allStrapiCertificates {
+    allStrapiCertificates {
+      edges {
+        node {
+          id
+          enlarge
+          link
+          issued_on
+          image {
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid
+              }
+            }
           }
         }
       }
