@@ -1,11 +1,18 @@
 import React, { useContext } from 'react';
 import Fade from 'react-reveal/Fade';
+import { useStaticQuery, graphql } from 'gatsby';
 
-import data from '../../data/project-banners.data';
+import Layout from '../layouts/section.layout';
+import Heading from '../section-heading/section-heading.component';
+import Card from '../card/card.component';
 
+import { WindowContext } from '../../providers/window.provider';
+
+import { distributeCardsInRows, renderCardIcon, getSlug } from './projects.utils';
 import {
   Section,
   SectionContent,
+  Row,
   CardContent,
   Icon,
   Title,
@@ -14,14 +21,11 @@ import {
   buttonStyles,
 } from './projects.styles';
 
-import Layout from '../layouts/section.layout';
-import Heading from '../section-heading/section-heading.component';
-import Card from '../card/card.component';
-
-import { WindowContext } from '../../providers/window.provider';
-
-const Skills = () => {
+export default function Skills() {
   const { isMobile } = useContext(WindowContext);
+  const { strapiCodes } = useStaticQuery(query);
+  const other = strapiCodes.other ? strapiCodes.other : undefined;
+  const rows = distributeCardsInRows(strapiCodes.featured, 2, other);
 
   return (
     <Section>
@@ -29,20 +33,64 @@ const Skills = () => {
         <Heading background={backgroundStyles}>{'{...codes}'}</Heading>
         <Fade right={!isMobile} bottom={isMobile} duration={1000} delay={300} distance="300px">
           <SectionContent>
-            {data.map(({ icon, title, excerpt }) => (
-              <Card key={title} buttonStyles={buttonStyles}>
-                <CardContent>
-                  <Icon src={icon} alt="" />
-                  <Title>{title}</Title>
-                  <Excerpt>{excerpt}</Excerpt>
-                </CardContent>
-              </Card>
+            {rows.map(({ rowId, row, inverted }) => (
+              <Row key={rowId} inverted={inverted}>
+                {row.map(({ id, cardIcon, title, excerpt, isFeatured }) => (
+                  <Card
+                    key={id}
+                    buttonStyles={buttonStyles}
+                    buttonLink={getSlug(title, isFeatured)}
+                  >
+                    <CardContent>
+                      <Icon>{renderCardIcon(title, cardIcon)}</Icon>
+                      <Title>{title}</Title>
+                      <Excerpt>{excerpt}</Excerpt>
+                    </CardContent>
+                  </Card>
+                ))}
+              </Row>
             ))}
           </SectionContent>
         </Fade>
       </Layout>
     </Section>
   );
-};
+}
 
-export default Skills;
+const query = graphql`
+  query strapiCodes {
+    strapiCodes {
+      featured {
+        id
+        cardIcon {
+          publicURL
+          ext
+          childImageSharp {
+            fixed(width: 60, height: 60) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
+        project {
+          id
+          title
+          excerpt
+        }
+      }
+      other {
+        id
+        cardTitle
+        cardDescription
+        cardIcon {
+          publicURL
+          ext
+          childImageSharp {
+            fixed(width: 60, height: 60) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
+      }
+    }
+  }
+`;

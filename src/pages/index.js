@@ -20,7 +20,7 @@ const IndexPage = () => {
   }, []);
 
   return (
-    <AppLayout withoutHeader footerScrollsTo="hero">
+    <AppLayout hideHeader footerScrollsTo="hero">
       <SEO title="Home" />
       <WindowProvider>
         <Hero />

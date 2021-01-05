@@ -28,13 +28,13 @@ const Body = styled.div`
   flex-grow: 1;
 `;
 
-export default function AppLayout({ children, withoutHeader, footerScrollsTo }) {
+export default function AppLayout({ children, hideHeader, hideFooter, footerScrollsTo }) {
   return (
     <App>
       <GlobalStyle />
-      {!withoutHeader ? <Header id="header" /> : null}
-      <Body style={!withoutHeader ? { background: colors.mediumBlue } : null}>{children}</Body>
-      <Footer scrollTo={footerScrollsTo} />
+      {!hideHeader ? <Header id="header" /> : null}
+      <Body style={!hideHeader ? { background: colors.mediumBlue } : null}>{children}</Body>
+      {!hideFooter ? <Footer scrollTo={footerScrollsTo} /> : null}
     </App>
   );
 }
