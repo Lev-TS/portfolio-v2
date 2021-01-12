@@ -9,7 +9,6 @@ import Projects from '../components/section-projects/projects.component';
 import ContactMe from '../components/section-contact/contact.component';
 
 import ContactProvider from '../providers/contact.provider';
-import WindowProvider from '../providers/window.provider';
 
 const IndexPage = () => {
   useEffect(() => {
@@ -22,15 +21,13 @@ const IndexPage = () => {
   return (
     <AppLayout hideHeader footerScrollsTo="hero">
       <SEO title="Home" />
-      <WindowProvider>
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <ContactProvider>
-          <ContactMe />
-        </ContactProvider>
-      </WindowProvider>
+      <Hero />
+      <About />
+      <Skills />
+      <Projects />
+      <ContactProvider>
+        <ContactMe />
+      </ContactProvider>
     </AppLayout>
   );
 };

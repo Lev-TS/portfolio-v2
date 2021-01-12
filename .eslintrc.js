@@ -17,6 +17,7 @@ module.exports = {
     'no-console': 'warn',
     'no-use-before-define': 'warn',
     'prettier/prettier': 'warn',
+    'import/prefer-default-export': 'off',
     'react/prop-types': 'warn',
     'react/jsx-filename-extension': 'off',
     'react/jsx-props-no-spreading': 'off',

@@ -22,10 +22,11 @@ export default function Hero() {
   const { strapiHero } = useStaticQuery(query);
 
   const handleScroll = () => {
+    const isBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight;
     if (window.scrollY > 368 && showMobileScroll) setShowMobileScroll(false);
     if (window.scrollY === 0 && !showMobileScroll) setShowMobileScroll(true);
-    if (window.scrollY > 3440 && showDesktopElements) setShowDesktopElements(false);
-    if (window.scrollY <= 3440 && !showDesktopElements) setShowDesktopElements(true);
+    if (isBottom && showDesktopElements) setShowDesktopElements(false);
+    if (!isBottom && !showDesktopElements) setShowDesktopElements(true);
   };
 
   useEffect(() => {

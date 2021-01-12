@@ -5,6 +5,8 @@ import { colors } from '../../styles/colors';
 import Header from '../header/header.component';
 import Footer from '../footer/footer.component';
 
+import WindowProvider from '../../providers/window.provider';
+
 const GlobalStyle = createGlobalStyle`
 	body {
 		font-family: 'Courier Prime';
@@ -30,11 +32,13 @@ const Body = styled.div`
 
 export default function AppLayout({ children, hideHeader, hideFooter, footerScrollsTo }) {
   return (
-    <App>
-      <GlobalStyle />
-      {!hideHeader ? <Header id="header" /> : null}
-      <Body style={!hideHeader ? { background: colors.mediumBlue } : null}>{children}</Body>
-      {!hideFooter ? <Footer scrollTo={footerScrollsTo} /> : null}
-    </App>
+    <WindowProvider>
+      <App>
+        <GlobalStyle />
+        {!hideHeader ? <Header id="header" /> : null}
+        <Body style={!hideHeader ? { background: colors.mediumBlue } : null}>{children}</Body>
+        {!hideFooter ? <Footer scrollTo={footerScrollsTo} /> : null}
+      </App>
+    </WindowProvider>
   );
 }

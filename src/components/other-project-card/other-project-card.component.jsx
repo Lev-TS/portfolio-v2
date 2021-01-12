@@ -1,54 +1,35 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useContext } from 'react';
+import Fade from 'react-reveal/Fade';
 
-import { colors } from '../../styles/colors';
+import { Container, Description, Title, Excerpt } from './other-project-card.styles';
 
 import OtherProjectCarousel from '../other-project-carousel/other-project-carousel.component';
+import OtherProjectStack from '../other-project-stack/other-project-stack.component';
+import ProjectLinks from '../project-links/project-links.component';
 
-export const Container = styled.div`
-  min-height: 300px;
-  border-radius: 20px;
-  overflow: hidden;
-  background-color: ${colors.black};
-  color: ${colors.foreground};
-  margin-bottom: 80px;
-  display: flex;
+import { WindowContext } from '../../providers/window.provider';
 
-  :last-of-type {
-    margin-bottom: 0;
-  }
-`;
-export const Description = styled.div`
-  width: 65%;
-  padding: 30px 60px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`;
-
-export const Title = styled.p`
-  font-style: italic;
-  font-size: 24px;
-  line-height: 24px;
-  margin-bottom: 10px;
-  color: ${colors.mediumBlue};
-`;
-
-export const Excerpt = styled.p`
-  font-size: 16px;
-  line-height: 24px;
-`;
-
-export default function OtherProjectCard({ projectData }) {
-  console.log(projectData);
+export default function OtherProjectCard({ projectData, isOdd }) {
+  const { isMobile } = useContext(WindowContext);
 
   return (
-    <Container>
-      <OtherProjectCarousel images={projectData.images} />
-      <Description>
-        <Title>{projectData.title}</Title>
-        <Excerpt>{projectData.excerpt}</Excerpt>
-      </Description>
-    </Container>
+    <Fade
+      right={!isMobile && isOdd}
+      left={!isMobile && !isOdd}
+      bottom={isMobile}
+      duration={1000}
+      delay={300}
+      distance="300px"
+    >
+      <Container>
+        <OtherProjectCarousel images={projectData.images} />
+        <Description>
+          <Title>{projectData.title}</Title>
+          <OtherProjectStack projectStack={projectData.projectStack} />
+          <Excerpt>{projectData.excerpt}</Excerpt>
+        </Description>
+        <ProjectLinks liveLink={projectData.liveLink} sourceLink={projectData.sourceLink} />
+      </Container>
+    </Fade>
   );
 }

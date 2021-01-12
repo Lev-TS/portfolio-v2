@@ -1,35 +1,35 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import styled from 'styled-components';
 
 import SEO from '../components/seo';
 import AppLayout from '../components/layouts/app.layout';
 import OtherProjectCard from '../components/other-project-card/other-project-card.component';
 
-export const OtherProjectContainer = styled.div`
-  max-width: 1178px;
-  margin: 150px auto;
-  padding: 0 40px;
-`;
+import { OtherProjectContainer } from '../styles/other-projects.styles';
 
 export default function OtherProjects({ data }) {
+  let count = 0;
   return (
     <AppLayout footerScrollsTo="other-projects">
       <SEO title="Practice Projects" />
       <div id="other-projects" />
       <OtherProjectContainer>
         {data.strapiCodes.other.projects.map((project) => {
+          count += 1;
           const { node: projectData } = data.allStrapiProjects.edges.find(
             ({ node }) => project.title === node.title
           );
-
-          return <OtherProjectCard key={project.id} projectData={projectData} />;
+          return (
+            <OtherProjectCard key={project.id} projectData={projectData} isOdd={count % 2 !== 0} />
+          );
         })}
       </OtherProjectContainer>
     </AppLayout>
   );
 }
 
+// TODO: make strapiCodes.other optional;
+// TODO: make liveLink and sourceLink optional;
 export const query = graphql`
   query {
     strapiCodes {
