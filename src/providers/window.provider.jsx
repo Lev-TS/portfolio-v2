@@ -5,7 +5,7 @@ export const WindowContext = createContext({
 });
 
 const WindowProvider = ({ children }) => {
-  const [isMobile, setIsMobile] = useState();
+  const [isMobile, setIsMobile] = useState(false);
 
   const handleResize = () => {
     if (window.innerWidth > 800 && isMobile) setIsMobile(false);

@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import { colors } from '../../styles/colors';
-
 const ButtonContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -13,29 +11,28 @@ const ButtonContainer = styled.div`
 
   button {
     padding: 12px;
-    font-family: Courier Prime;
     font-weight: bold;
     font-size: 14px;
     line-height: 14px;
-    background-color: ${colors.mediumBlue};
-    border: 1px solid ${colors.mediumBlue};
+    background-color: ${(props) => props.theme.colors.mediumBlue};
+    border: 1px solid ${(props) => props.theme.colors.mediumBlue};
     border-radius: 3px;
     cursor: pointer;
     outline: none;
 
     &:hover {
-      background-color: ${colors.black};
-      color: ${colors.mediumBlue};
+      background-color: ${(props) => props.theme.colors.black};
+      color: ${(props) => props.theme.colors.mediumBlue};
     }
 
     &:last-child {
       background-color: transparent;
-      border: 1px solid ${colors.foreground};
-      color: ${colors.foreground};
+      border: 1px solid ${(props) => props.theme.colors.foreground};
+      color: ${(props) => props.theme.colors.foreground};
 
       &:hover {
-        background-color: ${colors.foreground};
-        color: ${colors.black};
+        background-color: ${(props) => props.theme.colors.foreground};
+        color: ${(props) => props.theme.colors.black};
       }
     }
   }

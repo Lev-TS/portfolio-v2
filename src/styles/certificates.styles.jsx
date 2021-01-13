@@ -1,9 +1,8 @@
 import styled from 'styled-components';
-import { colors } from './colors';
 
 export const Section = styled.div`
   padding: 0 40px;
-  background: ${colors.mediumBlue};
+  background: ${(props) => props.theme.colors.mediumBlue};
 
   @media screen and (max-width: 800px) {
     padding: 0 20px;
@@ -22,8 +21,8 @@ export const LargeImageContainer = styled.div`
   padding-top: 150px;
 
   div {
-    -webkit-box-shadow: 0px 0px 10px 3px ${colors.grey};
-    box-shadow: 0px 0px 10px 3px ${colors.grey};
+    -webkit-box-shadow: 0px 0px 10px 3px ${(props) => props.theme.colors.grey};
+    box-shadow: 0px 0px 10px 3px ${(props) => props.theme.colors.grey};
   }
 `;
 
@@ -38,8 +37,8 @@ export const SmallImageContainer = styled.div`
   padding-bottom: 150px;
 
   div {
-    -webkit-box-shadow: 0px 0px 10px 2px ${colors.grey};
-    box-shadow: 0px 0px 10px 3px ${colors.grey};
+    -webkit-box-shadow: 0px 0px 10px 2px ${(props) => props.theme.colors.grey};
+    box-shadow: 0px 0px 10px 3px ${(props) => props.theme.colors.grey};
   }
 
   @media screen and (max-width: 800px) {

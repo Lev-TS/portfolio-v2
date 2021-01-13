@@ -1,44 +1,25 @@
 import React from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
 
-import { colors } from '../../styles/colors';
+import { ThemeProvider } from 'styled-components';
+import WindowProvider from '../../providers/window.provider';
+
+import { defaultTheme } from '../../styles/theme';
 import Header from '../header/header.component';
 import Footer from '../footer/footer.component';
 
-import WindowProvider from '../../providers/window.provider';
-
-const GlobalStyle = createGlobalStyle`
-	body {
-		font-family: 'Courier Prime';
-    background: ${colors.background};
-    color: ${colors.black};
-  }
-
-	* {
-    box-sizing: border-box;
-    margin: 0;
-	}
-`;
-
-const App = styled.div`
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-`;
-
-const Body = styled.div`
-  flex-grow: 1;
-`;
+import { GlobalStyle, App, Body } from './app.layout.styles';
 
 export default function AppLayout({ children, hideHeader, hideFooter, footerScrollsTo }) {
   return (
-    <WindowProvider>
-      <App>
-        <GlobalStyle />
-        {!hideHeader ? <Header id="header" /> : null}
-        <Body style={!hideHeader ? { background: colors.mediumBlue } : null}>{children}</Body>
-        {!hideFooter ? <Footer scrollTo={footerScrollsTo} /> : null}
-      </App>
-    </WindowProvider>
+    <ThemeProvider theme={defaultTheme}>
+      <WindowProvider>
+        <App>
+          <GlobalStyle />
+          {!hideHeader ? <Header id="header" /> : null}
+          <Body changeColor={!hideHeader}>{children}</Body>
+          {!hideFooter ? <Footer scrollTo={footerScrollsTo} /> : null}
+        </App>
+      </WindowProvider>
+    </ThemeProvider>
   );
 }

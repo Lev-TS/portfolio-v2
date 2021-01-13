@@ -10,8 +10,6 @@ import Img from 'gatsby-image';
 import SEO from '../components/seo';
 import AppLayout from '../components/layouts/app.layout';
 
-import { colors } from '../styles/colors';
-
 // const ImageWrapper = styled.div`
 //   width: 500px;
 //   margin: 150px auto;
@@ -22,12 +20,12 @@ import { colors } from '../styles/colors';
 
 export const Section = styled.div`
   border: 4px solid green;
-  background: ${colors.mediumBlue};
+  background: ${(props) => props.theme.colors.mediumBlue};
 `;
 
 export const ProjectCard = styled.div`
   max-width: 780px;
-  background: ${colors.mediumBlue};
+  background: ${(props) => props.theme.colors.mediumBlue};
   border: 4px solid green;
 `;
 
@@ -42,8 +40,8 @@ export const Image = styled(Img)`
 `;
 
 export const ProjectDescription = styled(Markdown)`
-  background: ${colors.black};
-  color: ${colors.foreground};
+  background: ${(props) => props.theme.colors.black};
+  color: ${(props) => props.theme.colors.foreground};
   padding: 40px;
 
   h1,
@@ -52,7 +50,7 @@ export const ProjectDescription = styled(Markdown)`
   h4,
   h5,
   h6 {
-    color: ${colors.mediumBlue};
+    color: ${(props) => props.theme.colors.mediumBlue};
     margin: 10px 0;
   }
 

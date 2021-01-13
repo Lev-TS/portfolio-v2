@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { colors } from '../../styles/colors';
 
 export const Section = styled.div`
   position: relative;
@@ -23,6 +22,7 @@ export const SectionContent = styled.div`
   &::before {
     @media screen and (max-width: 1124px) {
       content: '{...codes}';
+      font-family: ${(props) => props.theme.fonts.landingPageSectionHeading};
       font-size: 40px;
       line-height: 40px;
       font-style: italic;
@@ -30,7 +30,7 @@ export const SectionContent = styled.div`
       position: absolute;
       top: -50px;
       left: 20px;
-      color: ${colors.black};
+      color: ${(props) => props.theme.colors.black};
     }
 
     @media screen and (max-width: 800px) {
@@ -102,7 +102,7 @@ export const Title = styled.div`
   font-style: italic;
   font-size: 20px;
   line-height: 24px;
-  color: ${colors.mediumBlue};
+  color: ${(props) => props.theme.colors.mediumBlue};
 `;
 
 export const Excerpt = styled.div`
@@ -117,15 +117,3 @@ export const Excerpt = styled.div`
     line-height: 20px;
   }
 `;
-
-// imported component styles
-export const buttonStyles = {
-  title: 'more',
-  width: '70px',
-};
-
-export const backgroundStyles = {
-  height: '1000px',
-  top: '-600px',
-  color: colors.mediumBlue,
-};

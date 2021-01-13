@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import { colors } from '../../styles/colors';
 
 export const Section = styled.div`
   position: relative;
   padding: 0 40px;
   overflow: hidden;
+  font-family: ${(props) => props.theme.fonts.contactTerminal};
 
   @media screen and (max-width: 800px) {
     padding: 0 20px;
@@ -30,13 +30,14 @@ export const CardContent = styled.div`
   &::before {
     @media screen and (max-width: 1124px) {
       content: 'contact(me)';
+      font-family: ${(props) => props.theme.fonts.landingPageSectionHeading};
       font-size: 40px;
       line-height: 40px;
       font-style: italic;
       font-weight: bold;
       position: absolute;
       top: -50px;
-      color: ${colors.black};
+      color: ${(props) => props.theme.colors.black};
     }
 
     @media screen and (max-width: 800px) {
@@ -50,7 +51,7 @@ export const CardContent = styled.div`
 `;
 
 export const BashCommand = styled.p`
-  color: ${colors.background};
+  color: ${(props) => props.theme.colors.background};
   font-size: 20px;
   line-height: 24px;
 
@@ -60,14 +61,6 @@ export const BashCommand = styled.p`
   }
 
   span {
-    color: ${colors.mediumBlue};
+    color: ${(props) => props.theme.colors.mediumBlue};
   }
 `;
-
-// imported component styles
-
-export const backgroundStyles = {
-  height: '1000px',
-  top: '550px',
-  color: colors.red,
-};

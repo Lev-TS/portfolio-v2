@@ -1,12 +1,10 @@
 import styled from 'styled-components';
 
-import { colors } from '../../styles/colors';
-
 export const Container = styled.div`
   font-size: 12px;
   line-height: 16px;
   margin-top: 20px;
-  color: ${colors.mediumBlue};
+  color: ${(props) => props.theme.colors.mediumBlue};
 `;
 
 export const Form = styled.form`
@@ -19,7 +17,7 @@ export const Form = styled.form`
 
 export const Outcome = styled.span`
   content: ${(props) => props.children};
-  color: ${(props) => (props.error ? colors.red : 'green')};
+  color: ${(props) => (props.error ? props.theme.colors.red : 'green')};
   padding: 0 10px;
   place-self: center;
   text-align: center;

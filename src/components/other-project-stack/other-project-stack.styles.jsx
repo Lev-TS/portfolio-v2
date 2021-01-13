@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { colors } from '../../styles/colors';
 
 export const ProjectStack = styled.div`
   display: flex;
@@ -9,8 +8,8 @@ export const ProjectStack = styled.div`
 `;
 
 export const IconWrapper = styled.div`
-  background: ${colors.grey};
-  border: 1px solid ${colors.foreground};
+  background: ${(props) => props.theme.colors.grey};
+  border: 1px solid ${(props) => props.theme.colors.foreground};
   border-radius: 100%;
   width: 50px;
   height: 50px;
@@ -18,4 +17,14 @@ export const IconWrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin: 2.5px;
+  transition: all 100ms;
+  filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.25));
+
+  &:hover {
+    filter: initial;
+    transform: scale(2);
+    background: ${(props) => props.theme.colors.darkBlue};
+    border-color: ${(props) => props.theme.colors.darkBlue};
+    z-index: 1;
+  }
 `;

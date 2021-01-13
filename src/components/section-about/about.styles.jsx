@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import { colors } from '../../styles/colors';
-
 export const Section = styled.div`
   position: relative;
   padding: 0 40px;
@@ -55,23 +53,10 @@ export const CardContent = styled.div`
       content: 'About Me';
       display: block;
       margin-bottom: 20px;
+      font-family: ${(props) => props.theme.fonts.landingPageSectionHeading};
       font-size: 24px;
       line-height: 20px;
-      color: ${colors.mediumBlue};
+      color: ${(props) => props.theme.colors.mediumBlue};
     }
   }
 `;
-
-// imported component styles
-export const buttonStyles = {
-  title: 'resume',
-  right: '60px',
-  bottom: '51px',
-  width: '95px',
-};
-
-export const backgroundStyles = {
-  height: '700px',
-  top: '-250px',
-  color: colors.red,
-};

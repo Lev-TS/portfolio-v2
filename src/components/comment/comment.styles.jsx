@@ -4,6 +4,7 @@ export const CommentContainer = styled.div`
   position: relative;
   padding-bottom: 20px;
   display: flex;
+  font-family: ${(props) => props.theme.fonts.landingPageComment};
 
   ${(props) =>
     props.align
@@ -27,9 +28,10 @@ export const Marks = styled.img`
 `;
 
 export const Text = styled.p`
-  text-align: inherit;
+  font-weight: normal;
   font-size: 12px;
   line-height: 16px;
+  text-align: inherit;
   font-style: italic;
   max-width: 245px;
 `;

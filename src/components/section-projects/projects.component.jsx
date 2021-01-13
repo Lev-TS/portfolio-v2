@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import Fade from 'react-reveal/Fade';
 import { useStaticQuery, graphql } from 'gatsby';
+import { ThemeContext } from 'styled-components';
 
 import Layout from '../layouts/section.layout';
 import Heading from '../section-heading/section-heading.component';
@@ -9,23 +10,16 @@ import Card from '../card/card.component';
 import { WindowContext } from '../../providers/window.provider';
 
 import { distributeCardsInRows, renderCardIcon, getSlug } from './projects.utils';
-import {
-  Section,
-  SectionContent,
-  Row,
-  CardContent,
-  Icon,
-  Title,
-  Excerpt,
-  backgroundStyles,
-  buttonStyles,
-} from './projects.styles';
+import { Section, SectionContent, Row, CardContent, Icon, Title, Excerpt } from './projects.styles';
 
 export default function Skills() {
   const { isMobile } = useContext(WindowContext);
+  const { colors } = useContext(ThemeContext);
   const { strapiCodes } = useStaticQuery(query);
   const other = strapiCodes.other ? strapiCodes.other : undefined;
   const rows = distributeCardsInRows(strapiCodes.featured, 2, other);
+  const buttonStyles = { title: 'more', width: '70px' };
+  const backgroundStyles = { height: '1000px', top: '-600px', color: colors.mediumBlue };
 
   return (
     <Section>

@@ -1,10 +1,9 @@
 import styled, { css } from 'styled-components';
-import { colors } from '../../styles/colors';
 
 const shrinkLabelStyles = css`
   top: -16px;
   font-size: 12px;
-  color: ${colors.grey};
+  color: ${(props) => props.theme.colors.grey};
 `;
 
 export const Container = styled.div`
@@ -21,13 +20,13 @@ export const Container = styled.div`
 
 export const StyledInput = styled.input`
   background: none;
-  color: ${colors.foreground};
+  color: ${(props) => props.theme.colors.foreground};
   font-size: 16px;
   line-height: 16px;
   padding: 10px 10px 10px 5px;
   display: block;
   width: 100%;
-  border: 1px solid ${colors.mediumBlue};
+  border: 1px solid ${(props) => props.theme.colors.mediumBlue};
 
   &:focus {
     outline: none;
@@ -40,13 +39,13 @@ export const StyledInput = styled.input`
 
 export const StyledTextArea = styled.textarea`
   background: none;
-  color: ${colors.foreground};
+  color: ${(props) => props.theme.colors.foreground};
   font-size: 16px;
   line-height: 16px;
   padding: 10px 10px 10px 5px;
   display: block;
   width: 100%;
-  border: 1px solid ${colors.mediumBlue};
+  border: 1px solid ${(props) => props.theme.colors.mediumBlue};
   width: 100%;
   &:focus {
     outline: none;
@@ -58,7 +57,7 @@ export const StyledTextArea = styled.textarea`
 `;
 
 export const StyledLabel = styled.label`
-  color: ${colors.grey};
+  color: ${(props) => props.theme.colors.grey};
   font-size: 14px;
   font-weight: normal;
   position: absolute;

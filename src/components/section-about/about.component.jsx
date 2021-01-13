@@ -3,26 +3,23 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import Fade from 'react-reveal/Fade';
 
-import {
-  Section,
-  Avatar,
-  SectionContent,
-  CardContent,
-  backgroundStyles,
-  buttonStyles,
-} from './about.styles';
+import { ThemeContext } from 'styled-components';
+import { WindowContext } from '../../providers/window.provider';
+
+import { Section, Avatar, SectionContent, CardContent } from './about.styles';
 
 import Layout from '../layouts/section.layout';
 import Heading from '../section-heading/section-heading.component';
 import Comment from '../comment/comment.component';
 import Card from '../card/card.component';
 
-import { WindowContext } from '../../providers/window.provider';
-
 export default function About() {
+  const { colors } = useContext(ThemeContext);
   const { isMobile } = useContext(WindowContext);
   const { strapiAbout } = useStaticQuery(query);
   const { avatar, bio, quote, resume } = strapiAbout;
+  const backgroundStyles = { height: '700px', top: '-250px', color: colors.red };
+  const buttonStyles = { title: 'resume', right: '60px', bottom: '51px', width: '95px' };
 
   return (
     <Section>

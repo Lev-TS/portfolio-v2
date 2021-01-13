@@ -1,9 +1,8 @@
 import styled from 'styled-components';
-import { colors } from '../../styles/colors';
 
 export const Container = styled.div`
   min-height: 300px;
-  color: ${colors.grey};
+  color: ${(props) => props.theme.colors.grey};
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -16,21 +15,18 @@ export const Description = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 50px;
   margin-bottom: 20px;
 `;
 
-export const Title = styled.p`
-  font-style: italic;
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 24px;
+export const Title = styled.h3`
   margin-bottom: 10px;
-  color: ${colors.darkBlue};
+  color: ${(props) => props.theme.colors.darkBlue};
 `;
 
 export const Excerpt = styled.p`
   font-weight: normal;
+  font-style: normal;
   font-size: 16px;
   line-height: 24px;
 `;
@@ -43,8 +39,8 @@ export const AnchorContainer = styled.div`
 
   a {
     width: 100px;
-    border: 2px solid ${colors.darkBlue};
-    color: ${colors.darkBlue};
+    border: 2px solid ${(props) => props.theme.colors.darkBlue};
+    color: ${(props) => props.theme.colors.darkBlue};
     border-radius: 4px;
     text-decoration: none;
     font-weight: bold;
@@ -53,7 +49,7 @@ export const AnchorContainer = styled.div`
     transition: all 0.3s ease-in-out;
 
     &:hover {
-      background-color: ${colors.foreground};
+      background-color: ${(props) => props.theme.colors.foreground};
     }
   }
 `;

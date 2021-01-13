@@ -32,13 +32,15 @@ export const distributeCardsInRows = (cardsArr, chunkLength, cardObj) => {
   let i = 0;
   let count = 0;
   const tempCardArr = formatCardsArr(cardsArr);
+  const bottomRow = [formatCardObj(cardObj)];
 
+  if (cardsArr.length > 0) bottomRow.push(tempCardArr[0]);
   if (cardObj) {
     i = 1;
     count = 1;
     chunkedArray.push({
       rowId: nanoid(),
-      row: [formatCardObj(cardObj), tempCardArr[0]],
+      row: bottomRow,
       inverted: false,
     });
   }

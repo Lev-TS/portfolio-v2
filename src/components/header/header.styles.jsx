@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-import { colors } from '../../styles/colors';
 import ScrollUpIcon from '../../assets/footer/scroll-up-icon.inline.svg';
 
 export const Container = styled.div`
@@ -9,7 +8,7 @@ export const Container = styled.div`
   left: 0;
   width: 100%;
   height: 60px;
-  background: ${colors.darkGrey};
+  background: ${(props) => props.theme.colors.darkGrey};
   z-index: 1;
   cursor: pointer;
 

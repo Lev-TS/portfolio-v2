@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { colors } from '../../styles/colors';
 
 export const Shape = styled.div`
   position: absolute;
@@ -31,10 +30,9 @@ export const HeadingWrapper = styled.div`
   }
 `;
 
-export const Title = styled.span`
+export const Title = styled.h1`
+  font-family: ${(props) => props.theme.fonts.landingPageSectionHeading};
   font-style: italic;
-  font-weight: bold;
-  font-size: 40px;
   line-height: 40px;
-  color: ${colors.black};
+  color: ${(props) => props.theme.colors.black};
 `;

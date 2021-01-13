@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { colors } from '../../styles/colors';
 
 export const AnchorContainer = styled.div`
   display: grid;
@@ -10,16 +9,17 @@ export const AnchorContainer = styled.div`
 
 export const Anchor = styled.a`
   width: 100px;
-  border: 2px solid ${colors.darkBlue};
-  color: ${colors.darkBlue};
+  border: 2px solid ${(props) => props.theme.colors.darkBlue};
+  color: ${(props) => props.theme.colors.darkBlue};
   border-radius: 4px;
   text-decoration: none;
   font-weight: bold;
   padding: 10px;
   font-size: 15px;
-  transition: all 0.3s ease-in-out;
+  transition: all 100ms;
 
   &:hover {
-    background-color: ${colors.foreground};
+    background-color: ${(props) => props.theme.colors.darkBlue};
+    color: ${(props) => props.theme.colors.mediumBlue};
   }
 `;

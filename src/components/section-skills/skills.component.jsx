@@ -1,15 +1,10 @@
 import React, { useContext } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
+import { ThemeContext } from 'styled-components';
 
 import Fade from 'react-reveal/Fade';
 
-import {
-  Section,
-  SectionContent,
-  CardContent,
-  buttonStyles,
-  backgroundStyles,
-} from './skills.styles';
+import { Section, SectionContent, CardContent } from './skills.styles';
 
 import Layout from '../layouts/section.layout';
 import Heading from '../section-heading/section-heading.component';
@@ -21,9 +16,13 @@ import { WindowContext } from '../../providers/window.provider';
 
 export default function Skills() {
   const { isMobile } = useContext(WindowContext);
+  const { colors } = useContext(ThemeContext);
   const { strapiSkills } = useStaticQuery(query);
   const { skillsObject, customSkillsObject, quote, cardHeight } = strapiSkills;
   const skillsObjectToRender = skillsObject.concat(customSkillsObject);
+  const buttonStyles = { title: 'certificates', width: '155px' };
+  const backgroundStyles = { height: '1000px', top: '550px', color: colors.mediumBlue };
+
   return (
     <Section>
       <Layout>

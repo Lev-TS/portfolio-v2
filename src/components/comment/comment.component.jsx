@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import marksIcon from '../../assets/comment/marks.svg';
 import { CommentContainer, Marks, Text } from './comment.styles';
 
+// TODO: dangerouslySetInnerHTML
+// TODO: make Marks collors dinamic
 const Comment = ({ left, children }) => (
   <CommentContainer align={left}>
     <Marks src={marksIcon} align={left} />

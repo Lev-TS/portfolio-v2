@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const OtherProjectContainer = styled.div`
   max-width: 1178px;
   margin: 150px auto;
-  padding: 0 20px;
+  padding: 40px 20px;
   overflow: hidden;
 
   display: grid;

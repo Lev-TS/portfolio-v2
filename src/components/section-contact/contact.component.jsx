@@ -1,13 +1,8 @@
 import React, { useContext } from 'react';
 import Fade from 'react-reveal/Fade';
+import { ThemeContext } from 'styled-components';
 
-import {
-  Section,
-  SectionContent,
-  CardContent,
-  backgroundStyles,
-  BashCommand,
-} from './contact.styles';
+import { Section, SectionContent, CardContent, BashCommand } from './contact.styles';
 
 import Layout from '../layouts/section.layout';
 import Heading from '../section-heading/section-heading.component';
@@ -21,6 +16,8 @@ import { WindowContext } from '../../providers/window.provider';
 
 const ContactMe = () => {
   const { isMobile } = useContext(WindowContext);
+  const { colors } = useContext(ThemeContext);
+  const backgroundStyles = { height: '1000px', top: '550px', color: colors.red };
 
   return (
     <Section>

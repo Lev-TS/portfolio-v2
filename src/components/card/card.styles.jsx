@@ -1,10 +1,8 @@
 import styled, { css } from 'styled-components';
 
-import { colors } from '../../styles/colors';
-
 export const CardContent = styled.div`
-  background-color: ${colors.black};
-  color: ${colors.foreground};
+  background-color: ${(props) => props.theme.colors.black};
+  color: ${(props) => props.theme.colors.foreground};
   position: relative;
   flex-basis: 779px;
 `;
@@ -21,7 +19,7 @@ export const ButtonContainer = styled.div`
 
   div {
     width: 14px;
-    border-bottom: 2px solid ${colors.red};
+    border-bottom: 2px solid ${(props) => props.theme.colors.red};
     position: absolute;
     left: -18px;
     top: 13.5px;
@@ -41,14 +39,14 @@ export const ButtonContainer = styled.div`
 `;
 
 const CustomButtonStyles = css`
-  font-family: Courier Prime;
+  font-family: ${(props) => props.theme.fonts.landingPageCardButtons};
   text-decoration: none;
   font-style: italic;
   font-weight: normal;
   font-size: 20px;
   line-height: 24px;
   text-align: right;
-  color: ${colors.white};
+  color: ${(props) => props.theme.colors.white};
   font-style: italic;
 `;
 

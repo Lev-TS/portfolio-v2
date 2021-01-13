@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import { colors } from '../../styles/colors';
-
 const ScrollIcon = styled.div`
   position: absolute;
   bottom: 3%;
@@ -10,12 +8,12 @@ const ScrollIcon = styled.div`
 
   width: 16px;
   height: 28px;
-  border: 1px solid ${colors.background};
+  border: 1px solid ${(props) => props.theme.colors.background};
   border-radius: 25px;
 
   &:before {
     content: '';
-    background: ${colors.background};
+    background: ${(props) => props.theme.colors.background};
     position: absolute;
     left: 50%;
     transform: translateX(-50%);

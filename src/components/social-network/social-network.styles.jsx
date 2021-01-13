@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import { colors } from '../../styles/colors';
 
 const adjustment = css`
   @media screen and (max-width: 1290px) {
@@ -36,7 +35,7 @@ const Container = styled.div`
     cursor: pointer;
 
     .vector {
-      fill: ${(props) => (props.isFooter ? colors.white : colors.black)};
+      fill: ${(props) => (props.isFooter ? props.theme.colors.white : props.theme.colors.black)};
     }
 
     &:hover {

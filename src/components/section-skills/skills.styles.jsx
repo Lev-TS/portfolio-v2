@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { colors } from '../../styles/colors';
 
 export const Section = styled.div`
   position: relative;
@@ -39,13 +38,14 @@ export const CardContent = styled.div`
   &::before {
     @media screen and (max-width: 1124px) {
       content: '_skills';
+      font-family: ${(props) => props.theme.fonts.landingPageSectionHeading};
       font-size: 40px;
       line-height: 40px;
       font-style: italic;
       font-weight: bold;
       position: absolute;
       top: -50px;
-      color: ${colors.black};
+      color: ${(props) => props.theme.colors.black};
     }
 
     @media screen and (max-width: 800px) {
@@ -57,15 +57,3 @@ export const CardContent = styled.div`
     }
   }
 `;
-
-// imported component styles
-export const buttonStyles = {
-  title: 'certificates',
-  width: '155px',
-};
-
-export const backgroundStyles = {
-  height: '1000px',
-  top: '550px',
-  color: colors.mediumBlue,
-};

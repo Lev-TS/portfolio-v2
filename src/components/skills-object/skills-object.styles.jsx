@@ -1,8 +1,7 @@
 import styled from 'styled-components';
-import { colors } from '../../styles/colors';
 
 export const Container = styled.div`
-  color: ${colors.mediumBlue};
+  color: ${(props) => props.theme.colors.mediumBlue};
   font-size: 20px;
   line-height: 24px;
   position: relative;
@@ -11,10 +10,10 @@ export const Container = styled.div`
   @media screen and (max-width: 800px) {
     margin-left: 0;
     padding: 10px 0;
-    border-bottom: 1px solid #4c4a57;
+    border-bottom: 1px solid ${(props) => props.theme.colors.mediumBlue};
 
     &:first-child {
-      border-top: 1px solid #4c4a57;
+      border-top: 1px solid ${(props) => props.theme.colors.mediumBlue};
     }
   }
 
@@ -40,11 +39,11 @@ export const IconWrapper = styled.div`
   }
 
   .skill-icon-fill {
-    fill: ${colors.red};
+    fill: ${(props) => props.theme.colors.red};
   }
 
   .skill-icon-stroke {
-    stroke: ${colors.red};
+    stroke: ${(props) => props.theme.colors.red};
   }
 
   @media screen and (max-width: 800px) {
@@ -55,10 +54,10 @@ export const IconWrapper = styled.div`
 `;
 
 export const List = styled.ul`
-  color: ${colors.foreground};
+  color: ${(props) => props.theme.colors.foreground};
   margin-left: 3px;
   padding-left: 20px;
-  border-left: 1px solid ${colors.red};
+  border-left: 1px solid ${(props) => props.theme.colors.red};
   font-size: 12px;
   line-height: 16px;
   list-style: none;

@@ -1,20 +1,17 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  position: fixed;
-  left: -60px;
-  bottom: 100px;
   display: flex;
   align-items: center;
-  transform: rotate(-90deg);
 
   font-style: italic;
-  font-weight: 700;
+  font-weight: bold;
   font-size: 12px;
   line-height: 12px;
 `;
 
 export const Text = styled.div`
+  font-family: ${(props) => props.theme.fonts.rabbitScroll};
   margin-left: 10px;
 `;
 

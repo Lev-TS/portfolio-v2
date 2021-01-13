@@ -1,21 +1,19 @@
 import styled from 'styled-components';
 import { Link } from 'react-scroll';
 
-import { colors } from '../../styles/colors';
-
 export const FooterContainer = styled.div`
   height: 300px;
-  background-color: #333333;
+  background-color: ${(props) => props.theme.colors.darkGrey};
 `;
 
 export const TopHalfCointainer = styled.div`
   height: 50%;
   width: 80%;
   max-width: 580px;
-  border-bottom: 1px solid ${colors.darkGrey};
+  border-bottom: 1px solid ${(props) => props.theme.colors.darkGrey};
   margin: 0 auto;
   padding-top: 20px;
-  border-bottom: 2px solid ${colors.lightGrey};
+  border-bottom: 2px solid ${(props) => props.theme.colors.lightGrey};
 
   display: flex;
   flex-direction: column;
@@ -37,22 +35,24 @@ export const BottomHalfCointainer = styled.div`
   text-align: center;
   padding-top: 20px;
   padding-bottom: 40px;
-  color: ${colors.lightGrey};
-  font-size: 12px;
-  line-height: 16px;
+  color: ${(props) => props.theme.colors.lightGrey};
 
   p {
+    font-weight: normal;
+    font-style: normal;
+    font-size: 12px;
+    line-height: 16px;
     margin-bottom: 30px;
   }
 `;
 
 export const CustomButton = styled.a`
   padding: 12px;
-  font-weight: 400;
+  font-weight: normal;
   font-size: 14px;
   line-height: 14px;
-  background-color: ${colors.lightGrey};
-  color: ${colors.darkGrey};
+  background-color: ${(props) => props.theme.colors.lightGrey};
+  color: ${(props) => props.theme.colors.darkGrey};
   border-radius: 3px;
   outline: none;
   text-decoration: none;

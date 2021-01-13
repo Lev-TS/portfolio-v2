@@ -40,7 +40,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [`Courier Prime\:400,400i,700,700i`, `Recursive\:700`],
+        fonts: [
+          `Courier Prime\:400,400i,700,700i`,
+          `Recursive\:400,400i,700,700i`,
+          `Lato\:400,400i,700,700i`,
+        ],
         display: 'swap',
       },
     },

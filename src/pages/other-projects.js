@@ -28,8 +28,6 @@ export default function OtherProjects({ data }) {
   );
 }
 
-// TODO: make strapiCodes.other optional;
-// TODO: make liveLink and sourceLink optional;
 export const query = graphql`
   query {
     strapiCodes {

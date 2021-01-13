@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import { colors } from '../../styles/colors';
 
 import MobileScroll from '../mobile-scroll/mobile-scroll.component';
 import DesktopScroll from '../desktop-scroll/desktop-scroll.component';
@@ -16,7 +15,8 @@ export const Section = styled.div`
 `;
 
 export const Greeting = styled.div`
-  font-family: 'Recursive', cursive;
+  font-family: ${(props) => props.theme.fonts.heroGreeting};
+  font-weight: bolder;
   font-size: 40vh;
   line-height: 40vh;
   position: relative;
@@ -30,9 +30,10 @@ export const Greeting = styled.div`
   }
 `;
 
-export const Intro = styled.p`
+export const Intro = styled.div`
+  font-family: ${(props) => props.theme.fonts.heroIntro};
   font-style: italic;
-  font-weight: bold;
+  font-weight: bolder;
   font-size: 20px;
   line-height: 24px;
   text-align: right;
@@ -45,13 +46,13 @@ export const Intro = styled.p`
   }
 
   span {
-    color: ${colors.background};
+    color: ${(props) => props.theme.colors.background};
   }
 `;
 
 // imported component styles
 const show = css`
-  transform: ${(props) => !props.display && 'scale(0)'};
+  transform: ${(props) => (props.display ? 'scale(1)' : 'scale(0)')};
 `;
 
 const hide = css`
@@ -66,8 +67,15 @@ export const StyledMobileScroll = styled(MobileScroll)`
   }
 `;
 
+export const DesktopScrollWrapper = styled.div`
+  position: fixed;
+  left: 0;
+  bottom: 100px;
+`;
+
 export const StyledDesktopScroll = styled(DesktopScroll)`
-  ${show}
+  transform: ${(props) =>
+    props.display ? `scale(1) rotate(-90deg) translate(0, -${props.translateXBy}px)` : 'scale(0)'};
 
   @media screen and (max-width: 1124px) {
     ${hide}
@@ -81,9 +89,3 @@ export const StyledSocialNetwork = styled(SocialNetwork)`
     ${hide}
   }
 `;
-
-export const backgroundStyles = {
-  height: '60vh',
-  top: '50vh',
-  color: colors.red,
-};
