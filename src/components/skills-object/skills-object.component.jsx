@@ -1,21 +1,22 @@
 import React from 'react';
 
 import Icons from './skills-object.utils';
-import { Container, List, IconWrapper } from './skills-object.styles';
+import { Container, List, IconWrapper, Header } from './skills-object.styles';
 
 // TODO: test with empty builtIn objects
 const SkillsObject = ({ skillsObject }) => {
   const { category, skillset, customIcon } = skillsObject;
   return (
     <Container>
-      <IconWrapper>{Icons.getIcon(category, customIcon)}</IconWrapper>
-      <p>{category} &#123;</p>
+      <Header>
+        <span>{category}</span>
+        <IconWrapper>{Icons.getIcon(category, customIcon)}</IconWrapper>
+      </Header>
       <List>
         {skillset.map((item) => (
           <li key={item.id}>{item.skill}</li>
         ))}
       </List>
-      <p>&#125;</p>
     </Container>
   );
 };

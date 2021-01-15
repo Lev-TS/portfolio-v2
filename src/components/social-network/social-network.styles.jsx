@@ -35,7 +35,8 @@ const Container = styled.div`
     cursor: pointer;
 
     .vector {
-      fill: ${(props) => (props.isFooter ? props.theme.colors.white : props.theme.colors.black)};
+      fill: ${(props) =>
+        props.isFooter ? props.theme.colors.background : props.theme.colors.black};
     }
 
     &:hover {

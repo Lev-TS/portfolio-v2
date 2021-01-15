@@ -4,7 +4,7 @@ import { navigate } from 'gatsby';
 
 import { CardContent, ButtonContainer, StyledButton, StyledAnchor } from './card.styles';
 
-const Card = ({ children, buttonStyles, buttonLink, setDownload }) => {
+export default function Card({ children, buttonStyles, buttonLink, setDownload }) {
   const handleClick = async () => {
     if (buttonLink) navigate(buttonLink);
     sessionStorage.setItem('scrollPosition', window.scrollY);
@@ -29,7 +29,7 @@ const Card = ({ children, buttonStyles, buttonLink, setDownload }) => {
       ) : null}
     </CardContent>
   );
-};
+}
 
 Card.propTypes = {
   children: PropTypes.element.isRequired,
@@ -37,12 +37,9 @@ Card.propTypes = {
     title: PropTypes.string,
     right: PropTypes.string,
     bottom: PropTypes.string,
-    width: PropTypes.string,
   }),
   buttonLink: PropTypes.string,
   setDownload: PropTypes.exact({
     publicURL: PropTypes.string,
   }),
 };
-
-export default Card;

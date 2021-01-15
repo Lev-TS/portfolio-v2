@@ -30,4 +30,8 @@ export const Container = styled.div`
 
 export const NavIcon = styled(ScrollUpIcon)`
   transform: rotate(-90deg);
+
+  .scroll-arrow {
+    fill: ${(props) => props.theme.colors.background};
+  }
 `;

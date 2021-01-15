@@ -1,101 +1,46 @@
 import React from 'react';
-import Markdown from 'react-markdown';
 import { graphql } from 'gatsby';
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-
-import styled from 'styled-components';
-import Img from 'gatsby-image';
 
 import SEO from '../components/seo';
 import AppLayout from '../components/layouts/app.layout';
+import ProjectCarousel from '../components/other-project-carousel/other-project-carousel.component';
+import ProjectStack from '../components/other-project-stack/other-project-stack.component';
+import ProjectLinks from '../components/project-links/project-links.component';
+import ProjectCardList from '../components/project-card-list/project-card-list.component';
 
-// const ImageWrapper = styled.div`
-//   width: 500px;
-//   margin: 150px auto;
-// `;
-// <ImageWrapper>
-// <Img fluid={node.image.childImageSharp.fluid} />
-// </ImageWrapper>
+import {
+  Section,
+  Container,
+  ProjectDescription,
+  Portfolio,
+} from '../styles/featured-project.styles';
 
-export const Section = styled.div`
-  border: 4px solid green;
-  background: ${(props) => props.theme.colors.mediumBlue};
-`;
-
-export const ProjectCard = styled.div`
-  max-width: 780px;
-  background: ${(props) => props.theme.colors.mediumBlue};
-  border: 4px solid green;
-`;
-
-export const Image = styled(Img)`
-  height: 400px;
-
-  & > img {
-    object-fit: cover !important;
-    object-position: 0% 0% !important;
-    font-family: 'object-fit: cover !important; object-position: 0% 0% !important;';
-  }
-`;
-
-export const ProjectDescription = styled(Markdown)`
-  background: ${(props) => props.theme.colors.black};
-  color: ${(props) => props.theme.colors.foreground};
-  padding: 40px;
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    color: ${(props) => props.theme.colors.mediumBlue};
-    margin: 10px 0;
-  }
-
-  p {
-    padding-bottom: 20px;
-  }
-
-  > :first-child {
-    margin-top: 0;
-    padding-top: 0;
-  }
-
-  > :last-child {
-    margin-bottom: 0;
-    padding-bottom: 0;
-  }
-`;
-
-export default ({ data, className }) => {
-  const { project, projectDescription } = data.strapiCodes.featured.find(
-    (featuredProjObj) => featuredProjObj.project.title === data.strapiProjects.title
+export default ({ data }) => {
+  const { strapiCodes, strapiProjects } = data;
+  const currentFeaturedProj = strapiCodes.featured.find(
+    (el) => el.project.title === strapiProjects.title
   );
+  const remFeaturedProj = strapiCodes.featured.filter((el) => el.id !== currentFeaturedProj.id);
 
   return (
-    <AppLayout hideFooter hideHeader>
-      <SEO title={project.title} />
-
-      <ProjectCard>
-        <Carousel
-          showThumbs={false}
-          showStatus={false}
-          showArrows={false}
-          autoPlay
-          infiniteLoop
-          stopOnHover
-          useKeyboardArrows
-          swipeable
-          emulateTouch
-        >
-          {data.strapiProjects.images.map((node) => (
-            <Image fluid={node.image.childImageSharp.fluid} className={className} />
-          ))}
-        </Carousel>
-        <ProjectDescription source={projectDescription} />
-      </ProjectCard>
+    <AppLayout footerScrollsTo="featured-project-carousel">
+      <SEO title={currentFeaturedProj.project.title} />
+      <div id="featured-project-carousel" />
+      <Section>
+        <ProjectCarousel images={strapiProjects.images} featured />
+        <Container>
+          <ProjectStack
+            projectStack={strapiProjects.projectStack}
+            style={{ marginTop: '55px', marginBottom: '55px' }}
+          />
+          <ProjectLinks liveLink={strapiProjects.liveLink} sourceLink={strapiProjects.sourceLink} />
+        </Container>
+        <ProjectDescription source={currentFeaturedProj.projectDescription} />
+        <Portfolio>
+          <h1>Rest of Portfolio</h1>
+          <ProjectCardList featuredProjects={remFeaturedProj} otherProjects={strapiCodes.other} />
+        </Portfolio>
+      </Section>
     </AppLayout>
   );
 };
@@ -104,24 +49,68 @@ export const query = graphql`
   query($slug: String!) {
     strapiProjects(fields: { slug: { eq: $slug } }) {
       id
+      excerpt
       title
+      sourceLink
+      liveLink
       images {
+        altText
         image {
+          id
+          ext
+          publicURL
           childImageSharp {
             fluid {
               ...GatsbyImageSharpFluid
             }
           }
+        }
+      }
+      projectStack {
+        id
+        toolIcon {
+          ext
           publicURL
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
         }
       }
     }
     strapiCodes {
       featured {
-        project {
-          title
-        }
+        id
         projectDescription
+        cardIcon {
+          publicURL
+          ext
+          childImageSharp {
+            fixed(width: 60, height: 60) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
+        project {
+          id
+          title
+          excerpt
+        }
+      }
+      other {
+        id
+        cardTitle
+        cardDescription
+        cardIcon {
+          publicURL
+          ext
+          childImageSharp {
+            fixed(width: 60, height: 60) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
       }
     }
   }

@@ -20,7 +20,6 @@ export default function Skills() {
   const { strapiSkills } = useStaticQuery(query);
   const { skillsObject, customSkillsObject, quote, cardHeight } = strapiSkills;
   const skillsObjectToRender = skillsObject.concat(customSkillsObject);
-  const buttonStyles = { title: 'certificates', width: '155px' };
   const backgroundStyles = { height: '1000px', top: '550px', color: colors.mediumBlue };
 
   return (
@@ -31,7 +30,7 @@ export default function Skills() {
         </Heading>
         <Fade left={!isMobile} bottom={isMobile} duration={1000} delay={300} distance="300px">
           <SectionContent>
-            <Card buttonStyles={buttonStyles} buttonLink="/certificates">
+            <Card buttonStyles={{ title: 'certificates' }} buttonLink="/certificates">
               <CardContent height={cardHeight}>
                 {skillsObjectToRender.map((object) => (
                   <SkillsObject key={object.category} skillsObject={object} builtInIcon />

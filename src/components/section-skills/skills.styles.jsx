@@ -20,7 +20,7 @@ export const SectionContent = styled.div`
 `;
 
 export const CardContent = styled.div`
-  padding: 58px 37px 87px 37px;
+  padding: 58px 58px 87px 18px;
   font-size: 16px;
   line-height: 24px;
   display: flex;
@@ -33,6 +33,7 @@ export const CardContent = styled.div`
   @media screen and (max-width: 800px) {
     height: initial;
     flex-wrap: nowrap;
+    padding: 8vw 8vw 77px;
   }
 
   &::before {

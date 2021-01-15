@@ -12,6 +12,9 @@ export const ButtonContainer = styled.div`
   right: ${(props) => (props.right ? props.right : '20px')};
   bottom: ${(props) => (props.bottom ? props.bottom : '20px')};
 
+  display: flex;
+  align-items: flex-end;
+
   @media screen and (max-width: 800px) {
     right: 20px;
     bottom: 20px;
@@ -22,7 +25,7 @@ export const ButtonContainer = styled.div`
     border-bottom: 2px solid ${(props) => props.theme.colors.red};
     position: absolute;
     left: -18px;
-    top: 13.5px;
+    bottom: 3px;
     transition: width 200ms;
   }
 
@@ -32,7 +35,8 @@ export const ButtonContainer = styled.div`
 
     div {
       border-width: 4px;
-      width: ${(props) => props.width};
+      width: calc(100% + 22px);
+      opacity: 0.75;
       z-index: -1;
     }
   }
@@ -44,9 +48,9 @@ const CustomButtonStyles = css`
   font-style: italic;
   font-weight: normal;
   font-size: 20px;
-  line-height: 24px;
+  line-height: 20px;
   text-align: right;
-  color: ${(props) => props.theme.colors.white};
+  color: ${(props) => props.theme.colors.background};
   font-style: italic;
 `;
 

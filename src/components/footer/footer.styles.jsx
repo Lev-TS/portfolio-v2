@@ -28,6 +28,10 @@ export const ScrollUp = styled(Link)`
   &:hover {
     transform: scale(1.7);
   }
+
+  .scroll-arrow {
+    fill: ${(props) => props.theme.colors.background};
+  }
 `;
 
 export const BottomHalfCointainer = styled.div`

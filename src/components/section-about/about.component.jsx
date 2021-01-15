@@ -19,8 +19,9 @@ export default function About() {
   const { strapiAbout } = useStaticQuery(query);
   const { avatar, bio, quote, resume } = strapiAbout;
   const backgroundStyles = { height: '700px', top: '-250px', color: colors.red };
-  const buttonStyles = { title: 'resume', right: '60px', bottom: '51px', width: '95px' };
+  const buttonStyles = { title: 'resume', right: '60px', bottom: '51px' };
 
+  // TODO: refactor avatar to make it CMS friendly.
   return (
     <Section>
       <Layout>

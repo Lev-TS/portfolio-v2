@@ -21,6 +21,8 @@ export const SectionContent = styled.div`
 
 export const Avatar = styled.div`
   position: absolute;
+  border-radius: 100%;
+  overflow: hidden;
   right: 60px;
   top: -50px;
   z-index: 1;
@@ -40,16 +42,15 @@ export const CardContent = styled.div`
   max-width: 471px;
   font-size: 16px;
   line-height: 24px;
+  min-height: 450px;
+  display: flex;
+  align-items: center;
 
-  @media screen and (max-width: 800px) {
-    padding: 100px 20px 60px 20px;
-    margin: 0 auto;
-    font-size: 14px;
-    line-height: 20px;
-  }
+  @media screen and (max-width: 1124px) {
+    flex-direction: column;
+    align-items: flex-start;
 
-  &::before {
-    @media screen and (max-width: 1124px) {
+    &::before {
       content: 'About Me';
       display: block;
       margin-bottom: 20px;
@@ -58,5 +59,12 @@ export const CardContent = styled.div`
       line-height: 20px;
       color: ${(props) => props.theme.colors.mediumBlue};
     }
+  }
+
+  @media screen and (max-width: 800px) {
+    padding: 100px 20px 60px 20px;
+    margin: 0 auto;
+    font-size: 14px;
+    line-height: 20px;
   }
 `;
