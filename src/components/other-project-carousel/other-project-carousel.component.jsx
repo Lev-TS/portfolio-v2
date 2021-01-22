@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 
 import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 import ImageTagSelector from '../image-tag-selector/image-tag-selector.components';
 

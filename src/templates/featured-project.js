@@ -15,7 +15,7 @@ import {
   Portfolio,
 } from '../styles/featured-project.styles';
 
-export default ({ data }) => {
+export default ({ location, data }) => {
   const { strapiCodes, strapiProjects } = data;
   const currentFeaturedProj = strapiCodes.featured.find(
     (el) => el.project.title === strapiProjects.title
@@ -23,7 +23,7 @@ export default ({ data }) => {
   const remFeaturedProj = strapiCodes.featured.filter((el) => el.id !== currentFeaturedProj.id);
 
   return (
-    <AppLayout footerScrollsTo="featured-project-carousel">
+    <AppLayout footerScrollsTo="featured-project-carousel" state={location.state}>
       <SEO title={currentFeaturedProj.project.title} />
       <div id="featured-project-carousel" />
       <Section>
@@ -38,7 +38,11 @@ export default ({ data }) => {
         <ProjectDescription source={currentFeaturedProj.projectDescription} />
         <Portfolio>
           <h1>Rest of Portfolio</h1>
-          <ProjectCardList featuredProjects={remFeaturedProj} otherProjects={strapiCodes.other} />
+          <ProjectCardList
+            featuredProjects={remFeaturedProj}
+            otherProjects={strapiCodes.other}
+            doNotSaveScrollY
+          />
         </Portfolio>
       </Section>
     </AppLayout>

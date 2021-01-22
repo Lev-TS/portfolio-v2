@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 const adjustment = css`
   @media screen and (max-width: 1290px) {
-    right: 9px;
+    right: 8px;
 
     .social-icon {
       transition: 200ms;
@@ -19,13 +19,16 @@ const Container = styled.div`
   flex-direction: ${(props) => (props.isFooter ? 'row' : 'column')};
   position: ${(props) => (props.isFooter ? 'static' : 'fixed')};
   z-index: 1;
-  top: 50px;
+  top: 15px;
   right: 15px;
   overflow: visible;
-  margin: 3px 0;
 
   a {
     margin: ${(props) => (props.isFooter ? '0 10px' : '10px 0')};
+  }
+
+  > a {
+    margin-top: 0;
   }
 
   .social-icon {

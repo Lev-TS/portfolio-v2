@@ -56,6 +56,10 @@ const CustomButtonStyles = css`
 
 export const StyledAnchor = styled.a`
   ${CustomButtonStyles}
+
+  &:hover {
+    color: ${(props) => props.theme.colors.background};
+  }
 `;
 
 export const StyledButton = styled.button`

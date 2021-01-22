@@ -23,7 +23,7 @@ module.exports = {
       options: {
         apiURL: process.env.API_URL || 'http://localhost:1337',
         contentTypes: [`certificates`, `projects`],
-        singleTypes: [`about`, `skills`, `hero`, `social-links`, `codes`],
+        singleTypes: [`about`, `skills`, `hero`, `social-links`, `codes`, `theme`],
         queryLimit: 1000,
       },
     },
@@ -44,6 +44,7 @@ module.exports = {
           `Courier Prime\:400,400i,700,700i`,
           `Recursive\:400,400i,700,700i`,
           `Lato\:400,400i,700,700i`,
+          `Fugaz One\:400,400i,700,700i`,
         ],
         display: 'swap',
       },

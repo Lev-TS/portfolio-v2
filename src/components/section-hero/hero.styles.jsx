@@ -8,6 +8,10 @@ export const Section = styled.div`
   min-height: 100vh;
   overflow: hidden;
   padding: 0 40px;
+  user-select: none; /* Standard */
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
 
   @media screen and (max-width: 800px) {
     padding: 0 20px;
@@ -16,7 +20,8 @@ export const Section = styled.div`
 
 export const Greeting = styled.div`
   font-family: ${(props) => props.theme.fonts.heroGreeting};
-  font-weight: bolder;
+  font-style: normal;
+  font-weight: bold;
   font-size: 40vh;
   line-height: 40vh;
   position: relative;
@@ -69,8 +74,12 @@ export const StyledMobileScroll = styled(MobileScroll)`
 
 export const DesktopScrollWrapper = styled.div`
   position: fixed;
-  left: 0;
+  left: 12px;
   bottom: 100px;
+
+  @media screen and (max-width: 1290px) {
+    left: 5px;
+  }
 `;
 
 export const StyledDesktopScroll = styled(DesktopScroll)`

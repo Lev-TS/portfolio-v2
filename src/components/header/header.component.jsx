@@ -1,14 +1,19 @@
-import React from 'react';
-import { Link } from 'gatsby';
+import React, { useContext } from 'react';
+import { navigate } from 'gatsby';
 
-import { Container, NavIcon } from './header.styles';
+import { Container, StyledHomeIcon } from './header.styles';
+import { ThemeContext } from '../../providers/default-theme.provider';
 
-const Header = ({ className }) => {
+const Header = () => {
+  const { fontName } = useContext(ThemeContext);
+  const handleClick = async () => {
+    navigate('/');
+    sessionStorage.setItem('fontName', fontName);
+  };
+
   return (
     <Container>
-      <Link to="/">
-        <NavIcon className={className}>back</NavIcon>
-      </Link>
+      <StyledHomeIcon onClick={handleClick} />
     </Container>
   );
 };

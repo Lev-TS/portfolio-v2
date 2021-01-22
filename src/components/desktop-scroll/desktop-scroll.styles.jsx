@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import RabbitScroll from '../../assets/hero/rabbit-icon.inline.svg';
 
 export const Container = styled.div`
   display: flex;
@@ -15,7 +16,7 @@ export const Text = styled.div`
   margin-left: 10px;
 `;
 
-export const RabbitIcon = styled.img`
+export const StyledRabbitIcon = styled(RabbitScroll)`
   animation-duration: 1.5s;
   animation-iteration-count: infinite;
   animation-name: desktopScroll;
@@ -28,5 +29,9 @@ export const RabbitIcon = styled.img`
       opacity: 0;
       transform: translateX(-14px);
     }
+  }
+
+  .rabbit-scroll-fill {
+    fill: ${(props) => props.theme.colors.black};
   }
 `;

@@ -11,10 +11,10 @@ import ContactMe from '../components/section-contact/contact.component';
 import ContactProvider from '../providers/contact.provider';
 
 const IndexPage = () => {
+  // restore scroll position when we navigate with home button
   useEffect(() => {
-    const savedScrollPosition = sessionStorage.getItem('scrollPosition');
-    if (savedScrollPosition) window.scrollTo(0, savedScrollPosition);
-    else window.scrollTo(0, 0);
+    const scrollPosition = sessionStorage.getItem('scrollPosition') || 0;
+    window.scroll(0, scrollPosition);
     sessionStorage.removeItem('scrollPosition');
   }, []);
 

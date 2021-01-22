@@ -1,37 +1,36 @@
 import styled from 'styled-components';
 
-import ScrollUpIcon from '../../assets/footer/scroll-up-icon.inline.svg';
+import HomeIcon from '../../assets/home-icon.inline.svg';
 
 export const Container = styled.div`
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 60px;
-  background: ${(props) => props.theme.colors.darkGrey};
-  z-index: 1;
-  cursor: pointer;
+  height: 55px;
+  z-index: 3;
 
   a {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 250ms;
   }
 
-  &:hover {
-    a {
-      transform: scale(1.7);
-    }
+  @media screen and (max-width: 950px) {
+    background: ${(props) => props.theme.colors.mediumBlue};
+    filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.25));
   }
 `;
 
-export const NavIcon = styled(ScrollUpIcon)`
-  transform: rotate(-90deg);
+export const StyledHomeIcon = styled(HomeIcon)`
+  filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.25));
+  position: fixed;
+  top: 15px;
+  left: 50px;
+  cursor: pointer;
 
-  .scroll-arrow {
-    fill: ${(props) => props.theme.colors.background};
+  @media screen and (max-width: 1290px) {
+    left: 43px;
+  }
+
+  .home-icon {
+    fill: ${(props) => props.theme.colors.black};
   }
 `;

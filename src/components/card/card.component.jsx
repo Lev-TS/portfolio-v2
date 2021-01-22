@@ -1,13 +1,27 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { navigate } from 'gatsby';
 
 import { CardContent, ButtonContainer, StyledButton, StyledAnchor } from './card.styles';
+import { ThemeContext } from '../../providers/default-theme.provider';
 
-export default function Card({ children, buttonStyles, buttonLink, setDownload }) {
+export default function Card({
+  children,
+  buttonStyles,
+  buttonLink,
+  setDownload,
+  doNotSaveScrollY,
+}) {
+  const { fontName } = useContext(ThemeContext);
+
   const handleClick = async () => {
-    if (buttonLink) navigate(buttonLink);
-    sessionStorage.setItem('scrollPosition', window.scrollY);
+    if (buttonLink) {
+      navigate(buttonLink);
+      sessionStorage.setItem('fontName', fontName);
+    }
+
+    // retain scroll position if users navigates to projects from a featured project page
+    if (!doNotSaveScrollY) sessionStorage.setItem('scrollPosition', window.scrollY);
   };
 
   return (
