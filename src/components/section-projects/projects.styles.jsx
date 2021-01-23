@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import ProjectCardList from '../project-card-list/project-card-list.component';
 
-export const Section = styled.div`
+export const Section = styled.section`
   position: relative;
   padding: 0 40px;
   overflow: hidden;

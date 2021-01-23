@@ -1,4 +1,9 @@
 const path = require('path');
+
+if (typeof window !== `undefined`) {
+  const module = require('module');
+}
+
 const {
   strapiSkillsSchema,
   strapiSocialLinksSchema,

@@ -11,7 +11,8 @@ export const ThemeContext = createContext({
 
 export default function DefaultThemeProvider({ children }) {
   const { strapiTheme } = useStaticQuery(query);
-  const savedFontName = sessionStorage.getItem('fontName');
+  const savedFontName =
+    typeof sessionStorage !== 'undefined' ? sessionStorage.getItem('fontName') : null;
 
   const [activeColorPalette, setActiveColorPalette] = useState(strapiTheme.normalMode);
   const [fontName, setFontName] = useState(savedFontName || strapiTheme.defaultFonts);

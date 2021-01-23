@@ -56,7 +56,7 @@ body {
 }
 `;
 
-export const App = styled.div`
+export const App = styled.main`
   min-height: 100vh;
   display: flex;
   flex-direction: column;

@@ -8,8 +8,11 @@ const WindowProvider = ({ children }) => {
   const [isMobile, setIsMobile] = useState(false);
 
   const handleResize = () => {
-    if (window.innerWidth > 800 && isMobile) setIsMobile(false);
-    if (window.innerWidth <= 800 && !isMobile) setIsMobile(true);
+    if (typeof window !== `undefined`) {
+      if (window.innerWidth > 800 && isMobile) return setIsMobile(false);
+      if (window.innerWidth <= 800 && !isMobile) return setIsMobile(true);
+    }
+    return null;
   };
 
   useEffect(() => {

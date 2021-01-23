@@ -15,13 +15,15 @@ export default function Card({
   const { fontName } = useContext(ThemeContext);
 
   const handleClick = async () => {
-    if (buttonLink) {
-      navigate(buttonLink);
-      sessionStorage.setItem('fontName', fontName);
+    if (typeof window !== 'undefined' || typeof sessionStorage !== 'undefined') {
+      if (buttonLink) {
+        navigate(buttonLink);
+        sessionStorage.setItem('fontName', fontName);
+      }
+      // retain scroll position if users navigates to projects from a featured project page
+      if (!doNotSaveScrollY) sessionStorage.setItem('scrollPosition', window.scrollY);
     }
-
-    // retain scroll position if users navigates to projects from a featured project page
-    if (!doNotSaveScrollY) sessionStorage.setItem('scrollPosition', window.scrollY);
+    return null;
   };
 
   return (

@@ -37,9 +37,14 @@ const setPlaceholder = (value) => {
 
 export default function Menu({ show }) {
   const { fontName, strapiTheme, handleColorChange, handleFontChange } = useContext(ThemeContext);
-  const savedCustomPalette = parseStorage(sessionStorage, 'customPalette');
-  const savedDarkModeState = parseStorage(sessionStorage, 'showDarkMode');
-  const savedCustomPaletteState = parseStorage(sessionStorage, 'showCustomPalette');
+  const savedCustomPalette =
+    typeof sessionStorage !== 'undefined' ? parseStorage(sessionStorage, 'customPalette') : null;
+  const savedDarkModeState =
+    typeof sessionStorage !== 'undefined' ? parseStorage(sessionStorage, 'showDarkMode') : null;
+  const savedCustomPaletteState =
+    typeof sessionStorage !== 'undefined'
+      ? parseStorage(sessionStorage, 'showCustomPalette')
+      : null;
   const [customPalette, setCustomPalette] = useState(savedCustomPalette || strapiTheme.normalMode);
   const [showDarkMode, setShowDarkMode] = useState(savedDarkModeState || false);
   const [showCustomPalette, setShowCustomPalette] = useState(savedCustomPaletteState || false);
@@ -47,16 +52,20 @@ export default function Menu({ show }) {
   const toggleDarkMode = () => {
     setShowDarkMode(!showDarkMode);
     setShowCustomPalette(false);
-    sessionStorage.setItem('showDarkMode', !showDarkMode);
-    sessionStorage.setItem('showCustomPalette', false);
+    if (typeof sessionStorage !== 'undefined') {
+      sessionStorage.setItem('showDarkMode', !showDarkMode);
+      sessionStorage.setItem('showCustomPalette', false);
+    }
   };
 
   const toggleCustomPalette = () => {
     setShowCustomPalette(!showCustomPalette);
     setShowDarkMode(false);
-    sessionStorage.setItem('showCustomPalette', !showCustomPalette);
-    sessionStorage.setItem('showDarkMode', false);
-    sessionStorage.setItem('customPalette', JSON.stringify(customPalette));
+    if (typeof sessionStorage !== 'undefined') {
+      sessionStorage.setItem('showCustomPalette', !showCustomPalette);
+      sessionStorage.setItem('showDarkMode', false);
+      sessionStorage.setItem('customPalette', JSON.stringify(customPalette));
+    }
   };
 
   const onColorCustomization = (keyName, color) => {
@@ -65,9 +74,16 @@ export default function Menu({ show }) {
   };
 
   useEffect(() => {
-    if (showDarkMode && !showCustomPalette) handleColorChange(strapiTheme.darkPalette);
-    else if (showCustomPalette && !showDarkMode) handleColorChange(customPalette);
-    else handleColorChange(strapiTheme.normalMode);
+    if (showDarkMode && !showCustomPalette) {
+      console.log('1');
+      handleColorChange(strapiTheme.darkPalette);
+    } else if (showCustomPalette && !showDarkMode) {
+      console.log('2');
+      handleColorChange(customPalette);
+    } else {
+      console.log('3');
+      handleColorChange(strapiTheme.normalMode);
+    }
   }, [showDarkMode, showCustomPalette]);
 
   useEffect(() => {

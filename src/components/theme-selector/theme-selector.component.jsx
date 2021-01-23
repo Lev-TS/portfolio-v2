@@ -16,12 +16,12 @@ export default function ThemeSelector({ children, unfixMenu }) {
 
   return (
     <>
+      <Menu show={showMenu} />
+      <Overlay show={showMenu} onClick={toggleMenu} />
       <ThemeProvider theme={{ colors: activeColorPalette, fonts: Fonts.getTypeface(fontName) }}>
         <IconWrapper reposition={unfixMenu}>
           <SettingsIcon onClick={toggleMenu} />
         </IconWrapper>
-        <Menu show={showMenu} />
-        <Overlay show={showMenu} onClick={toggleMenu} />
         {children}
       </ThemeProvider>
     </>

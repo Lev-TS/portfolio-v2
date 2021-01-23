@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import HomeIcon from '../../assets/home-icon.inline.svg';
 
-export const Container = styled.div`
+export const Container = styled.header`
   position: fixed;
   top: 0;
   left: 0;

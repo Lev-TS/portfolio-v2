@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-scroll';
 
-export const FooterContainer = styled.div`
+export const FooterContainer = styled.footer`
   height: 300px;
   background-color: ${(props) => props.theme.colors.darkGrey};
 `;
