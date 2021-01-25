@@ -9,6 +9,7 @@ import { OtherProjectContainer } from '../styles/other-projects.styles';
 
 export default function OtherProjects({ data }) {
   let count = 0;
+
   return (
     <AppLayout footerScrollsTo="other-projects">
       <SEO title="Practice Projects" />

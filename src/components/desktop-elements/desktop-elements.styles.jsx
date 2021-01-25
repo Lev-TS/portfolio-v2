@@ -16,8 +16,7 @@ export const DesktopScrollWrapper = styled.div`
   position: fixed;
   left: 12px;
   bottom: 100px;
-
-  border: 1px solid green;
+  z-index: 5;
 
   @media screen and (max-width: 1290px) {
     left: 5px;

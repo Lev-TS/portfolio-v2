@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { ThemeContext } from 'styled-components';
 
 import {
   DesktopScrollWrapper,
@@ -6,15 +7,14 @@ import {
   StyledSocialNetwork,
 } from './desktop-elements.styles';
 
+// TODO: once I have selected final fonts update dimensions
+import { getTranslateValue } from './desktop-elements.utils';
+
 export default function DesctopElements() {
   const [showDesktopElements, setShowDesktopElements] = useState(true);
+  const { fonts } = useContext(ThemeContext);
 
-  // these vars are to calculate the width of desktop scroll
-  // and rotate it so that it appears on the right place
-  const element = useRef(null);
-  const [desktopScrollDimensions, setDesktopScrollDimensions] = useState({});
-
-  // TODO: make this more flexible, I need to make the body stretch the full height
+  // TODO: make this more flexible, e.g. stretch the body full height and determine the scroll bottom.
   const handleScroll = () => {
     if (typeof window !== 'undefined') {
       if (window.scrollY >= 3700 && showDesktopElements) return setShowDesktopElements(false);
@@ -24,23 +24,19 @@ export default function DesctopElements() {
   };
 
   useEffect(() => {
-    setDesktopScrollDimensions({
-      width: element.current.offsetWidth,
-      height: element.current.offsetHeight,
-    });
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, [handleScroll(), showDesktopElements]);
 
   return (
-    <div>
-      <DesktopScrollWrapper ref={element}>
+    <>
+      <DesktopScrollWrapper>
         <StyledDesktopScroll
           display={showDesktopElements}
-          translateXBy={(desktopScrollDimensions.width - desktopScrollDimensions.height) / 2}
+          translateXBy={getTranslateValue(fonts.rabbitScroll)}
         />
       </DesktopScrollWrapper>
       <StyledSocialNetwork display={showDesktopElements} />
-    </div>
+    </>
   );
 }

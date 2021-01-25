@@ -4,7 +4,6 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Container from './social-network.styles';
 import Icons from './social-network.utils';
 
-// TODO: Work in Progress
 export default function SocialNetwork({ className, isFooter }) {
   const { strapiSocialLinks } = useStaticQuery(query);
   const { socialLinks, customSocialLinks } = strapiSocialLinks;

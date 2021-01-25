@@ -9,7 +9,7 @@ import { CommentContainer, Marks, Text } from './comment.styles';
 const Comment = ({ left, children }) => (
   <CommentContainer align={left}>
     <Marks src={marksIcon} align={left} />
-    <Text>{children}</Text>
+    <Text dangerouslySetInnerHTML={{ __html: children }} />
   </CommentContainer>
 );
 

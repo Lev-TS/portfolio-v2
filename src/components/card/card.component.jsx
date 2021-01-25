@@ -1,9 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { navigate } from 'gatsby';
 
 import { CardContent, ButtonContainer, StyledButton, StyledAnchor } from './card.styles';
-import { ThemeContext } from '../../providers/default-theme.provider';
 
 export default function Card({
   children,
@@ -12,18 +11,11 @@ export default function Card({
   setDownload,
   doNotSaveScrollY,
 }) {
-  const { fontName } = useContext(ThemeContext);
-
   const handleClick = async () => {
-    if (typeof window !== 'undefined' || typeof sessionStorage !== 'undefined') {
-      if (buttonLink) {
-        navigate(buttonLink);
-        sessionStorage.setItem('fontName', fontName);
-      }
-      // retain scroll position if users navigates to projects from a featured project page
-      if (!doNotSaveScrollY) sessionStorage.setItem('scrollPosition', window.scrollY);
+    if (buttonLink) navigate(buttonLink);
+    if (typeof window !== 'undefined') {
+      if (!doNotSaveScrollY) window.sessionStorage.setItem('scrollPosition', window.scrollY);
     }
-    return null;
   };
 
   return (
@@ -58,4 +50,5 @@ Card.propTypes = {
   setDownload: PropTypes.exact({
     publicURL: PropTypes.string,
   }),
+  doNotSaveScrollY: PropTypes.bool,
 };

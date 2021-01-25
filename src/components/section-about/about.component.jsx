@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
-import Fade from 'react-reveal/Fade';
+import { Fade } from 'react-awesome-reveal';
 
 import { ThemeContext } from 'styled-components';
 import { WindowContext } from '../../providers/window.provider';
@@ -21,12 +21,11 @@ export default function About() {
   const backgroundStyles = { height: '700px', top: '-250px', color: colors.red };
   const buttonStyles = { title: 'resume', right: '60px', bottom: '51px' };
 
-  // TODO: refactor avatar to make it CMS friendly.
   return (
     <Section>
       <Layout>
         <Heading background={backgroundStyles}>{'<about />'}</Heading>
-        <Fade right={!isMobile} bottom={isMobile} duration={1000} delay={300} distance="300px">
+        <Fade direction={isMobile ? 'up' : 'right'} duration={1500} triggerOnce>
           <SectionContent>
             <Avatar>
               <Img fluid={avatar.childImageSharp.fluid} />

@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 export const Section = styled.section`
+  background: ${(props) => props.theme.colors.background};
+  position: relative;
+  z-index: 0;
   min-height: 100vh;
   overflow: hidden;
   padding: 0 40px;
@@ -9,8 +12,34 @@ export const Section = styled.section`
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+/Edge */
 
+  animation-duration: 500ms;
+  animation-name: reveal;
+
+  @keyframes reveal {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
   @media screen and (max-width: 800px) {
     padding: 0 20px;
+  }
+
+  .greeting-animation {
+    position: relative;
+    top: 30vh;
+    left: -3vh;
+
+    @media screen and (max-width: 800px) {
+      left: 0;
+      text-align: center;
+    }
   }
 `;
 
@@ -20,18 +49,14 @@ export const Greeting = styled.div`
   font-weight: bold;
   font-size: 40vh;
   line-height: 40vh;
-  position: relative;
-  top: 30vh;
-  left: -3vh;
+  display: flex;
 
   @media screen and (max-width: 800px) {
-    left: 0;
     font-size: calc(100px + 40vw);
-    text-align: center;
   }
 `;
 
-export const Intro = styled.div`
+export const Intro = styled.p`
   font-family: ${(props) => props.theme.fonts.heroIntro};
   font-style: italic;
   font-weight: bolder;

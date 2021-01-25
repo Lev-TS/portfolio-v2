@@ -5,6 +5,23 @@ export const Section = styled.section`
   padding: 0 40px;
   overflow: hidden;
 
+  z-index: 0;
+  background: ${(props) => props.theme.colors.background};
+  animation-duration: 500ms;
+  animation-name: reveal;
+
+  @keyframes reveal {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
   @media screen and (max-width: 800px) {
     padding: 0 20px;
   }
@@ -21,6 +38,7 @@ export const SectionContent = styled.div`
 
 export const Avatar = styled.div`
   position: absolute;
+  border: 4px solid ${(props) => props.theme.colors.background};
   border-radius: 100%;
   overflow: hidden;
   right: 60px;

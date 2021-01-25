@@ -6,6 +6,23 @@ export const Section = styled.section`
   overflow: hidden;
   font-family: ${(props) => props.theme.fonts.contactTerminal};
 
+  z-index: 0;
+  background: ${(props) => props.theme.colors.background};
+  animation-duration: 500ms;
+  animation-name: reveal;
+
+  @keyframes reveal {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
   @media screen and (max-width: 800px) {
     padding: 0 20px;
   }

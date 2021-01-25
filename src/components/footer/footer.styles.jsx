@@ -52,12 +52,17 @@ export const BottomHalfCointainer = styled.div`
 
 export const CustomButton = styled.a`
   padding: 12px;
-  font-weight: normal;
+  font-weight: bold;
   font-size: 14px;
   line-height: 14px;
   background-color: ${(props) => props.theme.colors.lightGrey};
   color: ${(props) => props.theme.colors.darkGrey};
   border-radius: 3px;
-  outline: none;
   text-decoration: none;
+  outline: none;
+
+  &:hover {
+    opacity: 0.5;
+    color: ${(props) => props.theme.colors.darkGrey};
+  }
 `;

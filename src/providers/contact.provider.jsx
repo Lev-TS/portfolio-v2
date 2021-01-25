@@ -37,11 +37,10 @@ const ContactProvider = ({ children }) => {
         'Content-Type': 'application/json',
       },
     }).then((response) => {
-      if (response.status === 200)
-        setAlert('Message sent, thank you! I look forward to reading it!');
+      if (response.status === 200) setAlert('Message sent, thank you!');
       if (response.status === 500) {
         setServerFailed(true);
-        setAlert('Server is down. Please write me at lev.tsu@gmail.com');
+        setAlert('Server down, please try later.');
       }
       setIsLoading(false);
       setName('');

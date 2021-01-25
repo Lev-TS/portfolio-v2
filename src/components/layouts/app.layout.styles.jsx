@@ -7,7 +7,6 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 body {
-  background: ${(props) => props.theme.colors.background};
   color: ${(props) => props.theme.colors.black};
   font-family: ${(props) => props.theme.fonts.body};
   font-weight: normal;

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import Fade from 'react-reveal/Fade';
+import { Fade } from 'react-awesome-reveal';
 import { useStaticQuery, graphql } from 'gatsby';
 import { ThemeContext } from 'styled-components';
 
@@ -21,7 +21,7 @@ export default function Skills() {
     <Section>
       <Layout>
         <Heading background={backgroundStyles}>{'{...codes}'}</Heading>
-        <Fade right={!isMobile} bottom={isMobile} duration={1000} delay={300} distance="300px">
+        <Fade direction={isMobile ? 'up' : 'right'} duration={1500} triggerOnce>
           <StyledProjectCardList featuredProjects={strapiCodes.featured} otherProjects={other} />
         </Fade>
       </Layout>

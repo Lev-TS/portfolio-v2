@@ -25,6 +25,11 @@ const Container = styled.div`
 
   a {
     margin: ${(props) => (props.isFooter ? '0 10px' : '10px 0')};
+    transition: 250ms;
+
+    &:hover {
+      transform: scale(1.7);
+    }
   }
 
   > a {
@@ -32,7 +37,6 @@ const Container = styled.div`
   }
 
   .social-icon {
-    transition: 250ms;
     height: 25px;
     width: 25px;
     cursor: pointer;
@@ -40,10 +44,6 @@ const Container = styled.div`
     .vector {
       fill: ${(props) =>
         props.isFooter ? props.theme.colors.background : props.theme.colors.black};
-    }
-
-    &:hover {
-      transform: scale(1.7);
     }
   }
 

@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import RubberBand from 'react-reveal/RubberBand';
-import Fade from 'react-reveal/Fade';
+import { AttentionSeeker, Fade } from 'react-awesome-reveal';
 import { ThemeContext } from 'styled-components';
 
 import MobileScroll from '../mobile-scroll/mobile-scroll.component';
@@ -15,19 +14,26 @@ import Heading from '../section-heading/section-heading.component';
 export default function Hero() {
   const { strapiHero } = useStaticQuery(query);
   const { colors } = useContext(ThemeContext);
-  const backgroundStyles = { height: '60vh', top: '50vh', color: colors.red };
+  const backgroundStyles = { height: '80vh', top: '50vh', color: colors.red };
 
   return (
     <Section id="hero">
       <Layout>
         <Greeting>
-          <Fade duration={300} delay={300}>
-            <RubberBand duration={1000} delay={300} cascade>
-              {strapiHero.greeting}
-            </RubberBand>
-          </Fade>
+          <AttentionSeeker
+            triggerOnce
+            cascade
+            effect="rubberBand"
+            delay={500}
+            duration={1000}
+            damping={0.2}
+            className="greeting-animation"
+          >
+            <span>H</span>
+            <span>i</span>
+          </AttentionSeeker>
         </Greeting>
-        <Fade duration={1000} delay={800}>
+        <Fade triggerOnce duration={1500} delay={1000}>
           <Intro dangerouslySetInnerHTML={{ __html: strapiHero.intro }} />
         </Fade>
         <Heading background={backgroundStyles} />
@@ -41,7 +47,6 @@ export default function Hero() {
 const query = graphql`
   query strapiHero {
     strapiHero {
-      greeting
       intro
     }
   }

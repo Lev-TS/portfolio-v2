@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
+import { Fade } from 'react-awesome-reveal';
 import { ThemeContext } from 'styled-components';
-
-import Fade from 'react-reveal/Fade';
 
 import { Section, SectionContent, CardContent } from './skills.styles';
 
@@ -28,7 +27,7 @@ export default function Skills() {
         <Heading background={backgroundStyles} left>
           _skills
         </Heading>
-        <Fade left={!isMobile} bottom={isMobile} duration={1000} delay={300} distance="300px">
+        <Fade direction={isMobile ? 'up' : 'left'} duration={1500} triggerOnce>
           <SectionContent>
             <Card buttonStyles={{ title: 'certificates' }} buttonLink="/certificates">
               <CardContent height={cardHeight}>

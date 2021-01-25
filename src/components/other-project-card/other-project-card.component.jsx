@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import Fade from 'react-reveal/Fade';
+import { Fade } from 'react-awesome-reveal';
 
 import { Container, Description, Title, Excerpt } from './other-project-card.styles';
 
@@ -11,16 +11,14 @@ import { WindowContext } from '../../providers/window.provider';
 
 export default function OtherProjectCard({ projectData, isOdd }) {
   const { isMobile } = useContext(WindowContext);
+  const setDirection = () => {
+    if (!isMobile && isOdd) return 'right';
+    if (!isMobile && !isOdd) return 'left';
+    return undefined;
+  };
 
   return (
-    <Fade
-      right={!isMobile && isOdd}
-      left={!isMobile && !isOdd}
-      bottom={isMobile}
-      duration={1000}
-      delay={300}
-      distance="300px"
-    >
+    <Fade direction={setDirection()} duration={1000} triggerOnce>
       <Container>
         <OtherProjectCarousel images={projectData.images} />
         <Description>

@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  max-width: 1178px;
+  margin: 0 auto;
   min-height: 300px;
   color: ${(props) => props.theme.colors.grey};
   text-align: center;
