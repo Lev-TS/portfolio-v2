@@ -6,7 +6,7 @@ const DesktopScroll = ({ className }) => {
   return (
     <Container className={className}>
       <StyledRabbitIcon />
-      <Text>Follow the rabbit</Text>
+      <Text>Scroll</Text>
     </Container>
   );
 };

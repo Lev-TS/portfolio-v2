@@ -7,18 +7,17 @@ import {
   StyledSocialNetwork,
 } from './desktop-elements.styles';
 
-// TODO: once I have selected final fonts update dimensions
 import { getTranslateValue } from './desktop-elements.utils';
 
-export default function DesctopElements() {
+export default function DesktopScrollElements() {
   const [showDesktopElements, setShowDesktopElements] = useState(true);
   const { fonts } = useContext(ThemeContext);
 
-  // TODO: make this more flexible, e.g. stretch the body full height and determine the scroll bottom.
   const handleScroll = () => {
     if (typeof window !== 'undefined') {
-      if (window.scrollY >= 3700 && showDesktopElements) return setShowDesktopElements(false);
-      if (!showDesktopElements && window.scrollY < 3700) return setShowDesktopElements(true);
+      const hidePoint = document.getElementById('___gatsby').offsetHeight - window.innerHeight - 5;
+      if (showDesktopElements && window.scrollY >= hidePoint) return setShowDesktopElements(false);
+      if (!showDesktopElements && window.scrollY < hidePoint) return setShowDesktopElements(true);
     }
     return null;
   };
@@ -26,10 +25,10 @@ export default function DesctopElements() {
   useEffect(() => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [handleScroll(), showDesktopElements]);
+  }, [showDesktopElements]);
 
   return (
-    <>
+    <div>
       <DesktopScrollWrapper>
         <StyledDesktopScroll
           display={showDesktopElements}
@@ -37,6 +36,6 @@ export default function DesctopElements() {
         />
       </DesktopScrollWrapper>
       <StyledSocialNetwork display={showDesktopElements} />
-    </>
+    </div>
   );
 }

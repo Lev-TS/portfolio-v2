@@ -27,7 +27,7 @@ export default function Skills() {
         <Heading background={backgroundStyles} left>
           _skills
         </Heading>
-        <Fade direction={isMobile ? 'up' : 'left'} duration={1500} triggerOnce>
+        <Fade direction={isMobile ? undefined : 'left'} duration={1500} triggerOnce>
           <SectionContent>
             <Card buttonStyles={{ title: 'certificates' }} buttonLink="/certificates">
               <CardContent height={cardHeight}>

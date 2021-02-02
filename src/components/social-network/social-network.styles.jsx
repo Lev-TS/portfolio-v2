@@ -22,6 +22,7 @@ const Container = styled.div`
   top: 15px;
   right: 15px;
   overflow: visible;
+  font-family: ${(props) => props.theme.fonts.rabbitScroll};
 
   a {
     margin: ${(props) => (props.isFooter ? '0 10px' : '10px 0')};

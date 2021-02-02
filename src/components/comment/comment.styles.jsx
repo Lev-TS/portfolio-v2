@@ -20,11 +20,16 @@ export const CommentContainer = styled.div`
   }
 `;
 
-export const Marks = styled.img`
+export const MarksWrapper = styled.div`
   position: absolute;
   padding: 0 170px;
   top: -40px;
   ${(props) => !props.align && `transform: rotate(180deg);`}
+
+  .marks-icon-fill {
+    fill: ${(props) => props.theme.colors.darkGrey};
+    fill-opacity: 0.15;
+  }
 `;
 
 export const Text = styled.p`

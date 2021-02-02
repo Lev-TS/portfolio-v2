@@ -1,16 +1,20 @@
 import React from 'react';
+import { Fade } from 'react-awesome-reveal';
+
 import PropTypes from 'prop-types';
+import MarksIcon from '../../assets/comment/marks.inline.svg';
 
-import marksIcon from '../../assets/comment/marks.svg';
-import { CommentContainer, Marks, Text } from './comment.styles';
+import { CommentContainer, MarksWrapper, Text } from './comment.styles';
 
-// TODO: dangerouslySetInnerHTML
-// TODO: make Marks collors dinamic
 const Comment = ({ left, children }) => (
-  <CommentContainer align={left}>
-    <Marks src={marksIcon} align={left} />
-    <Text dangerouslySetInnerHTML={{ __html: children }} />
-  </CommentContainer>
+  <Fade duration={500} triggerOnce delay={1000}>
+    <CommentContainer align={left}>
+      <MarksWrapper align={left}>
+        <MarksIcon />
+      </MarksWrapper>
+      <Text dangerouslySetInnerHTML={{ __html: children }} />
+    </CommentContainer>
+  </Fade>
 );
 
 Comment.propTypes = {

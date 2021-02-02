@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 
-import SEO from '../components/seo';
 import AppLayout from '../components/layouts/app.layout';
 import Hero from '../components/section-hero/hero.component';
 import About from '../components/section-about/about.component';
@@ -19,8 +18,7 @@ const IndexPage = () => {
   }, []);
 
   return (
-    <AppLayout hideHeader footerScrollsTo="hero">
-      <SEO title="Home" />
+    <AppLayout hideHeader footerScrollsTo="hero" seo={{ metaTitle: 'Home' }}>
       <Hero />
       <About />
       <Skills />

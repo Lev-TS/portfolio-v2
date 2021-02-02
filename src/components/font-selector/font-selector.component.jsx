@@ -12,21 +12,15 @@ const fontOptions = [
     value: 'monospace',
   },
   {
-    key: 'sans',
-    text: 'Sans Serif',
-    value: 'sans',
-  },
-  {
-    key: 'serif',
-    text: 'Serif',
-    value: 'serif',
+    key: 'mixed',
+    text: 'Mixed',
+    value: 'mixed',
   },
 ];
 
 const setPlaceholder = (value) => {
   if (value.toLowerCase() === 'monospace') return 'Monospace';
-  if (value.toLowerCase() === 'serif') return 'Serif';
-  return 'Sans Serif';
+  return 'Mixed';
 };
 
 export default function FontSelector() {

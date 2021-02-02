@@ -21,7 +21,12 @@ export default function Footer({ scrollTo }) {
         <SocialNetwork isFooter />
       </TopHalfCointainer>
       <BottomHalfCointainer>
-        <p>© 2020 - designed and coded by LevTS</p>
+        <p>
+          <span>{`© ${new Date().getFullYear()} - designed and coded by `}</span>
+          <span>
+            <a href="http://www.lts.codes/">LevTS</a>
+          </span>
+        </p>
         <CustomButton
           href="https://github.com/Lev-TS/portfolio-v2"
           target="_blank"

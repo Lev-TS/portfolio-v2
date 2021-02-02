@@ -9,6 +9,21 @@ export const Container = styled.div`
   font-weight: bold;
   font-size: 12px;
   line-height: 12px;
+
+  animation-duration: 500ms;
+  animation-name: reveal;
+
+  @keyframes reveal {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 `;
 
 export const Text = styled.div`

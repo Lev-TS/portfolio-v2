@@ -12,7 +12,7 @@ export default function OtherProjectStack({ projectStack }) {
             <ImageTagSelector
               source={toolIcon}
               alt="icon"
-              styles={{ maxWidth: '25px', miniWdth: '25px' }}
+              styles={{ maxWidth: '30px', miniWdth: '30px' }}
             />
           </IconWrapper>
         );

@@ -1,7 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import SEO from '../components/seo';
 import AppLayout from '../components/layouts/app.layout';
 import OtherProjectCard from '../components/other-project-card/other-project-card.component';
 
@@ -11,8 +10,7 @@ export default function OtherProjects({ data }) {
   let count = 0;
 
   return (
-    <AppLayout footerScrollsTo="other-projects">
-      <SEO title="Practice Projects" />
+    <AppLayout footerScrollsTo="other-projects" seo={data.strapiCodes.other.seo}>
       <div id="other-projects" />
       <OtherProjectContainer>
         {data.strapiCodes.other.projects.map((project) => {
@@ -33,6 +31,13 @@ export const query = graphql`
   query {
     strapiCodes {
       other {
+        seo {
+          metaTitle
+          metaDescription
+          shareImage {
+            publicURL
+          }
+        }
         projects {
           id
           title

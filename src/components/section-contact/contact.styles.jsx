@@ -8,20 +8,6 @@ export const Section = styled.section`
 
   z-index: 0;
   background: ${(props) => props.theme.colors.background};
-  animation-duration: 500ms;
-  animation-name: reveal;
-
-  @keyframes reveal {
-    0% {
-      opacity: 0;
-    }
-    50% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
 
   @media screen and (max-width: 800px) {
     padding: 0 20px;
@@ -30,11 +16,12 @@ export const Section = styled.section`
 
 export const SectionContent = styled.div`
   position: relative;
-  margin-top: 233px;
   margin-bottom: 266px;
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
+  margin-top: 233px;
+  min-height: 500px;
 `;
 
 export const CardContent = styled.div`
@@ -72,12 +59,35 @@ export const BashCommand = styled.p`
   font-size: 20px;
   line-height: 24px;
 
-  @media screen and (max-width: 414px) {
+  @media screen and (max-width: 800px) {
     font-size: 16px;
-    ine-height: 20px;
+    line-height: 20px;
   }
 
   span {
     color: ${(props) => props.theme.colors.mediumBlue};
+  }
+`;
+
+export const ContactDetails = styled.div`
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 20px;
+
+  text-align: center;
+  position: relative;
+  top: 120px;
+  color: ${(props) => props.theme.colors.black};
+`;
+
+export const Email = styled.a`
+  font-size: 16px;
+  line-height: 24px;
+  text-decoration: none;
+  color: ${(props) => props.theme.colors.background};
+
+  & :hover {
+    color: ${(props) => props.theme.colors.black};
   }
 `;

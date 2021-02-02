@@ -64,7 +64,6 @@ export const Title = styled.div`
   position: absolute;
   right: 20px;
   top: 20px;
-  font-style: italic;
   font-size: 20px;
   line-height: 24px;
   color: ${(props) => props.theme.colors.mediumBlue};
@@ -77,7 +76,7 @@ export const Excerpt = styled.div`
   text-align: right;
   padding: 60px 0;
 
-  @media screen and (max-width: 414px) {
+  @media screen and (max-width: 800px) {
     font-size: 14px;
     line-height: 20px;
   }

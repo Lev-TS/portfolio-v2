@@ -4,7 +4,6 @@ import { AttentionSeeker, Fade } from 'react-awesome-reveal';
 import { ThemeContext } from 'styled-components';
 
 import MobileScroll from '../mobile-scroll/mobile-scroll.component';
-import DesktopElements from '../desktop-elements/desktop-elements.component';
 
 import { Section, Greeting, Intro } from './hero.styles';
 
@@ -38,7 +37,6 @@ export default function Hero() {
         </Fade>
         <Heading background={backgroundStyles} />
         <MobileScroll />
-        <DesktopElements />
       </Layout>
     </Section>
   );

@@ -3,7 +3,6 @@ import React from 'react';
 import Icons from './skills-object.utils';
 import { Container, List, IconWrapper, Header } from './skills-object.styles';
 
-// TODO: test with empty builtIn objects
 const SkillsObject = ({ skillsObject }) => {
   const { category, skillset, customIcon } = skillsObject;
   return (

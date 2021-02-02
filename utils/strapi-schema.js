@@ -57,6 +57,15 @@ exports.strapiCodesSchema = `
     projectDescription: String
     cardIcon: File @link(by: "id", from: "cardIcon___NODE")
     project: Project
+    seo: SEO
+  }
+
+  type Other {
+    id: Int
+    cardTitle: String
+    cardDescription: String
+    cardIcon: File @link(by: "id", from: "cardIcon___NODE")
+    projects: [Project]
   }
 
   type Project {
@@ -67,13 +76,13 @@ exports.strapiCodesSchema = `
     sourceLink: String
   }
 
-  type Other {
-    id: Int
-    cardTitle: String
-    cardDescription: String
-    cardIcon: File @link(by: "id", from: "cardIcon___NODE")
-    projects: [Project]
+  type SEO {
+    metaTitle: String
+    metaDescription: String
+    shareImage: File @link(by: "id", from: "shareImage___NODE")
   }
+
+
 `;
 
 exports.strapiProjectsSchema = `
@@ -95,5 +104,19 @@ exports.strapiProjectsSchema = `
   type ProjectStack @infer {
     id: Int
     toolIcon: File @link(by: "id", from: "toolIcon___NODE")
+  }
+`;
+
+exports.strapiContactMeSchema = `
+  type StrapiContactMe implements Node {
+    contactFlow: [ContactFlow]
+  }
+
+  type ContactFlow {
+    id: Int
+    callForAction: String
+    noFormCallForAction: String
+    email: String
+    quote: String
   }
 `;

@@ -65,6 +65,7 @@ export default function ColorThemeProvider({ children }) {
     return { colors: 'loading' };
   };
   const [state, dispatch] = useReducer(colorReducer, initialState, savedState);
+
   return (
     <ColorThemeContext.Provider
       value={{

@@ -19,9 +19,9 @@ export const ContactContext = createContext({
 const ContactProvider = ({ children }) => {
   const [yesFormHidden, setYesFormHidden] = useState(true);
   const [noFormHidden, setNoFormHidden] = useState(true);
-  const [username, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
+  const [username, setName] = useState('n/a');
+  const [email, setEmail] = useState('n/a');
+  const [message, setMessage] = useState('n/a');
   const [serverFailed, setServerFailed] = useState(false);
   const [alert, setAlert] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -29,7 +29,7 @@ const ContactProvider = ({ children }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     setIsLoading(true);
-    fetch('http://www.lts.codes/api/contact/send', {
+    fetch('/.netlify/functions/contact', {
       method: 'POST',
       body: JSON.stringify({ name: username, email, message }),
       headers: {
@@ -37,10 +37,12 @@ const ContactProvider = ({ children }) => {
         'Content-Type': 'application/json',
       },
     }).then((response) => {
-      if (response.status === 200) setAlert('Message sent, thank you!');
-      if (response.status === 500) {
+      if (response.status === 200) {
+        setServerFailed(false);
+        setAlert('Message sent, thank you!');
+      } else {
         setServerFailed(true);
-        setAlert('Server down, please try later.');
+        setAlert('Message not sent, please contact me at lev.tsu@gmail.com');
       }
       setIsLoading(false);
       setName('');
@@ -58,6 +60,7 @@ const ContactProvider = ({ children }) => {
 
   const resetContactForm = () => {
     setServerFailed(false);
+    setIsLoading(false);
     setAlert('');
     setName('');
     setEmail('');

@@ -1,7 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import SEO from '../components/seo';
 import AppLayout from '../components/layouts/app.layout';
 import ProjectCarousel from '../components/other-project-carousel/other-project-carousel.component';
 import ProjectStack from '../components/other-project-stack/other-project-stack.component';
@@ -23,8 +22,11 @@ export default ({ location, data }) => {
   const remFeaturedProj = strapiCodes.featured.filter((el) => el.id !== currentFeaturedProj.id);
 
   return (
-    <AppLayout footerScrollsTo="featured-project-carousel" state={location.state}>
-      <SEO title={currentFeaturedProj.project.title} />
+    <AppLayout
+      footerScrollsTo="featured-project-carousel"
+      state={location.state}
+      seo={{ ...currentFeaturedProj.seo, project: true }}
+    >
       <div id="featured-project-carousel" />
       <Section>
         <ProjectCarousel images={strapiProjects.images} featured />
@@ -37,7 +39,7 @@ export default ({ location, data }) => {
         </Container>
         <ProjectDescription source={currentFeaturedProj.projectDescription} />
         <Portfolio>
-          <h1>Rest of Portfolio</h1>
+          <h1>The Rest of Portfolio</h1>
           <ProjectCardList
             featuredProjects={remFeaturedProj}
             otherProjects={strapiCodes.other}
@@ -87,6 +89,13 @@ export const query = graphql`
       featured {
         id
         projectDescription
+        seo {
+          metaTitle
+          metaDescription
+          shareImage {
+            publicURL
+          }
+        }
         cardIcon {
           publicURL
           ext

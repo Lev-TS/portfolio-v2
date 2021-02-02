@@ -1,16 +1,7 @@
-// TODO: update if fonts change
+// TODO: update if rabbitScroll fonts will change
 const boxDimensionsByFont = {
   'Courier Prime': {
-    width: 162,
-    height: 30,
-  },
-  'Fugaz One': {
-    width: 149,
-    height: 30,
-  },
-
-  Lato: {
-    width: 124,
+    width: 83.17,
     height: 30,
   },
 };

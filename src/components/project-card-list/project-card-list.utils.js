@@ -2,6 +2,10 @@ import React from 'react';
 import Img from 'gatsby-image';
 import { nanoid } from 'nanoid';
 
+import QuestCardIcon from '../../assets/projects/featured-icons/quest.inline.svg';
+import TemplateCardIcon from '../../assets/projects/featured-icons/template.inline.svg';
+import OtherCardIcon from '../../assets/projects/featured-icons/other.inline.svg';
+
 export const distributeCardsInRows = (cardsArr, chunkLength, cardObj) => {
   const formatCardsArr = (arr) => {
     const formatedArr = [];
@@ -56,7 +60,28 @@ export const distributeCardsInRows = (cardsArr, chunkLength, cardObj) => {
   return chunkedArray;
 };
 
-export const renderCardIcon = (title, cardIcon) => {
+export const getSlug = (title, isFeatured) => {
+  if (isFeatured)
+    return `/projects/${title
+      .replace(/[^a-zA-Z ]/g, '')
+      .trim()
+      .replace(/ /g, '-')
+      .toLowerCase()}`;
+  return `/other-projects`;
+};
+
+export const renderCardIcon = (title, cardIcon, other) => {
+  const isMe =
+    other.cardDescription ===
+    'Besides, I’ve developed various practice projects to challenge my skills.';
+
+  if (isMe && title.toLowerCase() === 'urban quest')
+    return <QuestCardIcon className="project-card-icon" />;
+  if (isMe && title.toLowerCase() === 'portfolio template')
+    return <TemplateCardIcon className="project-card-icon" />;
+  if (isMe && title.toLowerCase() === 'other')
+    return <OtherCardIcon className="project-card-icon" />;
+
   return cardIcon.ext === '.svg' ? (
     <img
       src={cardIcon.publicURL}
@@ -70,14 +95,4 @@ export const renderCardIcon = (title, cardIcon) => {
       alt={`icon for ${title} project(s)`}
     />
   );
-};
-
-export const getSlug = (title, isFeatured) => {
-  if (isFeatured)
-    return `/projects/${title
-      .replace(/[^a-zA-Z ]/g, '')
-      .trim()
-      .replace(/ /g, '-')
-      .toLowerCase()}`;
-  return `/other-projects`;
 };

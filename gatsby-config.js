@@ -1,13 +1,19 @@
-require('dotenv').config({
-  path: `.env`,
-});
+require('dotenv').config();
+const { createProxyMiddleware } = require('http-proxy-middleware');
 
 module.exports = {
-  siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+  developMiddleware: (app) => {
+    app.use(
+      '/.netlify/functions/',
+      createProxyMiddleware({
+        target: 'http://localhost:9000',
+        pathRewrite: {
+          '/.netlify/functions/': '',
+        },
+      })
+    );
   },
+
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
@@ -23,7 +29,7 @@ module.exports = {
       options: {
         apiURL: process.env.API_URL || 'http://localhost:1337',
         contentTypes: [`certificates`, `projects`],
-        singleTypes: [`about`, `skills`, `hero`, `social-links`, `codes`, `theme`],
+        singleTypes: [`about`, `skills`, `hero`, `social-links`, `codes`, `theme`, `contact-me`],
         queryLimit: 1000,
       },
     },
@@ -41,28 +47,14 @@ module.exports = {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
+          `Recursive\:400,700`,
+          `Vampiro One\:400`,
+          `Libre Baskerville\:400i`,
           `Courier Prime\:400,400i,700,700i`,
-          `Recursive\:400,400i,700,700i`,
-          `Lato\:400,400i,700,700i`,
-          `Fugaz One\:400,400i,700,700i`,
+          `Open Sans\:400,400i,700,700i`,
         ],
         display: 'swap',
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-manifest`,
-    //   options: {
-    //     name: `gatsby-starter-default`,
-    //     short_name: `starter`,
-    //     start_url: `/`,
-    //     background_color: `#663399`,
-    //     theme_color: `#663399`,
-    //     display: `minimal-ui`,
-    //     icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
-    //   },
-    // },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 };

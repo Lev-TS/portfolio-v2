@@ -1,4 +1,4 @@
-import FontActionTypes from './fonts.types';
+import FontActionTypes from './font-theme.types';
 
 const fontReducer = (state, action) => {
   switch (action.type) {

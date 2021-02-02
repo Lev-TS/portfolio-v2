@@ -8,7 +8,7 @@ import FormInput from '../form-input/form-input.component';
 import FormButtons from '../form-buttons/form-buttons.component';
 import Spinner from '../Spinner/spinner.component';
 
-const NoForm = () => {
+const NoForm = ({ callForAction }) => {
   const {
     noFormHidden,
     message,
@@ -27,11 +27,7 @@ const NoForm = () => {
 
   return (
     <Container style={{ display: `${noFormHidden ? 'none' : 'block'}` }}>
-      <p>
-        If you missed something, please check back later, I might already know it. <br /> <br />
-        Besides, please write me what skills are you after. This will help me a lot to grow the
-        right way.
-      </p>
+      <p>{callForAction}</p>
       <Form onSubmit={handleSubmit}>
         <FormInput
           name="message"

@@ -18,7 +18,7 @@ export default function OtherProjectCard({ projectData, isOdd }) {
   };
 
   return (
-    <Fade direction={setDirection()} duration={1000} triggerOnce>
+    <Fade direction={setDirection()} duration={1500} triggerOnce>
       <Container>
         <OtherProjectCarousel images={projectData.images} />
         <Description>

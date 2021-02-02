@@ -46,13 +46,28 @@ export const Section = styled.section`
 export const Greeting = styled.div`
   font-family: ${(props) => props.theme.fonts.heroGreeting};
   font-style: normal;
-  font-weight: bold;
+  font-weight: 700;
   font-size: 40vh;
   line-height: 40vh;
   display: flex;
 
   @media screen and (max-width: 800px) {
     font-size: calc(100px + 40vw);
+  }
+
+  animation-duration: 500ms;
+  animation-name: reveal;
+
+  @keyframes reveal {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 `;
 
@@ -73,5 +88,20 @@ export const Intro = styled.p`
 
   span {
     color: ${(props) => props.theme.colors.background};
+  }
+
+  animation-duration: 500ms;
+  animation-name: reveal;
+
+  @keyframes reveal {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 `;

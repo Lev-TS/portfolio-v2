@@ -26,7 +26,7 @@ export const HeadingWrapper = styled.div`
   ${(props) => props.align && `top: -46px; text-align: right;`}
 
   @media screen and (max-width: 1124px) {
-    display: none;
+    display: ${(props) => (props.show ? 'block' : 'none')};
   }
 `;
 

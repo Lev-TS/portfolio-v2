@@ -4,9 +4,9 @@ import { Fade } from 'react-awesome-reveal';
 
 import { Shape, HeadingWrapper, Title } from './section-heading.styles';
 
-const Heading = ({ background, children, left }) => (
+const Heading = ({ background, children, left, showTitleIfMobile }) => (
   <Shape {...background} align={left}>
-    <HeadingWrapper align={left}>
+    <HeadingWrapper align={left} show={showTitleIfMobile}>
       <Title>
         <Fade direction={left ? 'right' : 'left'} duration={1500} triggerOnce>
           {children}

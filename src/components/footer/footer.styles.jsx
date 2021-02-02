@@ -47,6 +47,10 @@ export const BottomHalfCointainer = styled.div`
     font-size: 12px;
     line-height: 16px;
     margin-bottom: 30px;
+
+    a {
+      color: ${(props) => props.theme.colors.red};
+    }
   }
 `;
 

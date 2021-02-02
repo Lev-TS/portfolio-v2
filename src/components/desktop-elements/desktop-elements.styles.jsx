@@ -15,7 +15,7 @@ const hide = css`
 export const DesktopScrollWrapper = styled.div`
   position: fixed;
   left: 12px;
-  bottom: 100px;
+  bottom: 50px;
   z-index: 5;
 
   @media screen and (max-width: 1290px) {

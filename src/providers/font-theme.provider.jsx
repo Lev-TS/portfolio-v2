@@ -1,8 +1,8 @@
 import React, { createContext, useReducer, useContext } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
-import fontReducer from '../reducers/fonts/fonts.reducer';
-import { selectFont } from '../reducers/fonts/fonts.actions';
+import fontReducer from '../reducers/font-theme/font-theme.reducer';
+import { selectFont } from '../reducers/font-theme/font-theme.actions';
 
 const FontContext = createContext();
 

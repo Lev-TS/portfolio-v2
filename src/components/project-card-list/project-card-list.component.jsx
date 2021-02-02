@@ -6,14 +6,9 @@ import { SectionContent, Row, CardContent, Icon, Title, Excerpt } from './projec
 
 import { distributeCardsInRows, renderCardIcon, getSlug } from './project-card-list.utils';
 
-export default function ProjectCardList({
-  featuredProjects,
-  otherProjects,
-  className,
-  doNotSaveScrollY,
-}) {
+// FIXME: remove renderCardIcon for template production.
+function ProjectCardList({ featuredProjects, otherProjects, className, doNotSaveScrollY }) {
   const rows = distributeCardsInRows(featuredProjects, 2, otherProjects);
-
   return (
     <SectionContent className={className}>
       {rows.map(({ rowId, row, inverted }) => (
@@ -26,7 +21,7 @@ export default function ProjectCardList({
               doNotSaveScrollY={doNotSaveScrollY}
             >
               <CardContent>
-                <Icon>{renderCardIcon(title, cardIcon)}</Icon>
+                <Icon>{renderCardIcon(title, cardIcon, otherProjects)}</Icon>
                 <Title>{title}</Title>
                 <Excerpt>{excerpt}</Excerpt>
               </CardContent>
@@ -37,3 +32,5 @@ export default function ProjectCardList({
     </SectionContent>
   );
 }
+
+export default ProjectCardList;

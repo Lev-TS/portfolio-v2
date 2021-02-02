@@ -2,7 +2,6 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
-import SEO from '../components/seo';
 import AppLayout from '../components/layouts/app.layout';
 
 import { Section, LargeImageContainer, SmallImageContainer } from '../styles/certificates.styles';
@@ -26,10 +25,13 @@ export default function Certificates({ data }) {
       <Img fluid={certificate.node.image.childImageSharp.fluid} />
     </a>
   );
+  const seo = {
+    metaTitle: 'Certificates',
+    metaDescription: 'Collection of my certificates',
+  };
 
   return (
-    <AppLayout footerScrollsTo="certificates">
-      <SEO title="Certificates" />
+    <AppLayout footerScrollsTo="certificates" seo={seo}>
       <Section id="certificates">
         <LargeImageContainer>
           {certificates.map(

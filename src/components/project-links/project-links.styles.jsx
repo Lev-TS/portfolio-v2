@@ -17,6 +17,7 @@ export const Anchor = styled.a`
   padding: 10px;
   font-size: 15px;
   transition: all 100ms;
+  margin-bottom: 3px;
 
   &:hover {
     background-color: ${(props) => props.theme.colors.darkBlue};

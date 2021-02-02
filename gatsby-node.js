@@ -5,6 +5,7 @@ const {
   strapiSocialLinksSchema,
   strapiCodesSchema,
   strapiProjectsSchema,
+  strapiContactMeSchema,
 } = require('./utils/strapi-schema');
 
 exports.createSchemaCustomization = ({ actions }) => {
@@ -15,6 +16,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     ${strapiSocialLinksSchema}
     ${strapiCodesSchema}
     ${strapiProjectsSchema}
+    ${strapiContactMeSchema}
   `;
 
   createTypes(typeDefs);

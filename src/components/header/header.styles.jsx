@@ -10,10 +10,7 @@ export const Container = styled.header`
   height: 55px;
   z-index: 3;
 
-  a {
-  }
-
-  @media screen and (max-width: 950px) {
+  @media screen and (max-width: 1124px) {
     background: ${(props) => props.theme.colors.mediumBlue};
     filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.25));
   }

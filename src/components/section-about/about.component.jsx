@@ -25,7 +25,7 @@ export default function About() {
     <Section>
       <Layout>
         <Heading background={backgroundStyles}>{'<about />'}</Heading>
-        <Fade direction={isMobile ? 'up' : 'right'} duration={1500} triggerOnce>
+        <Fade direction={isMobile ? undefined : 'right'} duration={1500} triggerOnce>
           <SectionContent>
             <Avatar>
               <Img fluid={avatar.childImageSharp.fluid} />

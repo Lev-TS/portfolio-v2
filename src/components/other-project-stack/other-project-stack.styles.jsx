@@ -19,6 +19,7 @@ export const IconWrapper = styled.div`
   margin: 2.5px;
   transition: all 100ms;
   filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.25));
+  padding: 10px;
 
   &:hover {
     filter: initial;

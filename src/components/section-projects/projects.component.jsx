@@ -21,7 +21,7 @@ export default function Skills() {
     <Section>
       <Layout>
         <Heading background={backgroundStyles}>{'{...codes}'}</Heading>
-        <Fade direction={isMobile ? 'up' : 'right'} duration={1500} triggerOnce>
+        <Fade direction={isMobile ? undefined : 'right'} duration={1500} triggerOnce>
           <StyledProjectCardList featuredProjects={strapiCodes.featured} otherProjects={other} />
         </Fade>
       </Layout>

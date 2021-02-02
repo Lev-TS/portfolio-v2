@@ -18,10 +18,14 @@ export const GatsbyImage = styled(Img)`
 `;
 
 export const NonGatsbyImage = styled.div`
-  ${common}
   background-image: url(${(props) => props.url});
   background-color: ${(props) => props.backgroundColor};
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+
+  height: 100%;
+  width: 100%;
+  max-height: ${(props) => props.maxHeight};
+  max-width: ${(props) => props.maxWidth};
 `;
