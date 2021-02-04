@@ -4,13 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import fontReducer from '../reducers/font-theme/font-theme.reducer';
 import { selectFont } from '../reducers/font-theme/font-theme.actions';
 
-const FontContext = createContext();
-
-const parseStorage = (storage, key, initialState) => {
-  const savedValue = storage.getItem(key) !== null && JSON.parse(storage.getItem(key));
-  if (savedValue) return JSON.parse(storage.getItem(key));
-  return initialState[key];
-};
+const FontContext = createContext({ state: { fontName: '' } });
 
 export default function FontProvider({ children }) {
   const { strapiTheme } = useStaticQuery(query);
@@ -29,7 +23,7 @@ export default function FontProvider({ children }) {
 export const useFontThemeContext = () => useContext(FontContext);
 
 const query = graphql`
-  query fontTheme {
+  query fonts {
     strapiTheme {
       defaultFonts
     }

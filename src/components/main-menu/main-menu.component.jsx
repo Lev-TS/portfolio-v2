@@ -1,5 +1,6 @@
 import React, { useEffect, useLayoutEffect, useRef } from 'react';
 import { Checkbox } from 'semantic-ui-react';
+import { useStaticQuery, graphql } from 'gatsby';
 
 import { useColorThemeContext } from '../../providers/color-theme.provider';
 import { MenuContainer, Label } from './main-menu.styles';
@@ -8,9 +9,10 @@ import FontSelector from '../font-selector/font-selector.component';
 
 export default function MainMenu({ show }) {
   const firstUpdate = useRef(true);
+  const { strapiTheme } = useStaticQuery(query);
+
   const {
     state: { showDimMode, showCustomPalette, showColorPicker, customPalette },
-    strapiTheme,
     dispatch,
     activateColorPalette,
     setShowDimMode,
@@ -58,3 +60,32 @@ export default function MainMenu({ show }) {
     </MenuContainer>
   );
 }
+
+const query = graphql`
+  query colorTheme {
+    strapiTheme {
+      normalMode {
+        background
+        red
+        black
+        foreground
+        darkBlue
+        mediumBlue
+        darkGrey
+        grey
+        lightGrey
+      }
+      darkPalette {
+        background
+        black
+        darkGrey
+        darkBlue
+        foreground
+        grey
+        lightGrey
+        mediumBlue
+        red
+      }
+    }
+  }
+`;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
+import { useStaticQuery, graphql } from 'gatsby';
 
 import WindowProvider from '../../providers/window.provider';
 import { useFontThemeContext } from '../../providers/font-theme.provider';
@@ -16,16 +17,14 @@ import { Fonts } from '../../styles/theme';
 import { GlobalStyle, Content, Main } from './app.layout.styles';
 
 export default function AppLayout({ children, hideHeader, footerScrollsTo, seo }) {
-  const {
-    state: { fontName },
-  } = useFontThemeContext();
-  const {
-    state: { colors },
-  } = useColorThemeContext();
+  const { strapiTheme } = useStaticQuery(query);
+
+  const fonts = Fonts.getTypeface(useFontThemeContext().state.fontName || strapiTheme.defaultFonts);
+  const colors = useColorThemeContext().state.colors || strapiTheme.normalMode;
 
   return (
     <WindowProvider>
-      <ThemeProvider theme={{ colors, fonts: Fonts.getTypeface(fontName) }}>
+      <ThemeProvider theme={{ colors, fonts }}>
         <SEO seo={seo} />
         <GlobalStyle />
         {!hideHeader ? <Header /> : null}
@@ -39,3 +38,33 @@ export default function AppLayout({ children, hideHeader, footerScrollsTo, seo }
     </WindowProvider>
   );
 }
+
+const query = graphql`
+  query strapiTheme {
+    strapiTheme {
+      defaultFonts
+      normalMode {
+        background
+        red
+        black
+        foreground
+        darkBlue
+        mediumBlue
+        darkGrey
+        grey
+        lightGrey
+      }
+      darkPalette {
+        background
+        black
+        darkGrey
+        darkBlue
+        foreground
+        grey
+        lightGrey
+        mediumBlue
+        red
+      }
+    }
+  }
+`;

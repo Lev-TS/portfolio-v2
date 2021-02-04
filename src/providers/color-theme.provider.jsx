@@ -25,10 +25,30 @@ const setLumination = (key) => {
   return 'dark';
 };
 
-const ColorThemeContext = createContext();
+const ColorThemeContext = createContext({
+  state: {
+    customPalette: {},
+    showDimMode: false,
+    showCustomPalette: false,
+    showColorSubMenu: false,
+    showColorPicker: false,
+    pickerColor: {},
+    pickerColorOptions: {},
+  },
+  dispatch: () => {},
+  activateColorPalette: () => {},
+  setShowDimMode: () => {},
+  setShowCustomPalette: () => {},
+  setShowColorSubMenu: () => {},
+  setShowColorPicker: () => {},
+  setPickerColor: () => {},
+  setPickerColorOptions: () => {},
+  changeCustomColor: () => {},
+});
 
 export default function ColorThemeProvider({ children }) {
   const { strapiTheme } = useStaticQuery(query);
+
   const pickerColorOptions = {};
   Object.keys(strapiTheme.normalMode).forEach((key) => {
     pickerColorOptions[key] = randomColor({
@@ -37,7 +57,8 @@ export default function ColorThemeProvider({ children }) {
       hue: strapiTheme.normalMode[key],
     });
   });
-  if (window !== 'undefined')
+
+  if (typeof window !== 'undefined')
     sessionStorage.setItem('pickerColorOptions', JSON.stringify(pickerColorOptions));
 
   const initialState = {
@@ -69,7 +90,6 @@ export default function ColorThemeProvider({ children }) {
   return (
     <ColorThemeContext.Provider
       value={{
-        strapiTheme,
         state,
         dispatch,
         activateColorPalette,
@@ -89,7 +109,7 @@ export default function ColorThemeProvider({ children }) {
 export const useColorThemeContext = () => useContext(ColorThemeContext);
 
 const query = graphql`
-  query strapiTheme {
+  query colors {
     strapiTheme {
       normalMode {
         background

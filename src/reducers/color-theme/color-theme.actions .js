@@ -28,6 +28,11 @@ export const setPickerColor = ({ key, color }) => ({
   payload: { key, color },
 });
 
+export const setPickerColorOptions = (options) => ({
+  type: ColorThemeActionTypes.SET_PICKER_COLOR_OPTIONS,
+  payload: options,
+});
+
 export const changeCustomColor = (obj) => ({
   type: ColorThemeActionTypes.CHANGE_CUSTOM_COLOR,
   payload: obj,

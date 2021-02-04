@@ -18,6 +18,6 @@ exports.handler = async function (event) {
 
   const result = await transport.sendMail(mail);
   transport.close();
-  if (result.messageId) return { statusCode: 200, body: JSON.stringify(result) };
+  if (result.messageId) return { statusCode: 200 };
   return { statusCode: 500 };
 };

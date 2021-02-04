@@ -77,9 +77,9 @@ export const renderCardIcon = (title, cardIcon, other) => {
 
   if (isMe && title.toLowerCase() === 'urban quest')
     return <QuestCardIcon className="project-card-icon" />;
-  if (isMe && title.toLowerCase() === 'portfolio template')
+  if (isMe && title.toLowerCase() === 'template')
     return <TemplateCardIcon className="project-card-icon" />;
-  if (isMe && title.toLowerCase() === 'other')
+  if (isMe && title.toLowerCase() === 'challenges')
     return <OtherCardIcon className="project-card-icon" />;
 
   return cardIcon.ext === '.svg' ? (

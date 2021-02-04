@@ -15,10 +15,10 @@ const consoleGreeting = `
 ##     ## ########    ##          ##  ###   
 
 `;
-exports.wrapRootElement = ({ element }) => {
+exports.wrapRootElement = ({ element, props }) => {
   console.log(consoleGreeting);
   return (
-    <ColorThemeProvider>
+    <ColorThemeProvider {...props}>
       <FontThemeProvider>{element}</FontThemeProvider>
     </ColorThemeProvider>
   );

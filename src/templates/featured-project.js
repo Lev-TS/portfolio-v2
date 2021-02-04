@@ -39,7 +39,7 @@ export default ({ location, data }) => {
         </Container>
         <ProjectDescription source={currentFeaturedProj.projectDescription} />
         <Portfolio>
-          <h1>The Rest of Portfolio</h1>
+          <h1>Other Projects</h1>
           <ProjectCardList
             featuredProjects={remFeaturedProj}
             otherProjects={strapiCodes.other}
