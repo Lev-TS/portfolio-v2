@@ -14,7 +14,7 @@ import {
   Portfolio,
 } from '../styles/featured-project.styles';
 
-export default ({ location, data }) => {
+export default ({ data }) => {
   const { strapiCodes, strapiProjects } = data;
   const currentFeaturedProj = strapiCodes.featured.find(
     (el) => el.project.title === strapiProjects.title
@@ -24,7 +24,6 @@ export default ({ location, data }) => {
   return (
     <AppLayout
       footerScrollsTo="featured-project-carousel"
-      state={location.state}
       seo={{ ...currentFeaturedProj.seo, project: true }}
     >
       <div id="featured-project-carousel" />

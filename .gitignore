@@ -70,3 +70,5 @@ yarn-error.log
 
 # strapi files
 strapi/*
+# Local Netlify folder
+.netlify

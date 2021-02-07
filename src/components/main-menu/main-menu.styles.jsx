@@ -6,7 +6,7 @@ export const MenuContainer = styled.div`
   left: 15px;
   z-index: 4;
   padding: 20px;
-  font-family: 'Lato';
+  font-family: 'Open Sans';
   font-size: 14px;
   width: 276px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 4px;
@@ -42,5 +42,5 @@ export const MenuContainer = styled.div`
 
 export const Label = styled.div`
   color: black;
-  font-size: 16px;
+  font-size: 14px;
 `;

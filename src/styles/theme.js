@@ -6,33 +6,7 @@ export const Fonts = {
     headings: 'Courier Prime',
     skillsObject: 'Courier Prime',
 
-    heroGreeting: 'Recursive',
-    rabbitScroll: 'Courier Prime',
-    heroIntro: 'Courier Prime',
-    landingPageSectionHeading: 'Courier Prime',
-    contactTerminal: 'Courier Prime',
-  },
-  serif: {
-    landingPageCardButtons: 'Open Sans',
-    landingPageComment: 'Open Sans',
-    body: 'Open Sans',
-    headings: 'Open Sans',
-    skillsObject: 'Open Sans',
-
-    heroGreeting: 'Libre Baskerville',
-    heroIntro: 'Libre Baskerville',
-    rabbitScroll: 'Courier Prime',
-    contactTerminal: 'Courier Prime',
-    landingPageSectionHeading: 'Recursive',
-  },
-  sans: {
-    landingPageCardButtons: 'Lato',
-    landingPageComment: 'Lato',
-    body: 'Lato',
-    headings: 'Lato',
-    skillsObject: 'Lato',
-
-    heroGreeting: 'Recursive',
+    heroGreeting: 'Courier Prime',
     rabbitScroll: 'Courier Prime',
     heroIntro: 'Courier Prime',
     landingPageSectionHeading: 'Courier Prime',
@@ -45,7 +19,7 @@ export const Fonts = {
     skillsObject: 'Open Sans',
     headings: 'Open Sans',
 
-    heroGreeting: 'Vampiro One',
+    heroGreeting: 'Recursive',
     landingPageCardButtons: 'Libre Baskerville',
     heroIntro: 'Courier Prime',
     rabbitScroll: 'Courier Prime',

@@ -8,14 +8,14 @@ import { useFontThemeContext } from '../../providers/font-theme.provider';
 
 const fontOptions = [
   {
-    key: 'monospace',
-    text: 'Monospace',
-    value: 'monospace',
-  },
-  {
     key: 'mixed',
     text: 'Mixed',
     value: 'mixed',
+  },
+  {
+    key: 'monospace',
+    text: 'Monospace',
+    value: 'monospace',
   },
 ];
 

@@ -10,15 +10,23 @@ import ContactMe from '../components/section-contact/contact.component';
 import ContactProvider from '../providers/contact.provider';
 
 const IndexPage = () => {
-  // restore scroll position when we navigate with home button
-  useEffect(() => {
-    const scrollPosition = sessionStorage.getItem('scrollPosition') || 0;
-    window.scroll(0, scrollPosition);
-    sessionStorage.removeItem('scrollPosition');
-  }, []);
+  // restore scroll position when we navigate back to home from other pages
+  const [firstLoad, setFirstLoad] = React.useState(true);
+  useEffect(() => setFirstLoad(false), []);
+  React.useLayoutEffect(() => {
+    if (!firstLoad) {
+      const scrollPosition = sessionStorage.getItem('scrollPosition') || 0;
+      window.scroll(0, scrollPosition);
+      sessionStorage.removeItem('scrollPosition');
+    }
+  });
 
   return (
-    <AppLayout hideHeader footerScrollsTo="hero" seo={{ metaTitle: 'Home' }}>
+    <AppLayout
+      hideHeader
+      footerScrollsTo="hero"
+      seo={{ metaTitle: 'Levan Tsutskiridze | Fullstack Developer' }}
+    >
       <Hero />
       <About />
       <Skills />

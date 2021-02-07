@@ -15,7 +15,6 @@ module.exports = {
   },
 
   plugins: [
-    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -43,18 +42,6 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: `gatsby-plugin-google-fonts`,
-      options: {
-        fonts: [
-          `Recursive\:400,700`,
-          `Vampiro One\:400`,
-          `Libre Baskerville\:400i`,
-          `Courier Prime\:400,400i,700,700i`,
-          `Open Sans\:400,400i,700,700i`,
-        ],
-        display: 'swap',
-      },
-    },
+    `gatsby-plugin-react-helmet`,
   ],
 };

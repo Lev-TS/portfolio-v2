@@ -5,7 +5,7 @@ export const TwitterPickerWrapper = styled.div`
   left: 15px;
   top: 356px;
   z-index: 4;
-  font-family: 'Lato';
+  font-family: 'Open Sans';
   font-size: 14px;
   width: 276px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 4px;

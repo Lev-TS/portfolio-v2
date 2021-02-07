@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
@@ -16,30 +15,24 @@ export default function SEO({ seo = {} }) {
     <Helmet
       title={fullSeo.metaTitle}
       titleTemplate={`%s | ${siteName}`}
+      htmlAttributes={{
+        lang: 'en',
+      }}
+      meta={getMetaTags(fullSeo)}
       link={[
         {
           rel: 'icon',
           href: favicon.publicURL,
         },
+        {
+          rel: 'stylesheet',
+          href:
+            'https://fonts.googleapis.com/css?family=Recursive:400,700|Libre+Baskerville:400i|Courier+Prime:400,400i,700,700i|Open+Sans:400,400i,700,700i&amp;display=swap',
+        },
       ]}
-      meta={getMetaTags(fullSeo)}
     />
   );
 }
-
-SEO.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
-  image: PropTypes.string,
-  article: PropTypes.bool,
-};
-
-SEO.defaultProps = {
-  title: null,
-  description: null,
-  image: null,
-  article: false,
-};
 
 const query = graphql`
   query {

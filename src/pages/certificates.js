@@ -26,7 +26,7 @@ export default function Certificates({ data }) {
     </a>
   );
   const seo = {
-    metaTitle: 'Certificates',
+    metaTitle: 'Certificates | Levan Tsutskiridze',
     metaDescription: 'Collection of my certificates',
   };
 

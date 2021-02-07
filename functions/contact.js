@@ -4,7 +4,7 @@ const nodemailer = require('nodemailer');
 exports.handler = async function (event) {
   const body = JSON.parse(event.body);
   const mail = {
-    from: process.env.SEND_CONTACT_FORM_EMAIL_FROM,
+    from: body.email || process.env.SEND_CONTACT_FORM_EMAIL_FROM,
     to: process.env.SEND_CONTACT_FORM_EMAIL_TO,
     subject: `New Message from ${body.name || 'Portfolio Contact Form'}`,
     text: `
