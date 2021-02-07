@@ -1,7 +1,9 @@
 import React, { useContext } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { AttentionSeeker, Fade } from 'react-awesome-reveal';
+
 import { ThemeContext } from 'styled-components';
+import { WindowContext } from '../../providers/window.provider';
 
 import MobileScroll from '../mobile-scroll/mobile-scroll.component';
 
@@ -13,7 +15,8 @@ import Heading from '../section-heading/section-heading.component';
 export default function Hero() {
   const { strapiHero } = useStaticQuery(query);
   const { colors } = useContext(ThemeContext);
-  const backgroundStyles = { height: '80vh', top: '50vh', color: colors.red };
+  const { isMobile } = useContext(WindowContext);
+  const backgroundStyles = { height: '80vh', top: isMobile ? '40vh' : '50vh', color: colors.red };
 
   return (
     <Section id="hero">
@@ -36,7 +39,9 @@ export default function Hero() {
           <Intro dangerouslySetInnerHTML={{ __html: strapiHero.intro }} />
         </Fade>
         <Heading background={backgroundStyles} />
-        <MobileScroll />
+        <Fade triggerOnce duration={1500} delay={1000}>
+          <MobileScroll />
+        </Fade>
       </Layout>
     </Section>
   );

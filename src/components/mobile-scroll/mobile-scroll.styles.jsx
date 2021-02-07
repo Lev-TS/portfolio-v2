@@ -40,6 +40,10 @@ const ScrollIcon = styled.div`
       }
     }
   }
+
+  @media screen and (max-width: 800px) {
+    bottom: 17%;
+  }
 `;
 
 export default ScrollIcon;

@@ -38,6 +38,7 @@ export const Greeting = styled.div`
 
   @media screen and (max-width: 800px) {
     font-size: calc(100px + 40vw);
+    line-height: 22vh;
   }
 
   animation-duration: 500ms;
@@ -69,6 +70,7 @@ export const Intro = styled.p`
   @media screen and (max-width: 800px) {
     font-size: 16px;
     line-height: 20px;
+    top: 40vh;
   }
 
   span {
