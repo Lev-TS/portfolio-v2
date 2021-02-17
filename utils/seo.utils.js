@@ -32,13 +32,12 @@ export const getMetaTags = (fullSeo) => {
 
   if (fullSeo.project) {
     tags.push({ property: 'og:type', content: 'website' });
+    if (process.env.AUTHOR === 'Levan') {
+      tags.push({ name: 'author', content: 'Levan Tsutskiridze' });
+    }
   }
 
   tags.push({ name: 'twitter:card', content: 'summary_large_image' });
-
-  if (process.env.AUTHOR === 'Levan') {
-    tags.push({ name: 'author', content: 'Levan Tsutskiridze' });
-  }
 
   return tags;
 };

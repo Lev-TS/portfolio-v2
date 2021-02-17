@@ -14,7 +14,6 @@ export default function SEO({ seo = {} }) {
   return (
     <Helmet
       title={fullSeo.metaTitle}
-      titleTemplate={`%s | ${siteName}`}
       htmlAttributes={{
         lang: 'en',
       }}
