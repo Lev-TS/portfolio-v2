@@ -1,6 +1,6 @@
 // TODO: update if rabbitScroll fonts will change
 const boxDimensionsByFont = {
-  'Courier Prime': {
+  'Courier Prime, serif': {
     width: 83.17,
     height: 30,
   },
