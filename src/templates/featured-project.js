@@ -12,6 +12,7 @@ import {
   Container,
   ProjectDescription,
   Portfolio,
+  StyledProjectLinks,
 } from '../styles/featured-project.styles';
 
 export default ({ data }) => {
@@ -34,7 +35,12 @@ export default ({ data }) => {
             projectStack={strapiProjects.projectStack}
             style={{ marginTop: '55px', marginBottom: '55px' }}
           />
-          <ProjectLinks liveLink={strapiProjects.liveLink} sourceLink={strapiProjects.sourceLink} />
+          {strapiProjects.liveLink || strapiProjects.sourceLink ? (
+            <StyledProjectLinks
+              liveLink={strapiProjects.liveLink}
+              sourceLink={strapiProjects.sourceLink}
+            />
+          ) : null}
         </Container>
         <ProjectDescription source={currentFeaturedProj.projectDescription} />
         <Portfolio>

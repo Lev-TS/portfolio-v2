@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import Markdown from 'react-markdown';
 
+import ProjectLinks from '../components/project-links/project-links.component';
+
 export const Section = styled.div`
   padding: 150px 20px;
   margin: auto;
@@ -9,7 +11,7 @@ export const Section = styled.div`
 `;
 
 export const Container = styled.div`
-  margin: 55px 0;
+  margin: 55px 0 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -54,4 +56,8 @@ export const Portfolio = styled.div`
     color: ${(props) => props.theme.colors.darkBlue};
     margin-bottom: 20px;
   }
+`;
+
+export const StyledProjectLinks = styled(ProjectLinks)`
+  margin-bottom: 35px;
 `;
