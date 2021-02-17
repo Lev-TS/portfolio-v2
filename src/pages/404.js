@@ -2,20 +2,22 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
+import { Container, ImageWrapper } from '../styles/404.styles';
 import SEO from '../components/seo';
 
 export default function NotFoundPage() {
   const data = useStaticQuery(query);
 
   return (
-    <div>
+    <Container>
       <SEO seo={{ metaTitle: '404: Not found' }} />
-      <h1>404: This Page is Lost in Space</h1>
-      {data?.placeholderImage?.childImageSharp?.fluid ? (
-        <Img fluid={data.placeholderImage.childImageSharp.fluid} />
-      ) : null}
-      <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-    </div>
+      <h1>404: This Page doesn&#39;t exist</h1>
+      <ImageWrapper>
+        {data?.placeholderImage?.childImageSharp?.fluid ? (
+          <Img fluid={data.placeholderImage.childImageSharp.fluid} />
+        ) : null}
+      </ImageWrapper>
+    </Container>
   );
 }
 
